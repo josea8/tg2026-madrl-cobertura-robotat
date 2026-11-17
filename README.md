@@ -20,7 +20,7 @@ Las rutas dentro de `codigo/`, `resumen/` y de los zip de `datos_crudos/` conser
 
 Los datos están en zip de menos de 100 MB, que es el límite de GitHub por archivo. Cada zip es independiente y se abre con cualquier descompresor. `datos_crudos/LISTA.md` indica qué contiene cada uno.
 
-Los paquetes de datos de los reportes (`REPORTE_*_datos.zip`) van tal como se generaron. El del 2 de octubre pesa más de 100 MB y está partido en piezas que hay que unir antes de abrirlo:
+Los paquetes de datos de los reportes (`REPORTE_*_datos.zip`, en `datos_crudos/paquetes_de_reportes/`) van tal como se generaron. El del 2 de octubre pesa más de 100 MB y está partido en piezas que hay que unir antes de abrirlo:
 
 ```bash
 cat REPORTE_2026-10-02_obstaculo_fase0_datos.zip.parte* > REPORTE_2026-10-02_obstaculo_fase0_datos.zip
