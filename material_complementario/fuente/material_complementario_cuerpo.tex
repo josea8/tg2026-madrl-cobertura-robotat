@@ -1018,18 +1018,20 @@ ambas formulaciones.
         & \textbf{Cobertura} & \textbf{Colisiones} & \textbf{Cobertura} &
         \textbf{Colisiones} \\
         \hline
-        $\lambda_{\text{cbf}}$ & $0{.}695^{*}$ & $0{.}671^{*}$ & $0{.}144$
+        $\lambda_{\text{cbf}}$ & $0{.}650$ & $0{.}683^{*}$ & $0{.}144$
             & $0{.}132$ \\
-        $\lambda_{\text{ent}}$ & $-0{.}427$ & $-0{.}768^{*}$ & $-0{.}098$
+        $\lambda_{\text{ent}}$ & $-0{.}367$ & $-0{.}717^{*}$ & $-0{.}098$
             & $-0{.}182$ \\
-        Épocas por actualización & $0{.}344$ & $-0{.}282$ & $0{.}374$
+        Épocas por actualización & $0{.}471$ & $-0{.}193$ & $0{.}374$
             & $-0{.}288$ \\
-        Exponente del horizonte & $\mathbf{-0{.}853^{*}}$ & $-0{.}712^{*}$
+        Exponente del horizonte & $\mathbf{-0{.}853^{*}}$ & $-0{.}679^{*}$
             & $\mathbf{-0{.}400^{*}}$ & $-0{.}016$ \\
     \end{tabular}
-    \note{El asterisco indica $p < 0{.}05$. Las columnas del punto retenido se
-          calculan sobre las 10 pruebas completas; las de paso fijo, sobre
-          las 29 semillas individuales. Elaboración propia.}
+    \note{El asterisco indica $p < 0{.}05$ sin corrección por comparaciones
+          múltiples. Las columnas del punto retenido se calculan sobre las 9
+          configuraciones completas distintas, porque la prueba 2 repetía la
+          configuración de la prueba 0 y se excluyó. Las de paso fijo se
+          calculan sobre 27 semillas de esas 9 configuraciones. Elaboración propia.}
     \label{tab:correlaciones_J}
 \end{table}
 
@@ -1038,10 +1040,12 @@ ambas formulaciones.
     \caption{Cobertura AoI en función de cada hiperparámetro, evaluada en el
              punto de control retenido}
     \includegraphics[width=0.95\textwidth]{scatter_hparams_J.png}
-    \note{Cada punto azul corresponde a una prueba completa y su ordenada es la
+    \note{Cada punto azul es una configuración completa y su ordenada es la
           media de tres semillas. Los coeficientes de los subtítulos se
-          calculan únicamente sobre dichas pruebas. Los valores no resultan
-          comparables con los del análisis a paso fijo. Elaboración propia.}
+          calculan solo sobre esas 9 configuraciones; los puntos naranjas son
+          pruebas podadas, con la cobertura de la semilla 42, y no entran en el
+          cálculo. Estos valores no son comparables con los del análisis a paso
+          fijo. Elaboración propia.}
     \label{fig:scatter_J}
 \end{figure}
 
@@ -1050,6 +1054,6 @@ de mejor desempeño emplean horizontes de 64 o 128 pasos, mientras las dos
 peores emplean 1024. El número de épocas por actualización no alcanza
 significancia en ninguna de las dos formulaciones.
 
-El peso de penalización por proximidad necesita un tratamiento aparte, porque sus dos estimaciones son muy distintas, $\rho = 0{.}695$ en el punto retenido frente a $\rho = 0{.}144$ a paso fijo, para la misma variable dependiente. La diferencia no viene de la magnitud evaluada, sino del punto de evaluación, y tiene dos explicaciones que este diseño no permite separar. La primera es la contaminación por la posición del punto retenido, ya que cada semilla retiene en un paso distinto y la correlación a nivel de prueba mezcla el efecto del hiperparámetro con el del instante en que se observó. La segunda es la covariación con el exponente del horizonte, que en el mismo conjunto de 10 pruebas tiene $\rho = -0{.}853$. El modelo subrogado exploró ambos parámetros juntos y en una zona concentrada, por lo que sus contribuciones no se pueden identificar con 10 observaciones. Por lo tanto, este estudio no tiene potencia para atribuir un efecto al peso de penalización en ninguna dirección.
+El peso de penalización por proximidad necesita un tratamiento aparte, porque sus dos estimaciones son muy distintas, $\rho = 0{.}650$ en el punto retenido frente a $\rho = 0{.}144$ a paso fijo, para la misma variable dependiente. La diferencia no viene de la magnitud evaluada, sino del punto de evaluación, y tiene dos explicaciones que este diseño no permite separar. La primera es la contaminación por la posición del punto retenido, ya que cada semilla retiene en un paso distinto y la correlación a nivel de prueba mezcla el efecto del hiperparámetro con el del instante en que se observó. La segunda es la covariación con el exponente del horizonte, que en esas mismas 9 configuraciones es de $\rho = -0{.}725$ y que, a su vez, tiene $\rho = -0{.}853$ con la cobertura. El modelo subrogado exploró ambos parámetros juntos y en una zona concentrada, por lo que sus contribuciones no se pueden identificar con 9 observaciones. Por lo tanto, este estudio no tiene potencia para atribuir un efecto al peso de penalización en ninguna dirección.
 
-Las dos formulaciones tienen limitaciones metodológicas. Las correlaciones en el punto retenido están afectadas por la contaminación descrita, cuya magnitud se ve en que una misma configuración registró $0{.}800$, $3{.}633$ y $4{.}933$ colisiones según la semilla, porque cada una retuvo en un paso distinto. Las correlaciones a paso fijo, por su parte, caen en pseudorreplicación, porque las 29 semillas vienen de unas 12 configuraciones. El tamaño de muestra efectivo para un efecto de hiperparámetro es el número de configuraciones y no el de semillas, y los valores de significancia son, por lo tanto, optimistas.
+Las dos formulaciones tienen limitaciones metodológicas. Las correlaciones en el punto retenido están afectadas por la contaminación descrita, cuya magnitud se ve en que una misma configuración registró $0{.}800$, $3{.}633$ y $4{.}933$ colisiones según la semilla, porque cada una retuvo en un paso distinto. Las correlaciones a paso fijo, por su parte, caen en pseudorreplicación, porque las 27 semillas vienen de 9 configuraciones. El tamaño de muestra efectivo para un efecto de hiperparámetro es el número de configuraciones y no el de semillas, y los valores de significancia son, por lo tanto, optimistas.
