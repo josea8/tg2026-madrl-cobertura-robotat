@@ -12,9 +12,16 @@ Aquí están el código, los reportes de cada experimento y los datos crudos que
 |---|---|
 | `codigo/` | Código fuente. `fase_preeliminar/` y `fase_preliminar2/` tienen el entorno, el entrenamiento, la sintonización y las evaluaciones en simulación cinemática. `primerafase_webots/` tiene los mundos y controladores de Webots, el coordinador del enjambre para el Robotat y los scripts de cada experimento (`experimentos/exp*`). |
 | `resumen/` | Reportes de cada campaña y experimento (`REPORTE_*.md`), protocolos, planes de análisis, prerregistros, propuestas, la bitácora técnica (`primerafase_webots/BITACORA_TECNICA.md`), el informe de calibración y los resúmenes de análisis. Es el punto de partida para revisar una cifra. |
+| `material_complementario/` | Las secciones que salieron de los anexos de la tesis por el límite de extensión (aceleración con GPU, robustez ante pose degradada, generalización a otro número de agentes, variantes de reentrenamiento, verificación del cliente, peso de penalización, material del capítulo de transferencia, perfil radial y análisis de asociación de hiperparámetros). `material_complementario.pdf` es el documento listo para leer y `fuente/` tiene el LaTeX y las figuras. |
 | `datos_crudos/` | Resultados sin procesar: episodios, trazas, tomas de la plataforma, réplicas en simulación, modelos entrenados y estudios de Optuna, empaquetados en archivos zip. |
 
 Las rutas dentro de `codigo/`, `resumen/` y de los zip de `datos_crudos/` conservan la estructura original del proyecto. Por eso un script de `codigo/` encuentra sus datos si se descomprimen los zip en la misma carpeta raíz.
+
+## Material complementario
+
+`material_complementario/material_complementario.pdf` reúne, sin cambios en el texto, los cuadros ni las figuras, las secciones de los anexos que la tesis remite a este repositorio. Sus secciones, cuadros y figuras van numerados con la letra C (C.1, C.2, ...). Las referencias sin la letra C apuntan a la tesis, en su versión del 17 de noviembre de 2026. En este documento la cobertura está como fracción entre 0 y 1, no en porcentaje.
+
+Para recompilarlo hay que correr `pdflatex material_complementario.tex` dos veces dentro de `fuente/`. El archivo `numeracion_tesis.aux` trae la numeración de la tesis para resolver esas referencias.
 
 ## Datos crudos
 

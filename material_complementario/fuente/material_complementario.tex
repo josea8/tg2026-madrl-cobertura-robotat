@@ -1,0 +1,62 @@
+% Material complementario del trabajo de graduación de José Eduardo Velasquez Ardón.
+% Compilar con: pdflatex material_complementario.tex (dos veces).
+% numeracion_tesis.aux contiene la numeración de la tesis (versión del 17 de noviembre de 2026)
+% para resolver las referencias a capítulos, secciones, cuadros y figuras de la tesis.
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[spanish,es-nodecimaldot,es-noshorthands]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{xr}
+\externaldocument{numeracion_tesis}
+\usepackage[hidelinks]{hyperref}
+
+\captionsetup{font=small,labelfont=bf,justification=centering}
+\captionsetup[table]{position=top,skip=4pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.6em}
+\renewcommand{\thesection}{C.\arabic{section}}
+\renewcommand{\thetable}{C.\arabic{table}}
+\renewcommand{\thefigure}{C.\arabic{figure}}
+\newcommand{\note}[1]{\par\vspace{0.3em}{\centering\begin{minipage}{0.9\linewidth}\footnotesize\textit{Nota:} #1\end{minipage}\par}}
+
+\title{Material complementario\\[0.4em]
+\large Evaluación e implementación de algoritmos de aprendizaje de refuerzo
+profundo para aplicaciones de robótica de enjambre}
+\author{José Eduardo Velasquez Ardón\\
+\small Universidad del Valle de Guatemala, Facultad de Ingeniería,
+Ingeniería Mecatrónica}
+\date{Noviembre de 2026}
+
+\begin{document}
+\maketitle
+
+\section*{Sobre este documento}
+
+Este documento reúne las secciones que formaban parte de los anexos del trabajo
+de graduación y que se sacaron de él para respetar el límite de extensión de los
+anexos. El texto, los cuadros y las figuras son los mismos que estaban en los
+anexos. Las referencias a capítulos, secciones, ecuaciones, cuadros y figuras
+cuya numeración no lleva la letra C remiten al documento principal del trabajo
+de graduación, según su versión del 17 de noviembre de 2026, y las que llevan la
+letra C remiten a este documento.
+
+En este material la cobertura se expresa como fracción entre 0 y 1, de modo que
+un valor de $0{.}681$ equivale a $68{.}1$\,\%, y las diferencias de cobertura
+expresadas en puntos están en esa misma escala, por lo que $0{.}01$ puntos
+equivalen a un punto porcentual.
+
+\input{material_complementario_cuerpo}
+
+\begin{thebibliography}{1}
+\bibitem{huttenrauch2019deep}
+M.~Hüttenrauch, A.~Šošić y G.~Neumann, ``Deep reinforcement learning for swarm
+systems'', \textit{Journal of Machine Learning Research}, vol.~20, n.º~54,
+pp.~1--31, 2019. Disponible en: \url{https://jmlr.org/papers/v20/18-476.html}
+\end{thebibliography}
+
+\end{document}
