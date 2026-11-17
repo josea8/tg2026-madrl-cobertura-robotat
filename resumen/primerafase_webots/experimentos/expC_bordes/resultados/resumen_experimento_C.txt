@@ -1,0 +1,41 @@
+EXPERIMENTO C — Degradación de cobertura bajo bordes bloqueantes
+Diseño pareado por semilla, 100 episodios × 2 condiciones,
+5 agentes, deterministic=True, domain_rand=False, modelo PRIMERO.
+Solo cambian los bordes de los AGENTES; los hotspots conservan
+reflexión elástica en ambas condiciones.
+======================================================================
+
+VALIDACIÓN DE FIDELIDAD (condición control)
+  cobertura 'reflexion' : 0.6813 ± 0.0201
+  cobertura oficial     : 0.6813 ± 0.0200
+  |Δ|                   : 0.0000  (OK — réplica fiel)
+
+COBERTURA AoI FINAL
+  reflexion   : 0.6813 ± 0.0201
+  bloqueante  : 0.4516 ± 0.0422
+  DIFERENCIA PAREADA (bloqueante − reflexion):
+      media  = -0.2297   desv. = 0.0452
+      IC95   = [-0.2385, -0.2208]
+      degradación relativa = -33.72%
+      episodios con cobertura menor: 100/100
+
+COLISIONES (pares únicos por episodio)
+  reflexion   : 0.210 ± 0.498
+  bloqueante  : 0.120 ± 0.327
+  DIFERENCIA PAREADA:
+      media  = -0.090   desv. = 0.404
+      IC95   = [-0.169, -0.011]
+
+TIEMPO CONTRA EL BORDE (condición bloqueante)
+  fracción de pasos con ≥1 agente recortado : 0.9478 ± 0.0164
+  fracción agente-paso recortado            : 0.5117 ± 0.0484
+  (equivale a ~256 pasos de 500 por agente)
+
+CORRELACIONES (n=100)
+  caída de cobertura vs fracción recortada : r = +0.641
+  caída de cobertura vs reflexiones (exp B): r = -0.040
+
+Interpretación: la diferencia pareada aísla el efecto del cambio
+de dinámica de borde, cancelando la varianza entre semillas
+(std ≈ 0.02 en cobertura absoluta). El IC95 de la diferencia es
+la cifra a citar para afirmar que la degradación es real.

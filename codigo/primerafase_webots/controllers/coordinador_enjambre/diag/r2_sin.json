@@ -1,0 +1,20 @@
+{
+ "cond": "sin",
+ "codigo": 0,
+ "n": 300,
+ "aux_cpu_frac_de_un_nucleo": 0.0,
+ "lat_ms": {
+  "p50": 0.314,
+  "p95": 0.569,
+  "media": 0.346
+ },
+ "computo_ms": {
+  "p50": 5.87,
+  "p95": 7.997,
+  "media": 6.045
+ },
+ "ciclo_ms": {
+  "p50": 6.24,
+  "p95": 8.506
+ }
+}

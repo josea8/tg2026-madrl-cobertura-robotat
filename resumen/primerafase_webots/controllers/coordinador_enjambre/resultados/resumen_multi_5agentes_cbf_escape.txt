@@ -1,0 +1,45 @@
+LOTE MULTI-ROBOT — 5 agentes con física real (Webots)
+Política: modelo_sanidad · deterministic=True
+Arquitectura: 5 × controlador_agente + 1 coordinador
+(supervisor). Emitter/Receiver, canales 1 (subida) / 2 (bajada).
+======================================================================
+Episodios ejecutados : 18   (agente-episodios: 90)
+
+COBERTURA Y COLISIONES
+  cobertura AoI final : 0.5739 ± 0.0446
+  colisiones_015      : 0.000 ± 0.000   (0.0% de eps con ≥1)
+  colisiones_022      : 0.000 ± 0.000   (0.0% de eps con ≥1)
+
+  UMBRALES: 'colisiones_015' usa 0.15 m entre centros, que es
+  el CONTACTO FÍSICO de los chasis (radio 0.075 m cada uno) y
+  es el D_SAFE del env — el umbral con el que se midieron
+  TODAS las métricas previas (experimentos A-D y sanidad), por
+  lo que es la columna COMPARABLE. 'colisiones_022' usa 0.22 m,
+  que incluye ~7 cm de margen operativo sobre el contacto.
+
+ATASCOS
+  agente-episodios con atasco : 0/90  (0.0%)
+  episodios con ≥1 atascado   : 0.0%
+  dist. mín. centro→pared [m] : min=0.1489  media=0.2247
+
+FILTRO CBF (safety shield)
+  parámetros : ℓa=0.05, α=2.0, d_pared=0.18, d_robots=0.25, w=0.3
+  intervenciones por episodio (todos los agentes) : 1008.0  max=1495
+  fracción de pasos-agente intervenidos           : 0.4040
+  magnitud media de la modificación              : 0.2543
+  barrera activa: pared 17124 (94.4%) · robot-robot 1020 (5.6%)
+  fallbacks del QP (u=0)                          : 0
+
+  Barreras robot-robot: reparto de responsabilidad 50/50
+  sobre los puntos de mira. d_robots=0.25 m entre puntos
+  garantiza ≥0.15 m entre CENTROS en el peor caso (ambos
+  enfrentados), que es el contacto de chasis.
+
+SINCRONÍA
+  antigüedad máxima de pose  : 1 ticks (media por ep 1.0)
+  decisiones con pose vieja  : 0 (umbral > 2 ticks)
+  latencia media pose→acción : 10.00 ms
+
+  NOTA: Webots no garantiza el orden de ejecución entre
+  controladores dentro de un tick, así que una antigüedad de
+  0-1 ticks es estructural y esperada, no un fallo.

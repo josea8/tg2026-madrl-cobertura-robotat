@@ -1,0 +1,20 @@
+{
+ "cond": "carga",
+ "codigo": 0,
+ "n": 300,
+ "aux_cpu_frac_de_un_nucleo": 0.396,
+ "lat_ms": {
+  "p50": 0.335,
+  "p95": 0.538,
+  "media": 0.36
+ },
+ "computo_ms": {
+  "p50": 6.217,
+  "p95": 10.332,
+  "media": 6.752
+ },
+ "ciclo_ms": {
+  "p50": 6.59,
+  "p95": 10.706
+ }
+}

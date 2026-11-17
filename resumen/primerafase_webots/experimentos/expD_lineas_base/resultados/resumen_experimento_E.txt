@@ -1,0 +1,117 @@
+EXPERIMENTO E — Voronoi + PSO como cuarta línea base
+4 estrategias × 2 condiciones de borde × 100 semillas (800 eps),
+pareado por semilla. 5 agentes, 500 pasos, deterministic=True,
+domain_rand=False, pesos del Trial 13.
+==========================================================================
+
+VALIDACIÓN DE CONTROL (condición 'reflexion')
+  madrl        0.681291 vs oficial 0.681291  |Δ| = 0.000000
+  heuristica   0.254349 vs oficial 0.254349  |Δ| = 0.000000
+  aleatoria    0.139373 vs oficial 0.140186  |Δ| = 0.000813
+  (Voronoi+PSO no tiene valor oficial previo: es la línea base
+   que este experimento incorpora por primera vez al protocolo.)
+
+TABLA 1 — COBERTURA AoI FINAL (media ± desv.)
+  estrategia              reflexion         bloqueante
+  MADRL (200k)      0.6813 ± 0.0201    0.4516 ± 0.0422
+  Voronoi + PSO     0.2644 ± 0.0415    0.2644 ± 0.0415
+  Heurística NN     0.2543 ± 0.0465    0.2546 ± 0.0462
+  Aleatoria         0.1394 ± 0.0121    0.1393 ± 0.0121
+
+  COLISIONES a 0.15 m (contacto de chasis; el comparable)
+  estrategia              reflexion         bloqueante
+  MADRL (200k)      0.210 ( 18.0%)    0.120 ( 12.0%)
+  Voronoi + PSO     0.410 ( 32.0%)    0.410 ( 32.0%)
+  Heurística NN     4.180 (100.0%)    4.240 (100.0%)
+  Aleatoria         0.540 ( 45.0%)    0.540 ( 45.0%)
+
+  COLISIONES a 0.22 m (margen operativo)
+  MADRL (200k)      0.320 ( 28.0%)    0.170 ( 17.0%)
+  Voronoi + PSO     2.940 ( 97.0%)    2.930 ( 97.0%)
+  Heurística NN     4.670 (100.0%)    4.690 (100.0%)
+  Aleatoria         0.790 ( 61.0%)    0.790 ( 61.0%)
+
+TABLA 2 — DEGRADACIÓN PAREADA POR CONDICIÓN DE BORDE
+  Δ = bloqueante − reflexion (negativo = degradación)
+  MADRL (200k):
+      absoluta : -0.2297 ± 0.0452  IC95 [-0.2385, -0.2208]
+      relativa : -33.72%   episodios peor: 100/100
+  Voronoi + PSO:
+      absoluta : +0.0000 ± 0.0003  IC95 [-0.0000, +0.0001]
+      relativa : +0.01%   episodios peor: 1/100
+  Heurística NN:
+      absoluta : +0.0003 ± 0.0049  IC95 [-0.0007, +0.0013]
+      relativa : +0.12%   episodios peor: 53/100
+  Aleatoria:
+      absoluta : -0.0001 ± 0.0007  IC95 [-0.0003, +0.0000]
+      relativa : -0.08%   episodios peor: 4/100
+
+TABLA 3 — DIFERENCIA DE DIFERENCIAS (pareada)
+  DiD = Δ(MADRL) − Δ(línea base). DiD < 0 con IC95 que excluye
+  el cero ⇒ MADRL se degrada MÁS que esa línea base.
+  MADRL vs Voronoi + PSO:
+      DiD = -0.2297 ± 0.0452  IC95 [-0.2386, -0.2209]   ¿excluye 0? SÍ
+  MADRL vs Heurística NN:
+      DiD = -0.2300 ± 0.0456  IC95 [-0.2389, -0.2211]   ¿excluye 0? SÍ
+  MADRL vs Aleatoria:
+      DiD = -0.2296 ± 0.0452  IC95 [-0.2384, -0.2207]   ¿excluye 0? SÍ
+
+TABLA 4 — COMPORTAMIENTO EN EL BORDE
+  estrategia       reflexiones/ep   frac agente-paso en borde
+                      (reflexion)                (bloqueante)
+  MADRL (200k)      45.74 ±  5.57             0.5117 ± 0.0484
+  Voronoi + PSO      0.04 ±  0.20             0.0001 ± 0.0003
+  Heurística NN      9.26 ±  9.98             0.0065 ± 0.0035
+  Aleatoria          0.24 ±  1.39             0.0002 ± 0.0015
+
+TABLA 5 — TIEMPO DE CÓMPUTO POR DECISIÓN
+  Una 'decisión' produce las acciones de los 5 agentes de una
+  vez, para las cuatro estrategias. Medido con perf_counter.
+  estrategia          ms por decisión    ×  vs MADRL
+  MADRL (200k)       0.7340 ± 0.0340          1.00×
+  Voronoi + PSO      8.0473 ± 0.4309         10.96×
+  Heurística NN      0.1975 ± 0.0158          0.27×
+  Aleatoria          0.0246 ± 0.0005          0.03×
+
+  El cuadro de antecedentes de la tesis afirma O(n log n) para
+  Voronoi frente a O(1) de la inferencia neuronal. Estos son los
+  tiempos medidos con n = 5 agentes; la afirmación asintótica no
+  se verifica con un solo tamaño de enjambre, pero el cociente
+  entre estrategias sí es medición propia y sustituye a la cita.
+
+LIMITACIONES DECLARADAS DE LA COMPARACIÓN
+
+  (a) ASIMETRÍA DE INFORMACIÓN — favorece a la línea base.
+      La partición de Voronoi requiere las posiciones GLOBALES de
+      todos los agentes; MADRL opera sólo con observación local
+      dentro de comm_radius = 1.0 m. La comparación es por tanto
+      CONSERVADORA respecto de MADRL.
+
+  (b) ASIMETRÍA DE SINTONIZACIÓN — favorece a MADRL.
+      El controlador piramidal tiene ~13 parámetros fijados a
+      mano (inertia_gain, hotspot_gain, centroid_gain,
+      boundary_gain, k_v, k_omega, ...), sin sintonización
+      automática, mientras la política MADRL pasó por 20 pruebas
+      de optimización bayesiana (Optuna/TPE).
+
+  (c) ASIMETRÍA DE ESPACIO DE ACCIÓN — favorece a MADRL.
+      MADRL puede comandar v < 0 (retroceso); el piramidal está
+      acotado a v ∈ [0, v_max] por construcción de su ley de
+      seguimiento. Ante un obstáculo frontal su única salida es
+      girar, no retroceder.
+
+  (d) LEY DE BAJO NIVEL DISTINTA entre las dos heurísticas.
+      Ambas usan control proporcional sobre el error de rumbo con
+      v modulada por cos(error), pero con ganancias distintas:
+        heurística NN : K_ω = 4.00 · v = V_MAX·max(0,cos e)
+        piramidal     : k_ω = 2.20 · v = k_v·‖vec‖·max(0,cos e)
+                        con k_v = 1.40 (escala por distancia)
+      Se corrió el piramidal CON SUS GANANCIAS ORIGINALES: son
+      parte de su diseño (frenar al aproximarse al punto deseado
+      dentro de su celda es intencional) y homogeneizarlas
+      evaluaría un controlador que nadie diseñó, además de anular
+      el valor de replicar el trabajo previo de la UVG. En
+      consecuencia, entre las dos heurísticas difiere tanto la
+      DECISIÓN de destino como la ley de seguimiento.
+      (Ω_MAX sí se unificó al valor canónico 6.2832 del proyecto,
+      vía constructor, sin modificar el archivo original.)

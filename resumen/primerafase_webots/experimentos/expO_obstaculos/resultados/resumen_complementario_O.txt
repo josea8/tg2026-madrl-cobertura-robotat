@@ -1,0 +1,39 @@
+EXP O — CORRIDA COMPLEMENTARIA (13/sep/2026)
+  CONTROL complementario vs CSV principal: 600/600 filas Sk/Sk_ctrl idénticas bit a bit; opuestas + sin_activas = infactibles en todas las filas: True
+
+1. MOTIVO DE LAS INFACTIBILIDADES (sumas sobre 100 episodios)
+   opuestas = infactibilidad real; sin_activas = el escape ya salió
+  condición   total  opuestas  sin_act.  op+pared  op+robot  op+obst  junto obst  agotados
+  S1_ctrl         5         5         0         5         5        0           0         0
+  S1_fant         5         5         0         5         5        0           0         0
+  S1              4         4         0         4         4        0           0         0
+  S2_ctrl         5         5         0         5         5        0           0         0
+  S2_fant         3         3         0         3         3        0           0         0
+  S2              8         8         0         8         8        0           0         0
+  S3_ctrl         2         2         0         2         2        0           0         1
+  S3_fant         3         3         0         3         3        0           0         1
+  S3             20        20         0        14        20        5           5         5
+
+  Pareado Sk − Sk_ctrl, por episodio:
+    S1 opuestas (reales)        Δ -0.0100 [-0.0691, +0.0491] 
+    S1 sin_activas (salida)     Δ +0.0000 [+0.0000, +0.0000] 
+    S1 opuestas con obstáculo   Δ +0.0000 [+0.0000, +0.0000] 
+    S2 opuestas (reales)        Δ +0.0300 [-0.0557, +0.1157] 
+    S2 sin_activas (salida)     Δ +0.0000 [+0.0000, +0.0000] 
+    S2 opuestas con obstáculo   Δ +0.0000 [+0.0000, +0.0000] 
+    S3 opuestas (reales)        Δ +0.1800 [+0.0744, +0.2856]*
+    S3 sin_activas (salida)     Δ +0.0000 [+0.0000, +0.0000] 
+    S3 opuestas con obstáculo   Δ +0.0500 [+0.0071, +0.0929]*
+
+2. CONTROL FANTASMA — cobertura sobre celdas accesibles, pareada
+             ctrl        fant          Sk                          Sk − ctrl            fant − ctrl (objetivos)                Sk − fant (sistema)
+  S1   0.56823714  0.55775719  0.55610558      -0.01213 [-0.02649,+0.00223]       -0.01048 [-0.01572,-0.00524]*      -0.00165 [-0.01667,+0.01336] 
+  S2   0.57261622  0.56869038  0.60142396      +0.02881 [+0.01514,+0.04248]*      -0.00393 [-0.01140,+0.00354]       +0.03273 [+0.01955,+0.04592]*
+  S3   0.58455335  0.58665865  0.60280853      +0.01826 [+0.00391,+0.03260]*      +0.00211 [-0.00706,+0.01127]       +0.01615 [+0.00160,+0.03070]*
+  Lectura: si fant − ctrl ≈ Sk − ctrl, la subida de cobertura es de la
+  dinámica de objetivos y no del sistema; si Sk − fant ≈ 0, idem.
+
+  Intervención del filtro (el fantasma no tiene barrera de obstáculo):
+    S1: ctrl 0.394612  fant 0.400080  Sk 0.575444
+    S2: ctrl 0.420224  fant 0.423676  Sk 0.574132
+    S3: ctrl 0.391712  fant 0.389624  Sk 0.671060

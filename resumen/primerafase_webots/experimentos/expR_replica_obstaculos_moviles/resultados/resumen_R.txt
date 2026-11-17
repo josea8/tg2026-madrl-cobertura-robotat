@@ -1,0 +1,258 @@
+EXPERIMENTO R — réplica prerregistrada de los obstáculos móviles (S1–S3, semillas nuevas) — RESULTADO
+ENCUADRE: no prueba adaptabilidad de la política (la observación no codifica obstáculos); prueba la generalidad de la capa de seguridad y su costo, con semillas de episodio que no generaron las hipótesis.
+
+PRERREGISTRO
+  PREREGISTRO_R.md sha256 a4635806cd2540cd44207224de25640b5040d4be76d2d04d8250f2f06ca67cdd; Fijado: 2026-11-09 01:38
+  semillas 420110–420509, n = 400 por celda, 12 celdas
+
+VERIFICACIÓN (de los registros de la corrida)
+  comparar_ast_R.txt: COMPROBACIÓN 1: OK
+  comparar_ast_R.txt: COMPROBACIÓN 2: OK
+  comparar_ast_R.txt: COMPROBACIÓN 3: OK
+  comparar_ast_R.txt: NOMBRES LIBRES: OK
+  comparar_ast_R.txt: HUELLA_R c31f8cd6f4524804e51be7807bdd8a75e1a07885615791e251214708379f5a80
+  control_bit_a_bit_R.txt: CONTROL — Exp R
+  control_bit_a_bit_R.txt: inicio 2026-11-09 09:55:12
+  control_bit_a_bit_R.txt: huella del Exp Q: e265b6cd31e8d443977027b1bf1d4671c002b06c3ecbdc45a275521e49c24a29 (la de S1 y el exploratorio)
+  control_bit_a_bit_R.txt: huella de R: c31f8cd6f4524804e51be7807bdd8a75e1a07885615791e251214708379f5a80
+  control_bit_a_bit_R.txt: ENTORNO_R python 3.13.14 | Intel64 Family 6 Model 186 Stepping 2, GenuineIntel
+  control_bit_a_bit_R.txt: procesos de trabajo: 11; -B sí
+  control_bit_a_bit_R.txt: PREREGISTRO_R.md sha256 a4635806cd2540cd44207224de25640b5040d4be76d2d04d8250f2f06ca67cdd (Fijado: 2026-11-09 01:38)
+  control_bit_a_bit_R.txt: COPIAS del Exp O (copia = esperado = original):
+  control_bit_a_bit_R.txt: IGUAL 65d6ab2d44a89aaec44671bb0adf8bfdf62ca2ae3e039cb3b59d6bf7d1895a0c lib/__init__.py
+  control_bit_a_bit_R.txt: IGUAL e707e79b216239e29754c71423305fd65df3fcf6c9ad61319f08906fb76e1211 lib/concentration_dynamics.py
+  control_bit_a_bit_R.txt: IGUAL b2d94289a4031974b1d44428ac53b4fbf57896c442580cf74fc39e81e41cb787 lib/filtro_cbf.py
+  control_bit_a_bit_R.txt: IGUAL f41b4c6e531cb0e98a2f9b742ccf3790bc88eddf66ed71b2e31c4865d4d194e3 lib/swarm_env_skeleton.py
+  control_bit_a_bit_R.txt: IGUAL 34831589afd04593e70f8faf1cb51acaea7a7233063f4d2a43afbbe9ef1d0c27 modelos/modelo_sanidad.zip
+  control_bit_a_bit_R.txt: IGUAL c69b5e76d1bea4b6d7170640a2851f67978126c00e0385aad80af504823443c3 entorno_obstaculos.py
+  control_bit_a_bit_R.txt: IGUAL 67509b6032ab923a50e6afc3e157bc8fd6ef24f212d0d3020b79c9db69e68dfa correr_experimento_O.py
+  control_bit_a_bit_R.txt: STACK: torch 2.10.0, stable-baselines3 2.7.1, numpy 2.4.1, scipy 1.17.1, gymnasium 1.2.3, pettingzoo 1.24.3, supersuit 3.9.3 — igual a requisitos_congelados_2026-09-09
+  control_bit_a_bit_R.txt: RESULTADOS DEL EXP Q sin cambios (S1 y crudos exploratorios):
+  control_bit_a_bit_R.txt: IGUAL ff553e66d06420ff1f7abcabb9f03070885f96be8b8856850c3a5dd249d8673a resultados/registro_Q.txt
+  control_bit_a_bit_R.txt: IGUAL 341562959d02b113e1585590425bc4f51918cb3d4ff6e944f46dc616a08d5dbf resultados/experimento_Q_completo.csv
+  control_bit_a_bit_R.txt: IGUAL f5f69c4ea9b667d5e4e62b91e25fd1087f09320c7f15f04e529293eaff672a43 resultados/resumen_experimento_Q.txt
+  control_bit_a_bit_R.txt: IGUAL 2f4ae0751220ef448cf07af7df9605cfad6bdeb496c72cbf28de3670940de8bd resultados/experimento_Q_EXPLORATORIO_S2_S3.csv
+  control_bit_a_bit_R.txt: IGUAL 8fc750cce3b0ea4d3dfbadecd2e75615f68fefa2cb418d79e64449c5248f3830 resultados/reproduccion_S1_din_EXPLORATORIO.csv
+  control_bit_a_bit_R.txt: IGUAL 3e34427dfacc6ac5dd2bd7ab6b315d3e305bb0cec77138660b27921c324b18c3 resultados/registro_Q_EXPLORATORIO.txt
+  control_bit_a_bit_R.txt: ÁRBOL DEL EXP Q igual a la referencia: 97 archivos
+  control_bit_a_bit_R.txt: procesos: ninguna otra corrida, ni scripts del coordinador, ni MATLAB/Webots
+  control_bit_a_bit_R.txt: energía: enchufada, batería 100 %
+  control_bit_a_bit_R.txt: sin reinicio pendiente de Windows
+  control_bit_a_bit_R.txt: congelados de la campaña al empezar (PROTOCOLO_L0_L2.md:210): IGUAL a lo probado
+  control_bit_a_bit_R.txt: CONTROL bit a bit (correr_episodio_R, semillas 420000–420099): 1200 episodios distintos; 400/400 filas idénticas en las 66 columnas de experimento_Q_completo.csv (S1) y 800/800 en las 66 de experimento_Q_EXPLORATORIO_S2_S3.csv (S2, S3); todas salvo t_episodio_s y exploratorio; texto idéntico, repr de cada float
+  control_bit_a_bit_R.txt: de los 1200, 1100 se reproducen por PRIMERA vez: antes sólo S1_din se había recalculado (reproducción del exploratorio, 19-10)
+  control_bit_a_bit_R.txt: AUTOCHEQUEOS de la Parte B en 1200 filas: pasos_agente_fallback = qp_fallbacks; mín(d_min_sin_fallback, d_min_en_fallback) = d_min_obst_superficie; contactos_registrados = contactos_obst_eventos; intervención y escape∧intervino = los contadores de Q; continuidad de las posiciones; fb_desplazado = 0 (prueba física del pareo) → 0 problemas
+  control_bit_a_bit_R.txt: la prueba física discrimina: con la bandera corrida un paso, 10 agente-pasos en fallback se mueven sin contacto, en 10 episodios con fallback (0 de ellos con 0, descriptivo)
+  control_bit_a_bit_R.txt: TRAZAS: 11 episodios con traza (fallback, contacto o d_min < 0,10 m en celdas con obstáculo físico); biyección y tamaño → 0 problemas
+  control_bit_a_bit_R.txt: AL TERMINAR:
+  control_bit_a_bit_R.txt: copias del Exp O iguales
+  control_bit_a_bit_R.txt: STACK: torch 2.10.0, stable-baselines3 2.7.1, numpy 2.4.1, scipy 1.17.1, gymnasium 1.2.3, pettingzoo 1.24.3, supersuit 3.9.3 — igual a requisitos_congelados_2026-09-09
+  control_bit_a_bit_R.txt: RESULTADOS DEL EXP Q sin cambios (S1 y crudos exploratorios):
+  control_bit_a_bit_R.txt: ÁRBOL DEL EXP Q igual a la referencia: 97 archivos
+  control_bit_a_bit_R.txt: congelados de la campaña al terminar: IGUAL a lo probado
+  control_bit_a_bit_R.txt: procesos: ninguna otra corrida, ni scripts del coordinador, ni MATLAB/Webots
+  control_bit_a_bit_R.txt: energía: enchufada, batería 100 %
+  control_bit_a_bit_R.txt: fin 2026-11-09 10:07:08
+  control_bit_a_bit_R.txt: CONTROL: OK
+  control_bit_a_bit_R.txt: PARTE B: OK
+  control_bit_a_bit_R.txt: HUELLA_Q e265b6cd31e8d443977027b1bf1d4671c002b06c3ecbdc45a275521e49c24a29
+  control_bit_a_bit_R.txt: HUELLA_R c31f8cd6f4524804e51be7807bdd8a75e1a07885615791e251214708379f5a80
+  control_bit_a_bit_R.txt: PREREGISTRO_R.md sha256 a4635806cd2540cd44207224de25640b5040d4be76d2d04d8250f2f06ca67cdd (Fijado: 2026-11-09 01:38)
+  control_bit_a_bit_R.txt: ENTORNO_R python 3.13.14 | Intel64 Family 6 Model 186 Stepping 2, GenuineIntel
+  pasabilidad_R.txt: inicio 2026-11-09 10:39:41
+  pasabilidad_R.txt: huella del Exp Q: e265b6cd31e8d443977027b1bf1d4671c002b06c3ecbdc45a275521e49c24a29 (la de S1 y el exploratorio)
+  pasabilidad_R.txt: huella de R: c31f8cd6f4524804e51be7807bdd8a75e1a07885615791e251214708379f5a80
+  pasabilidad_R.txt: ENTORNO_R python 3.13.14 | Intel64 Family 6 Model 186 Stepping 2, GenuineIntel
+  pasabilidad_R.txt: procesos de trabajo: 11; -B sí
+  pasabilidad_R.txt: PREREGISTRO_R.md sha256 a4635806cd2540cd44207224de25640b5040d4be76d2d04d8250f2f06ca67cdd (Fijado: 2026-11-09 01:38)
+  pasabilidad_R.txt: COPIAS del Exp O (copia = esperado = original):
+  pasabilidad_R.txt: IGUAL 65d6ab2d44a89aaec44671bb0adf8bfdf62ca2ae3e039cb3b59d6bf7d1895a0c lib/__init__.py
+  pasabilidad_R.txt: IGUAL e707e79b216239e29754c71423305fd65df3fcf6c9ad61319f08906fb76e1211 lib/concentration_dynamics.py
+  pasabilidad_R.txt: IGUAL b2d94289a4031974b1d44428ac53b4fbf57896c442580cf74fc39e81e41cb787 lib/filtro_cbf.py
+  pasabilidad_R.txt: IGUAL f41b4c6e531cb0e98a2f9b742ccf3790bc88eddf66ed71b2e31c4865d4d194e3 lib/swarm_env_skeleton.py
+  pasabilidad_R.txt: IGUAL 34831589afd04593e70f8faf1cb51acaea7a7233063f4d2a43afbbe9ef1d0c27 modelos/modelo_sanidad.zip
+  pasabilidad_R.txt: IGUAL c69b5e76d1bea4b6d7170640a2851f67978126c00e0385aad80af504823443c3 entorno_obstaculos.py
+  pasabilidad_R.txt: IGUAL 67509b6032ab923a50e6afc3e157bc8fd6ef24f212d0d3020b79c9db69e68dfa correr_experimento_O.py
+  pasabilidad_R.txt: STACK: torch 2.10.0, stable-baselines3 2.7.1, numpy 2.4.1, scipy 1.17.1, gymnasium 1.2.3, pettingzoo 1.24.3, supersuit 3.9.3 — igual a requisitos_congelados_2026-09-09
+  pasabilidad_R.txt: RESULTADOS DEL EXP Q sin cambios (S1 y crudos exploratorios):
+  pasabilidad_R.txt: IGUAL ff553e66d06420ff1f7abcabb9f03070885f96be8b8856850c3a5dd249d8673a resultados/registro_Q.txt
+  pasabilidad_R.txt: IGUAL 341562959d02b113e1585590425bc4f51918cb3d4ff6e944f46dc616a08d5dbf resultados/experimento_Q_completo.csv
+  pasabilidad_R.txt: IGUAL f5f69c4ea9b667d5e4e62b91e25fd1087f09320c7f15f04e529293eaff672a43 resultados/resumen_experimento_Q.txt
+  pasabilidad_R.txt: IGUAL 2f4ae0751220ef448cf07af7df9605cfad6bdeb496c72cbf28de3670940de8bd resultados/experimento_Q_EXPLORATORIO_S2_S3.csv
+  pasabilidad_R.txt: IGUAL 8fc750cce3b0ea4d3dfbadecd2e75615f68fefa2cb418d79e64449c5248f3830 resultados/reproduccion_S1_din_EXPLORATORIO.csv
+  pasabilidad_R.txt: IGUAL 3e34427dfacc6ac5dd2bd7ab6b315d3e305bb0cec77138660b27921c324b18c3 resultados/registro_Q_EXPLORATORIO.txt
+  pasabilidad_R.txt: ÁRBOL DEL EXP Q igual a la referencia: 97 archivos
+  pasabilidad_R.txt: procesos: ninguna otra corrida, ni scripts del coordinador, ni MATLAB/Webots
+  pasabilidad_R.txt: energía: enchufada, batería 100 %
+  pasabilidad_R.txt: sin reinicio pendiente de Windows
+  pasabilidad_R.txt: congelados de la campaña al empezar (PROTOCOLO_L0_L2.md:210): IGUAL a lo probado
+  pasabilidad_R.txt: S1: peor caso analítico pared 0.6000 m, obst–obst inf m; en las semillas pared 0.6000 m, obst–obst inf m; área h≥0 (0,01) 6.244600–6.247800 m², h≥0,06 5.432400–5.436000 m²; exacta en el peor instante h≥0 6.245300–6.245800 m², h≥0,06 5.434050–5.434800 m²; instantes evaluados 200400, fallidos 0 → PASABLE (190 s)
+  pasabilidad_R.txt: S2: peor caso analítico pared 0.5500 m, obst–obst 0.5142 m; en las semillas pared 0.5500 m, obst–obst 0.5142 m; área h≥0 (0,01) 5.806100–5.811000 m², h≥0,06 4.839200–4.845200 m²; exacta en el peor instante h≥0 5.807325–5.808325 m², h≥0,06 4.841200–4.842475 m²; instantes evaluados 200400, fallidos 0 → PASABLE (320 s)
+  pasabilidad_R.txt: S3: peor caso analítico pared 0.4900 m, obst–obst 0.4907 m; en las semillas pared 0.4900 m, obst–obst 0.4907 m; área h≥0 (0,01) 4.570700–4.579400 m², h≥0,06 3.159500–3.168500 m²; exacta en el peor instante h≥0 4.572550–4.574775 m², h≥0,06 3.161775–3.163725 m²; instantes evaluados 200400, fallidos 0 → PASABLE (614 s)
+  pasabilidad_R.txt: PASABILIDAD: OK
+  pasabilidad_R.txt: AL TERMINAR:
+  pasabilidad_R.txt: copias del Exp O iguales
+  pasabilidad_R.txt: STACK: torch 2.10.0, stable-baselines3 2.7.1, numpy 2.4.1, scipy 1.17.1, gymnasium 1.2.3, pettingzoo 1.24.3, supersuit 3.9.3 — igual a requisitos_congelados_2026-09-09
+  pasabilidad_R.txt: RESULTADOS DEL EXP Q sin cambios (S1 y crudos exploratorios):
+  pasabilidad_R.txt: ÁRBOL DEL EXP Q igual a la referencia: 97 archivos
+  pasabilidad_R.txt: congelados de la campaña al terminar: IGUAL a lo probado
+  pasabilidad_R.txt: procesos: ninguna otra corrida, ni scripts del coordinador, ni MATLAB/Webots
+  pasabilidad_R.txt: energía: enchufada, batería 100 %
+  pasabilidad_R.txt: fin 2026-11-09 10:58:26
+  pasabilidad_R.txt: HUELLA_Q e265b6cd31e8d443977027b1bf1d4671c002b06c3ecbdc45a275521e49c24a29
+  pasabilidad_R.txt: SEMILLAS_R 79cd335db218a872cddbaaf443ed62371bfd1d9295be9a9dfddcfb2fa0f1beb6 420110-420509 n 400
+  pasabilidad_R.txt: PREREGISTRO_R.md sha256 a4635806cd2540cd44207224de25640b5040d4be76d2d04d8250f2f06ca67cdd (Fijado: 2026-11-09 01:38)
+  registro_R.txt: PRERREGISTRADO — Exp R: réplica con semillas nuevas 420110–420509 de las hipótesis del exploratorio de S2/S3 del Exp Q; sin regla de parada; no cambia el veredicto del Exp Q.
+  registro_R.txt: inicio 2026-11-13 21:30:22
+  registro_R.txt: huella del Exp Q: e265b6cd31e8d443977027b1bf1d4671c002b06c3ecbdc45a275521e49c24a29 (la de S1 y el exploratorio)
+  registro_R.txt: huella de R: c31f8cd6f4524804e51be7807bdd8a75e1a07885615791e251214708379f5a80
+  registro_R.txt: ENTORNO_R python 3.13.14 | Intel64 Family 6 Model 186 Stepping 2, GenuineIntel
+  registro_R.txt: procesos de trabajo: 11; -B sí
+  registro_R.txt: PREREGISTRO_R.md sha256 a4635806cd2540cd44207224de25640b5040d4be76d2d04d8250f2f06ca67cdd (Fijado: 2026-11-09 01:38)
+  registro_R.txt: COPIAS del Exp O (copia = esperado = original):
+  registro_R.txt: IGUAL 65d6ab2d44a89aaec44671bb0adf8bfdf62ca2ae3e039cb3b59d6bf7d1895a0c lib/__init__.py
+  registro_R.txt: IGUAL e707e79b216239e29754c71423305fd65df3fcf6c9ad61319f08906fb76e1211 lib/concentration_dynamics.py
+  registro_R.txt: IGUAL b2d94289a4031974b1d44428ac53b4fbf57896c442580cf74fc39e81e41cb787 lib/filtro_cbf.py
+  registro_R.txt: IGUAL f41b4c6e531cb0e98a2f9b742ccf3790bc88eddf66ed71b2e31c4865d4d194e3 lib/swarm_env_skeleton.py
+  registro_R.txt: IGUAL 34831589afd04593e70f8faf1cb51acaea7a7233063f4d2a43afbbe9ef1d0c27 modelos/modelo_sanidad.zip
+  registro_R.txt: IGUAL c69b5e76d1bea4b6d7170640a2851f67978126c00e0385aad80af504823443c3 entorno_obstaculos.py
+  registro_R.txt: IGUAL 67509b6032ab923a50e6afc3e157bc8fd6ef24f212d0d3020b79c9db69e68dfa correr_experimento_O.py
+  registro_R.txt: STACK: torch 2.10.0, stable-baselines3 2.7.1, numpy 2.4.1, scipy 1.17.1, gymnasium 1.2.3, pettingzoo 1.24.3, supersuit 3.9.3 — igual a requisitos_congelados_2026-09-09
+  registro_R.txt: RESULTADOS DEL EXP Q sin cambios (S1 y crudos exploratorios):
+  registro_R.txt: IGUAL ff553e66d06420ff1f7abcabb9f03070885f96be8b8856850c3a5dd249d8673a resultados/registro_Q.txt
+  registro_R.txt: IGUAL 341562959d02b113e1585590425bc4f51918cb3d4ff6e944f46dc616a08d5dbf resultados/experimento_Q_completo.csv
+  registro_R.txt: IGUAL f5f69c4ea9b667d5e4e62b91e25fd1087f09320c7f15f04e529293eaff672a43 resultados/resumen_experimento_Q.txt
+  registro_R.txt: IGUAL 2f4ae0751220ef448cf07af7df9605cfad6bdeb496c72cbf28de3670940de8bd resultados/experimento_Q_EXPLORATORIO_S2_S3.csv
+  registro_R.txt: IGUAL 8fc750cce3b0ea4d3dfbadecd2e75615f68fefa2cb418d79e64449c5248f3830 resultados/reproduccion_S1_din_EXPLORATORIO.csv
+  registro_R.txt: IGUAL 3e34427dfacc6ac5dd2bd7ab6b315d3e305bb0cec77138660b27921c324b18c3 resultados/registro_Q_EXPLORATORIO.txt
+  registro_R.txt: ÁRBOL DEL EXP Q igual a la referencia: 97 archivos
+  registro_R.txt: procesos: ninguna otra corrida, ni scripts del coordinador, ni MATLAB/Webots
+  registro_R.txt: energía: enchufada, batería 62 %
+  registro_R.txt: sin reinicio pendiente de Windows
+  registro_R.txt: congelados de la campaña al empezar (PROTOCOLO_L0_L2.md:210): IGUAL a lo probado
+  registro_R.txt: PREREGISTRO_R.md sha256 a4635806cd2540cd44207224de25640b5040d4be76d2d04d8250f2f06ca67cdd (Fijado: 2026-11-09 01:38)
+  registro_R.txt: manifiestos pre: manifiesto_R_pre_20261113_2021.txt (vale el último, manifiesto_R_pre_20261113_2021.txt: todas sus entradas con el sha256 actual)
+  registro_R.txt: semillas 420110–420509 (n = 400), las mismas en las 12 celdas; orden S1, S2, S3 y din, quieto, ctrl, sinvel
+  registro_R.txt: modo: con la Parte B
+  registro_R.txt: FILAS: 4800 (4800 distintas; esperadas 4800)
+  registro_R.txt: AUTOCHEQUEOS de la Parte B en 4800 filas: pasos_agente_fallback = qp_fallbacks; mín(d_min_sin_fallback, d_min_en_fallback) = d_min_obst_superficie; contactos_registrados = contactos_obst_eventos; intervención y escape∧intervino = los contadores de Q; continuidad de las posiciones; fb_desplazado = 0 (prueba física del pareo) → 0 problemas
+  registro_R.txt: la prueba física discrimina: con la bandera corrida un paso, 30 agente-pasos en fallback se mueven sin contacto, en 29 episodios con fallback (2 de ellos con 0, descriptivo)
+  registro_R.txt: TRAZAS: 33 episodios con traza; biyección y tamaño → 0 problemas
+  registro_R.txt: PARTE B: OK
+  registro_R.txt: AL TERMINAR:
+  registro_R.txt: copias del Exp O iguales
+  registro_R.txt: STACK: torch 2.10.0, stable-baselines3 2.7.1, numpy 2.4.1, scipy 1.17.1, gymnasium 1.2.3, pettingzoo 1.24.3, supersuit 3.9.3 — igual a requisitos_congelados_2026-09-09
+  registro_R.txt: RESULTADOS DEL EXP Q sin cambios (S1 y crudos exploratorios):
+  registro_R.txt: ÁRBOL DEL EXP Q igual a la referencia: 97 archivos
+  registro_R.txt: congelados de la campaña al terminar: IGUAL a lo probado
+  registro_R.txt: procesos: ninguna otra corrida, ni scripts del coordinador, ni MATLAB/Webots
+  registro_R.txt: energía: enchufada, batería 65 %
+  registro_R.txt: manifiesto pre: todas sus entradas con el sha256 actual
+  registro_R.txt: fin 2026-11-13 21:34:46
+  registro_R.txt: logs de los tramos: corrida_R_experimento_20261113_202513.log, corrida_R_experimento_20261113_213022.log
+  registro_R.txt: HUELLA_Q e265b6cd31e8d443977027b1bf1d4671c002b06c3ecbdc45a275521e49c24a29
+  registro_R.txt: HUELLA_R c31f8cd6f4524804e51be7807bdd8a75e1a07885615791e251214708379f5a80
+  registro_R.txt: PREREGISTRO_R.md sha256 a4635806cd2540cd44207224de25640b5040d4be76d2d04d8250f2f06ca67cdd (Fijado: 2026-11-09 01:38)
+
+RESULTADOS POR HIPÓTESIS (α = 0,05 bilateral, sin ajuste; reglas de lectura del prerregistro: con p, 'sostenida' sólo si p < 0,05 y b > c; H1, H2 y H6 se leen por nivel, sin veredicto conjunto)
+  H1  El encierro (fallback del QP) aparece con el movimiento: episodios con fallback, A = Sk_din, B = Sk_quieto; McNemar; predicción A > B
+    S3 (primaria): A = S3_din 12/400 [0.0156, 0.0518]; B = S3_quieto 0/400 [0.0000, 0.0092]; b/c = 12/0; p = 0.0005 → sostenida
+    S2 (secundaria): A = S2_din 3/400 [0.0015, 0.0218]; B = S2_quieto 0/400 [0.0000, 0.0092]; b/c = 3/0; p = 0.2500 → no sostenida
+    S1 (descriptiva, sin veredicto): A = S1_din 0/400 [0.0000, 0.0092]; B = S1_quieto 0/400 [0.0000, 0.0092]; b/c = 0/0; p = 1.0000
+    necesidad (descriptiva, sin veredicto): con obstáculos quietos, fallback en S1 0/400 [0.0000, 0.0092]; S2 0/400 [0.0000, 0.0092]; S3 0/400 [0.0000, 0.0092]
+  H2  El término de velocidad conserva margen: episodios bajo 0,13 m, A = Sk_sinvel, B = Sk_din; McNemar; predicción A > B
+    S2 (primaria): A = S2_sinvel 53/400 [0.1009, 0.1697]; B = S2_din 27/400 [0.0450, 0.0967]; b/c = 41/15; p = 0.0007 → sostenida
+    S3 (primaria): A = S3_sinvel 177/400 [0.3932, 0.4927]; B = S3_din 88/400 [0.1804, 0.2638]; b/c = 133/44; p = < 0.0001 → sostenida
+    S1 (descriptiva, sin veredicto): A = S1_sinvel 10/400 [0.0121, 0.0455]; B = S1_din 6/400 [0.0055, 0.0324]; b/c = 7/3; p = 0.3438
+  H3a Los agotados de S3 son del obstáculo: episodios con agotado, A = S3_din, B = S3_ctrl; McNemar; predicción A > B
+    S3 (primaria): A = S3_din 20/400 [0.0308, 0.0762]; B = S3_ctrl 1/400 [0.0001, 0.0138]; b/c = 20/1; p = < 0.0001 → sostenida
+  H3b El movimiento agrega agotados en S3: episodios con agotado, A = S3_din, B = S3_quieto; McNemar; predicción A > B
+    S3 (secundaria): A = S3_din 20/400 [0.0308, 0.0762]; B = S3_quieto 11/400 [0.0138, 0.0487]; b/c = 19/10; p = 0.1360 → no sostenida
+    Δ de tasas pareada (din − quieto), media ± 1,96·EE (ddof = 1), descriptiva (el veredicto es sólo el de la McNemar): +0.02250000 [-0.00382795, +0.04882795]
+  H4  En S3 el efecto del obstáculo móvil (din − ctrl) sobre la cobertura accesible es menor, con signo, que en S1 y que en S2 (secundaria, compuesta): Δ_k = cobertura_accesible din − ctrl, pareada por semilla; piezas Δ_S1 − Δ_S3 > 0 y Δ_S2 − Δ_S3 > 0 (IC95 con lo > 0); 'sostenida' sólo si se cumplen las dos
+    Δ_S1 − Δ_S3: +0.02443442 [+0.01519369, +0.03367515]* → cumple
+    Δ_S2 − Δ_S3: +0.03761557 [+0.02807480, +0.04715635]* → cumple
+    Δ_k (descriptivas): S1 +0.03306994 [+0.02660736, +0.03953251]*; S2 +0.04625109 [+0.03921844, +0.05328373]*; S3 +0.00863552 [+0.00194898, +0.01532205]*
+    → sostenida
+  H5a Cero contactos con F1 en los tres niveles (primaria): episodios con contacto en Sk_din, Clopper-Pearson → S1 0/400 [0.0000, 0.0092]; S2 0/400 [0.0000, 0.0092]; S3 0/400 [0.0000, 0.0092] → cumplida
+  H5b El término de velocidad reduce los contactos en S3: episodios con contacto, A = S3_sinvel, B = S3_din; McNemar; predicción A > B (potencia acoplada a H5a: cada contacto en din sube c)
+    S3 (secundaria): A = S3_sinvel 2/400 [0.0006, 0.0179]; B = S3_din 0/400 [0.0000, 0.0092]; b/c = 2/0; p = 0.5000 → no sostenida
+  H6  Parte B (secundarias, descriptivas), ventana de W = 5 decisiones (t−4 … t) del mismo agente, W = 1/(α·dt); umbral 0,10 m; en Sk_din
+    S1: H6a (El acercamiento bajo 0,10 m ocurre en, o justo después de, un fallback del agente) 0 de 0 episodios bajo 0,10 m con el mínimo en la ventana → no evaluable en el nivel; H6b (Fuera de la ventana de un fallback ningún agente baja de 0,10 m (R no afirma la cota de 0,13)) 0/400 [0.0000, 0.0092] episodios bajo 0,10 m fuera de la ventana → cumplida
+    S2: H6a (El acercamiento bajo 0,10 m ocurre en, o justo después de, un fallback del agente) 0 de 0 episodios bajo 0,10 m con el mínimo en la ventana → no evaluable en el nivel; H6b (Fuera de la ventana de un fallback ningún agente baja de 0,10 m (R no afirma la cota de 0,13)) 0/400 [0.0000, 0.0092] episodios bajo 0,10 m fuera de la ventana → cumplida
+    S3: H6a (El acercamiento bajo 0,10 m ocurre en, o justo después de, un fallback del agente) 6 de 6 episodios bajo 0,10 m con el mínimo en la ventana 6/6 [0.5407, 1.0000] → cumplida; H6b (Fuera de la ventana de un fallback ningún agente baja de 0,10 m (R no afirma la cota de 0,13)) 0/400 [0.0000, 0.0092] episodios bajo 0,10 m fuera de la ventana → cumplida
+    sensibilidad declarada (rotulada, sin veredicto), del tipo H6b: episodios de Sk_din bajo el umbral fuera de la ventana; en 0,13 se espera ≥ ~23 % en S3 por los episodios sin fallback (23/100 vistos)
+    S1: W=1 0/400; W=3 0/400; W=10 0/400; W=5 umbral 0,13 6/400
+    S2: W=1 0/400; W=3 0/400; W=10 0/400; W=5 umbral 0,13 26/400
+    S3: W=1 3/400; W=3 0/400; W=10 0/400; W=5 umbral 0,13 80/400
+
+SENSIBILIDAD — p ajustada por Holm sobre la familia cerrada de 7 (no cambia la palabra del veredicto)
+  H1-S3: p = 0.0005; p Holm = 0.0024 → p Holm < 0,05 en la dirección predicha (veredicto: sostenida)
+  H1-S2: p = 0.2500; p Holm = 0.5000 → p Holm ≥ 0,05 o dirección contraria (veredicto: no sostenida)
+  H2-S2: p = 0.0007; p Holm = 0.0027 → p Holm < 0,05 en la dirección predicha (veredicto: sostenida)
+  H2-S3: p = < 0.0001; p Holm = < 0.0001 → p Holm < 0,05 en la dirección predicha (veredicto: sostenida)
+  H3a: p = < 0.0001; p Holm = 0.0001 → p Holm < 0,05 en la dirección predicha (veredicto: sostenida)
+  H3b: p = 0.1360; p Holm = 0.4081 → p Holm ≥ 0,05 o dirección contraria (veredicto: no sostenida)
+  H5b: p = 0.5000; p Holm = 0.5000 → p Holm ≥ 0,05 o dirección contraria (veredicto: no sostenida)
+
+EVENTOS RAROS — episodios con al menos un evento (k de n) e IC95 de Clopper-Pearson; en el control, los que exigen obstáculo físico 'no aplica'
+  S1_din: fallback 0/400 [0.0000, 0.0092]; agotado 1/400 [0.0001, 0.0138]; contacto 0/400 [0.0000, 0.0092]; bajo 0,13 m 6/400 [0.0055, 0.0324]; bajo 0,10 m 0/400 [0.0000, 0.0092]; infactible activo 0/400 [0.0000, 0.0092]
+  S1_quieto: fallback 0/400 [0.0000, 0.0092]; agotado 0/400 [0.0000, 0.0092]; contacto 0/400 [0.0000, 0.0092]; bajo 0,13 m 0/400 [0.0000, 0.0092]; bajo 0,10 m 0/400 [0.0000, 0.0092]; infactible activo 1/400 [0.0001, 0.0138]
+  S1_ctrl: fallback 0/400 [0.0000, 0.0092]; agotado 1/400 [0.0001, 0.0138]; contacto no aplica; bajo 0,13 m no aplica; bajo 0,10 m no aplica; infactible activo no aplica
+  S1_sinvel: fallback 1/400 [0.0001, 0.0138]; agotado 0/400 [0.0000, 0.0092]; contacto 0/400 [0.0000, 0.0092]; bajo 0,13 m 10/400 [0.0121, 0.0455]; bajo 0,10 m 0/400 [0.0000, 0.0092]; infactible activo 2/400 [0.0006, 0.0179]
+  S2_din: fallback 3/400 [0.0015, 0.0218]; agotado 3/400 [0.0015, 0.0218]; contacto 0/400 [0.0000, 0.0092]; bajo 0,13 m 27/400 [0.0450, 0.0967]; bajo 0,10 m 0/400 [0.0000, 0.0092]; infactible activo 3/400 [0.0015, 0.0218]
+  S2_quieto: fallback 0/400 [0.0000, 0.0092]; agotado 1/400 [0.0001, 0.0138]; contacto 0/400 [0.0000, 0.0092]; bajo 0,13 m 0/400 [0.0000, 0.0092]; bajo 0,10 m 0/400 [0.0000, 0.0092]; infactible activo 1/400 [0.0001, 0.0138]
+  S2_ctrl: fallback 0/400 [0.0000, 0.0092]; agotado 0/400 [0.0000, 0.0092]; contacto no aplica; bajo 0,13 m no aplica; bajo 0,10 m no aplica; infactible activo no aplica
+  S2_sinvel: fallback 4/400 [0.0027, 0.0254]; agotado 2/400 [0.0006, 0.0179]; contacto 0/400 [0.0000, 0.0092]; bajo 0,13 m 53/400 [0.1009, 0.1697]; bajo 0,10 m 1/400 [0.0001, 0.0138]; infactible activo 1/400 [0.0001, 0.0138]
+  S3_din: fallback 12/400 [0.0156, 0.0518]; agotado 20/400 [0.0308, 0.0762]; contacto 0/400 [0.0000, 0.0092]; bajo 0,13 m 88/400 [0.1804, 0.2638]; bajo 0,10 m 6/400 [0.0055, 0.0324]; infactible activo 10/400 [0.0121, 0.0455]
+  S3_quieto: fallback 0/400 [0.0000, 0.0092]; agotado 11/400 [0.0138, 0.0487]; contacto 0/400 [0.0000, 0.0092]; bajo 0,13 m 0/400 [0.0000, 0.0092]; bajo 0,10 m 0/400 [0.0000, 0.0092]; infactible activo 19/400 [0.0288, 0.0732]
+  S3_ctrl: fallback 0/400 [0.0000, 0.0092]; agotado 1/400 [0.0001, 0.0138]; contacto no aplica; bajo 0,13 m no aplica; bajo 0,10 m no aplica; infactible activo no aplica
+  S3_sinvel: fallback 9/400 [0.0103, 0.0423]; agotado 18/400 [0.0269, 0.0702]; contacto 2/400 [0.0006, 0.0179]; bajo 0,13 m 177/400 [0.3932, 0.4927]; bajo 0,10 m 10/400 [0.0121, 0.0455]; infactible activo 4/400 [0.0027, 0.0254]
+INFACTIBLE CON OBSTÁCULO ACTIVO, din − quieto (McNemar, descriptiva, sin predicción, fuera de Holm):
+  S1: din 0, quieto 1; b/c = 0/1; p = 1.0000
+  S2: din 3, quieto 1; b/c = 3/1; p = 0.6250
+  S3: din 10, quieto 19; b/c = 9/18; p = 0.1221
+AGOTADOS de S1 y S2 (descriptivo): S1_din 1; S1_quieto 0; S1_ctrl 1; S1_sinvel 0; S2_din 3; S2_quieto 1; S2_ctrl 0; S2_sinvel 2
+
+COSTO EN TAREA — Δ pareadas por semilla, IC95 (denominadores del §3.6 de la propuesta: din − ctrl sobre cobertura_accesible; din − quieto sobre cob_acc_arranque)
+  S1: din − ctrl +0.03306994 [+0.02660736, +0.03953251]*; din − quieto +0.01827536 [+0.01170156, +0.02484916]*; intervención din − ctrl +0.14721500 [+0.13687411, +0.15755589]*
+  S2: din − ctrl +0.04625109 [+0.03921844, +0.05328373]*; din − quieto +0.01601643 [+0.00945028, +0.02258258]*; intervención din − ctrl +0.19456600 [+0.18451260, +0.20461940]*
+  S3: din − ctrl +0.00863552 [+0.00194898, +0.01532205]*; din − quieto +0.00004247 [-0.00643768, +0.00652263] ; intervención din − ctrl +0.29744100 [+0.28647787, +0.30840413]*
+
+INTERVENCIÓN — fracción de agente-decisión (media por celda) y filas F1 saturadas (suma)
+  S1_din: total 0.54941100; ligante pared 0.42766900, robot 0.05321000, obstáculo 0.09524100; filas F1 saturadas 0
+  S1_quieto: total 0.52819000; ligante pared 0.42056500, robot 0.05115100, obstáculo 0.08192200; filas F1 saturadas 0
+  S1_ctrl: total 0.40219600; ligante pared 0.37932200, robot 0.03971500, obstáculo 0.00000000; filas F1 saturadas 0
+  S1_sinvel: total 0.54851200; ligante pared 0.42911100, robot 0.05292800, obstáculo 0.09286100; filas F1 saturadas 0
+  S2_din: total 0.60090600; ligante pared 0.41776100, robot 0.06914300, obstáculo 0.15103800; filas F1 saturadas 0
+  S2_quieto: total 0.57204500; ligante pared 0.40510200, robot 0.06967200, obstáculo 0.13529900; filas F1 saturadas 0
+  S2_ctrl: total 0.40634000; ligante pared 0.38347300, robot 0.03888600, obstáculo 0.00000000; filas F1 saturadas 0
+  S2_sinvel: total 0.59408300; ligante pared 0.41637000, robot 0.06690700, obstáculo 0.14633400; filas F1 saturadas 0
+  S3_din: total 0.69387600; ligante pared 0.35418300, robot 0.12937300, obstáculo 0.30072500; filas F1 saturadas 0
+  S3_quieto: total 0.68051800; ligante pared 0.35565900, robot 0.11663900, obstáculo 0.28842700; filas F1 saturadas 0
+  S3_ctrl: total 0.39643500; ligante pared 0.37470700, robot 0.03829700, obstáculo 0.00000000; filas F1 saturadas 0
+  S3_sinvel: total 0.68640800; ligante pared 0.35553300, robot 0.12465000, obstáculo 0.29225100; filas F1 saturadas 0
+
+DIAGNÓSTICO RETROSPECTIVO SOBRE SEMILLAS VISTAS (420000–420099; control bit a bit de R; descriptivo, NO cuenta como prueba de H6)
+  S1_din: 0 episodios con fallback; 0 bajo 0,10 m, 0 con el mínimo en la ventana; 0 bajo 0,10 m fuera de la ventana
+  S1_sinvel: 0 episodios con fallback; 0 bajo 0,10 m, 0 con el mínimo en la ventana; 0 bajo 0,10 m fuera de la ventana
+  S2_din: 2 episodios con fallback; 0 bajo 0,10 m, 0 con el mínimo en la ventana; 0 bajo 0,10 m fuera de la ventana
+  S2_sinvel: 0 episodios con fallback; 1 bajo 0,10 m, 0 con el mínimo en la ventana; 1 bajo 0,10 m fuera de la ventana
+  S3_din: 5 episodios con fallback; 4 bajo 0,10 m, 4 con el mínimo en la ventana; 0 bajo 0,10 m fuera de la ventana
+  S3_sinvel: 3 episodios con fallback; 3 bajo 0,10 m, 3 con el mínimo en la ventana; 0 bajo 0,10 m fuera de la ventana
+
+LO QUE R NO SUSTENTA (el §6 del prerregistro, escrito antes de correr):
+  - un cambio del veredicto del Exp Q (S1 detiene por la regla del Exp O);
+  - que S2 o S3 "pasen" la regla del Exp O (con la regla, S2_din y S3_din la dispararon en el exploratorio);
+  - que la garantía de no contacto sea robusta donde hay fallbacks: ahí, por construcción, el filtro manda u = (0, 0) sin certificado;
+  - que una H5a "cumplida" sea tasa cero de contacto: 0/400 sólo la acota bajo 0,918 % por nivel;
+  - que una H5a "no cumplida" muestre que el filtro falla: con una tasa pequeña pero no nula es el resultado probable aunque el filtro funcione (§8), y cada contacto se discute con su traza;
+  - que una prueba "no sostenida" sea ausencia de efecto: H1-S2, H3b y H5b tienen potencia predictiva de 0,58 a 0,80 (§8);
+  - que el fallback cause el acercamiento: H6 mide coincidencia en el tiempo, hacia atrás, con un umbral (0,10 m) y una ventana (W = 5) fijados sobre el exploratorio;
+  - que se conserve la cota de diseño de 0,13 m fuera de los fallbacks;
+  - nada sobre el laboratorio, ni sobre el rescate de F2, que no se corre;
+  - nada sobre otras políticas, otros entrenamientos, otros puntos de control ni otras geometrías o velocidades del obstáculo;
+  - una verificación independiente del código: un error sistemático se replicaría igual;
+  - la separación de las dos vías de infactibilidad (h < s/α frente a la erosión del margen hasta h < 0): la Parte B no registra h ni s.
+
+FIGURAS: fig_R_costo.png, fig_R_intervencion.png, fig_R_fallback_distancia.png

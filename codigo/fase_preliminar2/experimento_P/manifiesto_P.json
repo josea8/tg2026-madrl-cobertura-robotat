@@ -1,0 +1,120 @@
+{
+  "experimento": "P — confirmación de la ganadora del Exp J y del Trial 13",
+  "preparado": "2026-09-24T23:10:51",
+  "copias_propias": [
+    {
+      "original": "C:\\Users\\velas\\OneDrive\\Documents\\tesis\\fase_preliminar2\\train.py",
+      "copia": "C:\\Users\\velas\\OneDrive\\Documents\\tesis\\fase_preliminar2\\experimento_P\\lib\\train.py",
+      "sha256": "c82b164f4838d46768afb42f44501c4743f6ef09d11c2d019c9d91c30e21c91f"
+    },
+    {
+      "original": "C:\\Users\\velas\\OneDrive\\Documents\\tesis\\fase_preliminar2\\swarm_env_skeleton.py",
+      "copia": "C:\\Users\\velas\\OneDrive\\Documents\\tesis\\fase_preliminar2\\experimento_P\\lib\\swarm_env_skeleton.py",
+      "sha256": "23b9dc8f6e37ba823bb99fed229b7903bbdfeae98274b8c3f1a754a679682827"
+    },
+    {
+      "original": "C:\\Users\\velas\\OneDrive\\Documents\\tesis\\fase_preliminar2\\concentration_dynamics.py",
+      "copia": "C:\\Users\\velas\\OneDrive\\Documents\\tesis\\fase_preliminar2\\experimento_P\\lib\\concentration_dynamics.py",
+      "sha256": "e707e79b216239e29754c71423305fd65df3fcf6c9ad61319f08906fb76e1211"
+    },
+    {
+      "original": "C:\\Users\\velas\\OneDrive\\Documents\\tesis\\fase_preliminar2\\experimento_J\\estudio_J.py",
+      "copia": "C:\\Users\\velas\\OneDrive\\Documents\\tesis\\fase_preliminar2\\experimento_P\\lib\\j\\estudio_J.py",
+      "sha256": "8f978bd9047aa2eea069933b0bf529a4ba36fb4a7805a6987ee317917b1d6628"
+    },
+    {
+      "original": "C:\\Users\\velas\\OneDrive\\Documents\\tesis\\fase_preliminar2\\experimento_J\\resultados\\estudio\\cfg_eb1d01e59b\\config_barridos.json",
+      "copia": "C:\\Users\\velas\\OneDrive\\Documents\\tesis\\fase_preliminar2\\experimento_P\\config\\ganadora.json",
+      "sha256": "251539ebfdc2e77e5566937a298cb88590913bc3b68f465c4c4a71e6bdac3a42"
+    }
+  ],
+  "configs": {
+    "ganadora": {
+      "ruta": "C:\\Users\\velas\\OneDrive\\Documents\\tesis\\fase_preliminar2\\experimento_P\\config\\ganadora.json",
+      "sha256": "251539ebfdc2e77e5566937a298cb88590913bc3b68f465c4c4a71e6bdac3a42",
+      "hash_estudio_J": "eb1d01e59b",
+      "contenido": {
+        "lambda_cbf": 14.774443600789574,
+        "lambda_entropy": 0.8719802820096347,
+        "n_epochs": 8,
+        "n_steps_exp": 6,
+        "n_steps": 64
+      }
+    },
+    "trial13": {
+      "ruta": "C:\\Users\\velas\\OneDrive\\Documents\\tesis\\fase_preliminar2\\experimento_P\\config\\trial13.json",
+      "sha256": "9e2d2d8d16b714f3460597457868ee655c56cc6be313c47a8a838f92ba68a50f",
+      "hash_estudio_J": "3ab54cda45",
+      "contenido": {
+        "lambda_cbf": 2.9655314099141474,
+        "lambda_entropy": 1.1403296484190344,
+        "n_epochs": 13,
+        "n_steps_exp": 7,
+        "n_steps": 128
+      }
+    }
+  },
+  "diseno": {
+    "semillas": [
+      1001,
+      1002,
+      1003,
+      1004,
+      1005,
+      1006,
+      1007,
+      1008,
+      1009,
+      1010,
+      1011,
+      1012,
+      1013,
+      1014,
+      1015,
+      1016,
+      1017,
+      1018,
+      1019,
+      1020
+    ],
+    "n_por_brazo": 20,
+    "brazos": [
+      "ganadora",
+      "trial13"
+    ],
+    "conjunto_nuevo": {
+      "offset": 2000,
+      "n": 100
+    },
+    "conjunto_final": {
+      "offset": 1000,
+      "n": 30
+    },
+    "paso_fijo": 200000,
+    "semilla_control": 42,
+    "presupuesto_pasos": 200000,
+    "frecuencia_eval": 20000
+  },
+  "versiones": {
+    "python": "3.13.14",
+    "ejecutable": "C:\\Users\\velas\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+    "so": "Windows 11 (10.0.26200)",
+    "torch": "2.10.0+cpu",
+    "stable_baselines3": "2.7.1",
+    "supersuit": "3.9.3",
+    "pettingzoo": "1.24.3",
+    "gymnasium": "1.2.3",
+    "numpy": "2.4.1",
+    "optuna": "4.8.0",
+    "scipy": "1.17.1"
+  },
+  "scripts_P": {
+    "analizar_P.py": "4b2c59d67e0b9b28f7c02bead05a4a9646ee709dec7569cc255f315001c42af0",
+    "comun_P.py": "e5a22f13d40b10d08c0b9c92b812e6a6642ddd478878a15365d4c9574535d0b4",
+    "controles_P.py": "a34ff6596677cc96e4b865a599e171ccceda6efa2f859227fb9d960e3c2f3a49",
+    "correr_P.py": "fc4800410df879350066cbae012b704042c9262737d98f249d4dd3a56ae99f90",
+    "evaluar_P.py": "efdbda79012af2387ad46312ac1681e9b33c52e9d40076430137403388a7a67c",
+    "preparar_P.py": "bb49483065eb7b21a3907594b4cc2ec0e61f2b566f842df4a6bf9a2e518980ae"
+  },
+  "preregistro_sha256": "653bfadb225bd5614072b5f9d342f634894dfd0a106abfa53704ee0f6c7d0d7d"
+}

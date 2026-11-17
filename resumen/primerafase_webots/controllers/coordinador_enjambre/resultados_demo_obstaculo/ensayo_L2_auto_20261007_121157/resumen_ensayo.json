@@ -1,0 +1,17 @@
+{
+ "modo": "L2",
+ "tomas": 10,
+ "tau_agentes": 0.85,
+ "tau_obstaculo": 0.85,
+ "robot_obstaculo": 4,
+ "zona_muerta": true,
+ "veredicto": "OK",
+ "detalle": "10/10 tomas válidas en 11 intentos; 1 con intervención del freno de respaldo",
+ "verdad_d_min_obst_m": 0.20934521624630353,
+ "verdad_d_min_pares_m": 0.1692642998021437,
+ "obstaculo_a_mano": 0,
+ "paradas": 0,
+ "enters": 12,
+ "duracion_s": 1013.2316605999949,
+ "retenciones_zona_muerta": 1299
+}

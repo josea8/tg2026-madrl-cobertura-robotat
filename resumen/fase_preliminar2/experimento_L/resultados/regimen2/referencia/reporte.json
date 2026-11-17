@@ -1,0 +1,374 @@
+{
+  "experimento": "L",
+  "regimen": 2,
+  "modo_rapido_NO_VALIDO": false,
+  "carga_cpu_durante_corrida": {
+    "n_muestras": 334,
+    "intervalo_s": 2.0,
+    "ocupacion_sistema_pct_media": 72.76961453098578,
+    "ocupacion_sistema_pct_max": 96.484375,
+    "ocupacion_sistema_pct_p90": 78.71744791666666,
+    "proceso_principal_nucleos_medios": 7.600912900328654,
+    "proceso_principal_pct_sistema": 63.34094083607212,
+    "ajena_mas_hijos_pct_sistema_media": 9.428673694913655,
+    "nucleos_logicos": 12
+  },
+  "condicion": "referencia",
+  "dispositivo_pedido": "cpu",
+  "dispositivo_real": "cpu",
+  "modelo": "C:\\Users\\velas\\OneDrive\\Documents\\tesis\\fase_preliminar2\\modelos\\tesis_v1\\RESULTADO_PRIMERO\\modelo_PRIMERO.zip",
+  "hardware": {
+    "fecha": "2026-09-09T19:46:02",
+    "so": "Windows 11 (10.0.26200)",
+    "python": "3.13.14",
+    "ejecutable": "C:\\Users\\velas\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+    "torch": "2.10.0+cpu",
+    "torch_hilos": 8,
+    "torch_hilos_interop": 8,
+    "OMP_NUM_THREADS": "12",
+    "MKL_NUM_THREADS": null,
+    "cpu": {
+      "nombre": "13th Gen Intel(R) Core(TM) i5-13420H",
+      "nucleos_fisicos": 8,
+      "nucleos_logicos": 12,
+      "mhz_nominal": 2100,
+      "carga_pct_al_arrancar": 5
+    },
+    "ram_GiB": 16.0,
+    "gpu": {
+      "disponible": false,
+      "driver": "592.82",
+      "memoria_total_nvidia_smi": "6141 MiB",
+      "nombre": "NVIDIA GeForce RTX 4050 Laptop GPU"
+    }
+  },
+  "diseno_protocolo": {
+    "5": {
+      "episodios": 100,
+      "pasos": 500
+    },
+    "10": {
+      "episodios": 20,
+      "pasos": 500
+    },
+    "20": {
+      "episodios": 10,
+      "pasos": 500
+    },
+    "50": {
+      "episodios": 4,
+      "pasos": 200
+    },
+    "100": {
+      "episodios": 2,
+      "pasos": 100
+    }
+  },
+  "control_n5": {
+    "cobertura_media_100eps": 0.6812908187508583,
+    "oficial": 0.681291,
+    "delta": -1.8124914169526107e-07,
+    "reproduce_6_decimales": true,
+    "colisiones_015_media": 0.21
+  },
+  "protocolo_por_n": {
+    "5": {
+      "n_decisiones": 50000,
+      "n_episodios": 100,
+      "pasos_por_episodio": 500,
+      "episodios_completos": true,
+      "fallback_grilla": false,
+      "t_decision_ms": {
+        "n": 50000,
+        "media": 0.7854082939657383,
+        "std": 0.289788557890561,
+        "ic95_inf": 0.7828681852607222,
+        "ic95_sup": 0.7879484026707544,
+        "mediana": 0.7483000081265345,
+        "min": 0.39849999302532524,
+        "max": 10.211400003754534,
+        "p95": 1.1750050114642359
+      },
+      "t_decision_ms_media_de_medias_por_episodio": 0.7854082939657383,
+      "cobertura_aoi_final": {
+        "n": 100,
+        "media": 0.6812908187508583,
+        "std": 0.020096835150698582,
+        "ic95_inf": 0.6773518390613213,
+        "ic95_sup": 0.6852297984403952,
+        "mediana": 0.6823292672634125,
+        "min": 0.6157529354095459,
+        "max": 0.7244028449058533
+      },
+      "colisiones_015": {
+        "n": 100,
+        "media": 0.21,
+        "std": 0.49838121792844314,
+        "ic95_inf": 0.11231728128602514,
+        "ic95_sup": 0.30768271871397485,
+        "mediana": 0.0,
+        "min": 0.0,
+        "max": 3.0
+      }
+    },
+    "10": {
+      "n_decisiones": 10000,
+      "n_episodios": 20,
+      "pasos_por_episodio": 500,
+      "episodios_completos": true,
+      "fallback_grilla": false,
+      "t_decision_ms": {
+        "n": 10000,
+        "media": 0.9912069500322105,
+        "std": 0.9397740096323899,
+        "ic95_inf": 0.9727873794434156,
+        "ic95_sup": 1.0096265206210053,
+        "mediana": 0.9803000066312961,
+        "min": 0.28449999808799475,
+        "max": 76.03329999255948,
+        "p95": 1.3163049967261031
+      },
+      "t_decision_ms_media_de_medias_por_episodio": 0.9912069500322105,
+      "cobertura_aoi_final": {
+        "n": 20,
+        "media": 0.7907561913132668,
+        "std": 0.01847690642036421,
+        "ic95_inf": 0.7826583300343788,
+        "ic95_sup": 0.7988540525921548,
+        "mediana": 0.7908924743533134,
+        "min": 0.7510576695203781,
+        "max": 0.8289027065038681
+      },
+      "colisiones_015": {
+        "n": 20,
+        "media": 2.6,
+        "std": 1.6670175069329813,
+        "ic95_inf": 1.8693973648238629,
+        "ic95_sup": 3.3306026351761373,
+        "mediana": 2.5,
+        "min": 0.0,
+        "max": 6.0
+      }
+    },
+    "20": {
+      "n_decisiones": 5000,
+      "n_episodios": 10,
+      "pasos_por_episodio": 500,
+      "episodios_completos": true,
+      "fallback_grilla": false,
+      "t_decision_ms": {
+        "n": 5000,
+        "media": 0.8510656800150173,
+        "std": 0.18183268827759805,
+        "ic95_inf": 0.8460255350396565,
+        "ic95_sup": 0.856105824990378,
+        "mediana": 0.8173999958671629,
+        "min": 0.5660000024363399,
+        "max": 5.479900006321259,
+        "p95": 1.1160299989569467
+      },
+      "t_decision_ms_media_de_medias_por_episodio": 0.8510656800150173,
+      "cobertura_aoi_final": {
+        "n": 10,
+        "media": 0.8621759191155434,
+        "std": 0.017501837684955307,
+        "ic95_inf": 0.8513281677322301,
+        "ic95_sup": 0.8730236704988567,
+        "mediana": 0.8684211075305939,
+        "min": 0.8234950006008148,
+        "max": 0.8820716142654419
+      },
+      "colisiones_015": {
+        "n": 10,
+        "media": 24.1,
+        "std": 7.187179944564875,
+        "ic95_inf": 19.64533971865169,
+        "ic95_sup": 28.554660281348312,
+        "mediana": 21.5,
+        "min": 16.0,
+        "max": 36.0
+      }
+    },
+    "50": {
+      "n_decisiones": 800,
+      "n_episodios": 4,
+      "pasos_por_episodio": 200,
+      "episodios_completos": false,
+      "fallback_grilla": true,
+      "t_decision_ms": {
+        "n": 800,
+        "media": 1.0585876250479487,
+        "std": 0.24139570815485265,
+        "ic95_inf": 1.0418597559137575,
+        "ic95_sup": 1.07531549418214,
+        "mediana": 0.9850000060396269,
+        "min": 0.8067000017035753,
+        "max": 3.4149999992223457,
+        "p95": 1.5093900030478826
+      },
+      "t_decision_ms_media_de_medias_por_episodio": 1.0585876250479487,
+      "cobertura_aoi_final": {
+        "n": 4,
+        "media": 0.9640599712729454,
+        "std": 0.003006638110625721,
+        "ic95_inf": 0.9611134659245322,
+        "ic95_sup": 0.9670064766213586,
+        "mediana": 0.9647253565490246,
+        "min": 0.9600895345211029,
+        "max": 0.9666996374726295
+      },
+      "colisiones_015": {
+        "n": 4,
+        "media": 138.0,
+        "std": 9.41629792788369,
+        "ic95_inf": 128.772028030674,
+        "ic95_sup": 147.227971969326,
+        "mediana": 134.0,
+        "min": 132.0,
+        "max": 152.0
+      }
+    },
+    "100": {
+      "n_decisiones": 200,
+      "n_episodios": 2,
+      "pasos_por_episodio": 100,
+      "episodios_completos": false,
+      "fallback_grilla": true,
+      "t_decision_ms": {
+        "n": 200,
+        "media": 1.372107000061078,
+        "std": 0.8667278228462911,
+        "ic95_inf": 1.2519846523494556,
+        "ic95_sup": 1.4922293477727004,
+        "mediana": 1.253750000614673,
+        "min": 1.0140000085812062,
+        "max": 13.061999998171814,
+        "p95": 1.6641850052110376
+      },
+      "t_decision_ms_media_de_medias_por_episodio": 1.372107000061078,
+      "cobertura_aoi_final": {
+        "n": 2,
+        "media": 0.9887329121120274,
+        "std": 0.0003861224257319838,
+        "ic95_inf": 0.9881977737322449,
+        "ic95_sup": 0.9892680504918099,
+        "mediana": 0.9887329121120274,
+        "min": 0.9884598823264241,
+        "max": 0.9890059418976307
+      },
+      "colisiones_015": {
+        "n": 2,
+        "media": 398.5,
+        "std": 20.506096654409877,
+        "ic95_inf": 370.08,
+        "ic95_sup": 426.92,
+        "mediana": 398.5,
+        "min": 384.0,
+        "max": 413.0
+      }
+    }
+  },
+  "sintetico": [
+    {
+      "condicion": "referencia",
+      "n_agentes": 5,
+      "repeticiones": 300,
+      "t_decision_ms_media": 0.3176656661283535,
+      "t_decision_ms_std": 0.09568547291736967,
+      "t_decision_ms_mediana": 0.29579999682027847,
+      "t_decision_ms_p95": 0.44666999601759017,
+      "t_decision_ms_min": 0.22200000239536166
+    },
+    {
+      "condicion": "referencia",
+      "n_agentes": 10,
+      "repeticiones": 300,
+      "t_decision_ms_media": 0.42749566651764326,
+      "t_decision_ms_std": 0.37653305899581946,
+      "t_decision_ms_mediana": 0.3302000041003339,
+      "t_decision_ms_p95": 0.7627249993674928,
+      "t_decision_ms_min": 0.24649999977555126
+    },
+    {
+      "condicion": "referencia",
+      "n_agentes": 20,
+      "repeticiones": 300,
+      "t_decision_ms_media": 0.3957720000956518,
+      "t_decision_ms_std": 0.14009036598893074,
+      "t_decision_ms_mediana": 0.35009998828172684,
+      "t_decision_ms_p95": 0.6868800082884267,
+      "t_decision_ms_min": 0.2708000101847574
+    },
+    {
+      "condicion": "referencia",
+      "n_agentes": 50,
+      "repeticiones": 300,
+      "t_decision_ms_media": 0.47761266672750935,
+      "t_decision_ms_std": 0.13875164036078033,
+      "t_decision_ms_mediana": 0.4265999959898181,
+      "t_decision_ms_p95": 0.7497649981814904,
+      "t_decision_ms_min": 0.3361999988555908
+    },
+    {
+      "condicion": "referencia",
+      "n_agentes": 100,
+      "repeticiones": 300,
+      "t_decision_ms_media": 0.5617246665254546,
+      "t_decision_ms_std": 0.1565325936721055,
+      "t_decision_ms_mediana": 0.5098999972688034,
+      "t_decision_ms_p95": 0.8528900019882714,
+      "t_decision_ms_min": 0.4149000014876947
+    },
+    {
+      "condicion": "referencia",
+      "n_agentes": 200,
+      "repeticiones": 300,
+      "t_decision_ms_media": 0.8352216663479339,
+      "t_decision_ms_std": 0.21887891810915255,
+      "t_decision_ms_mediana": 0.7592499969177879,
+      "t_decision_ms_p95": 1.2963150031282566,
+      "t_decision_ms_min": 0.5739000043831766
+    },
+    {
+      "condicion": "referencia",
+      "n_agentes": 500,
+      "repeticiones": 300,
+      "t_decision_ms_media": 1.3399940006396112,
+      "t_decision_ms_std": 0.4657025756271636,
+      "t_decision_ms_mediana": 1.251550012966618,
+      "t_decision_ms_p95": 1.9041450010263363,
+      "t_decision_ms_min": 0.8246000070357695
+    },
+    {
+      "condicion": "referencia",
+      "n_agentes": 1000,
+      "repeticiones": 300,
+      "t_decision_ms_media": 1.924996000889223,
+      "t_decision_ms_std": 0.5567279750632326,
+      "t_decision_ms_mediana": 1.8763500047498383,
+      "t_decision_ms_p95": 2.928564991452731,
+      "t_decision_ms_min": 1.2238999916007742
+    },
+    {
+      "condicion": "referencia",
+      "n_agentes": 2000,
+      "repeticiones": 100,
+      "t_decision_ms_media": 3.833460999885574,
+      "t_decision_ms_std": 1.1323565358225074,
+      "t_decision_ms_mediana": 3.6679500044556335,
+      "t_decision_ms_p95": 4.733909999049501,
+      "t_decision_ms_min": 2.293199999257922
+    },
+    {
+      "condicion": "referencia",
+      "n_agentes": 5000,
+      "repeticiones": 100,
+      "t_decision_ms_media": 9.656186999636702,
+      "t_decision_ms_std": 1.3682750318338088,
+      "t_decision_ms_mediana": 9.512099997664336,
+      "t_decision_ms_p95": 11.339725000289036,
+      "t_decision_ms_min": 7.276200005435385
+    }
+  ],
+  "duracion_total_s": 691.0708685999998
+}

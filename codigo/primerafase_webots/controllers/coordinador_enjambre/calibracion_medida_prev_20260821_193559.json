@@ -1,0 +1,26 @@
+{
+  "_etapas": {
+    "0": {
+      "veredicto": "FALLO",
+      "cuando": "2026-08-21T19:18:00",
+      "detalle": "timed out"
+    }
+  },
+  "_historial": [
+    {
+      "cuando": "2026-08-19T11:36:22",
+      "etapa": "etapa 0",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-19T11:39:54",
+      "etapa": "etapa 0",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-21T19:18:00",
+      "etapa": "etapa 0",
+      "campos": []
+    }
+  ]
+}

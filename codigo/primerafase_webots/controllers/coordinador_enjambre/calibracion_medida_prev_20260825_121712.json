@@ -1,0 +1,151 @@
+{
+  "_etapas": {
+    "0": {
+      "veredicto": "OK",
+      "cuando": "2026-08-21T20:03:29",
+      "detalle": "20/20 poses válidas"
+    },
+    "1": {
+      "veredicto": "ADVERTENCIA",
+      "cuando": "2026-08-21T20:31:06",
+      "detalle": "marcador corregido 1 → 2"
+    },
+    "2": {
+      "veredicto": "OK",
+      "cuando": "2026-08-25T12:12:21",
+      "detalle": "escala 1.0000, rot +0.00°"
+    }
+  },
+  "_historial": [
+    {
+      "cuando": "2026-08-19T11:36:22",
+      "etapa": "etapa 0",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-19T11:39:54",
+      "etapa": "etapa 0",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-21T19:18:00",
+      "etapa": "etapa 0",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-21T19:35:59",
+      "etapa": "etapa 0",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-21T19:37:45",
+      "etapa": "etapa 0",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-21T19:40:02",
+      "etapa": "etapa 0",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-21T20:03:29",
+      "etapa": "etapa 0",
+      "campos": [
+        "id_robot"
+      ]
+    },
+    {
+      "cuando": "2026-08-21T20:03:29",
+      "etapa": "etapa 0",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-21T20:06:16",
+      "etapa": "etapa 1",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-21T20:07:11",
+      "etapa": "etapa 1",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-21T20:20:27",
+      "etapa": "etapa 1",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-21T20:21:30",
+      "etapa": "etapa 1",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-21T20:31:06",
+      "etapa": "etapa 1",
+      "campos": [
+        "id_marcador",
+        "id_robot"
+      ]
+    },
+    {
+      "cuando": "2026-08-21T20:31:06",
+      "etapa": "etapa 1",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-25T11:43:18",
+      "etapa": "etapa 2",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-25T11:45:49",
+      "etapa": "etapa 2",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-25T11:53:45",
+      "etapa": "etapa 2",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-25T11:55:37",
+      "etapa": "etapa 2",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-25T12:12:21",
+      "etapa": "etapa 2",
+      "campos": [
+        "escala_posicion",
+        "rotacion_marco_rad",
+        "traslacion_x_m",
+        "traslacion_y_m"
+      ]
+    },
+    {
+      "cuando": "2026-08-25T12:12:21",
+      "etapa": "etapa 2",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-25T12:17:12",
+      "etapa": "etapa 0",
+      "campos": [
+        "id_robot"
+      ]
+    }
+  ],
+  "id_robot": 1,
+  "id_marcador": 2,
+  "_medido_en": {
+    "escala_posicion": "2026-08-25T12:12:21",
+    "rotacion_marco_rad": "2026-08-25T12:12:21",
+    "traslacion_x_m": "2026-08-25T12:12:21",
+    "traslacion_y_m": "2026-08-25T12:12:21",
+    "id_robot": "2026-08-25T12:17:12"
+  },
+  "escala_posicion": 1.0,
+  "rotacion_marco_rad": 0.0,
+  "traslacion_x_m": 0.0,
+  "traslacion_y_m": 0.7
+}

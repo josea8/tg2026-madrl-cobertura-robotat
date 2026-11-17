@@ -1,0 +1,54 @@
+{
+  "_etapas": {
+    "0": {
+      "veredicto": "OK",
+      "cuando": "2026-08-21T20:03:29",
+      "detalle": "20/20 poses válidas"
+    }
+  },
+  "_historial": [
+    {
+      "cuando": "2026-08-19T11:36:22",
+      "etapa": "etapa 0",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-19T11:39:54",
+      "etapa": "etapa 0",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-21T19:18:00",
+      "etapa": "etapa 0",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-21T19:35:59",
+      "etapa": "etapa 0",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-21T19:37:45",
+      "etapa": "etapa 0",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-21T19:40:02",
+      "etapa": "etapa 0",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-21T20:03:29",
+      "etapa": "etapa 0",
+      "campos": [
+        "id_robot"
+      ]
+    },
+    {
+      "cuando": "2026-08-21T20:03:29",
+      "etapa": "etapa 0",
+      "campos": []
+    }
+  ],
+  "id_robot": 2
+}

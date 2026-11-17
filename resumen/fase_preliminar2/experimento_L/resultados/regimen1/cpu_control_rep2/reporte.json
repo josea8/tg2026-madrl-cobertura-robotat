@@ -1,0 +1,137 @@
+{
+  "experimento": "L",
+  "regimen": 1,
+  "carga_cpu_durante_corrida": {
+    "n_muestras": 277,
+    "intervalo_s": 2.0,
+    "ocupacion_sistema_pct_media": 74.9494542650423,
+    "ocupacion_sistema_pct_max": 100.0,
+    "ocupacion_sistema_pct_p90": 86.31510416666667,
+    "proceso_principal_nucleos_medios": 5.707822035291264,
+    "proceso_principal_pct_sistema": 47.5651836274272,
+    "ajena_mas_hijos_pct_sistema_media": 27.384270637615103,
+    "nucleos_logicos": 12
+  },
+  "condicion": "cpu_control",
+  "repeticion": "rep2",
+  "dispositivo_pedido": "cpu",
+  "dispositivo_real": "cpu",
+  "hardware": {
+    "fecha": "2026-09-09T19:57:53",
+    "so": "Windows 11 (10.0.26200)",
+    "python": "3.13.14",
+    "ejecutable": "C:\\Users\\velas\\venv_lab4\\Scripts\\python.exe",
+    "torch": "2.11.0+cu128",
+    "torch_hilos": 8,
+    "torch_hilos_interop": 8,
+    "OMP_NUM_THREADS": "12",
+    "MKL_NUM_THREADS": null,
+    "cpu": {
+      "nombre": "13th Gen Intel(R) Core(TM) i5-13420H",
+      "nucleos_fisicos": 8,
+      "nucleos_logicos": 12,
+      "mhz_nominal": 2100,
+      "carga_pct_al_arrancar": 31
+    },
+    "ram_GiB": 16.0,
+    "gpu": {
+      "disponible": true,
+      "driver": "592.82",
+      "memoria_total_nvidia_smi": "6141 MiB",
+      "nombre": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "memoria_total_MiB_torch": 6140.5,
+      "capacidad_computo": "8.9",
+      "multiprocesadores": 20,
+      "cuda_runtime_torch": "12.8",
+      "cudnn": 91900
+    }
+  },
+  "configuracion": {
+    "presupuesto_pasos": 200000,
+    "pasos_reales": 202240,
+    "n_envs": 4,
+    "n_streams": 20,
+    "semilla": 42,
+    "condicion_borde": "reflexion_elastica",
+    "domain_rand_entrenamiento": true,
+    "hparams": {
+      "learning_rate": 6.855028382061343e-05,
+      "gamma": 0.9844980522475681,
+      "clip_range": 0.20631649325745388,
+      "n_steps": 128,
+      "batch_size": 64,
+      "n_epochs": 13,
+      "ent_coef": 0.022872258876193912,
+      "gae_lambda": 0.9608422073341644,
+      "vf_coef": 0.5,
+      "max_grad_norm": 0.5
+    },
+    "pesos_recompensa": {
+      "lambda_gradient": 0.5622468083379316,
+      "lambda_entropy": 1.1403296484190344,
+      "lambda_ibrm": 0.48380314172632155,
+      "lambda_cbf": 2.9655314099141474
+    },
+    "batch_size_efectivo": 64,
+    "n_iteraciones_ppo": 79,
+    "n_actualizaciones": 79,
+    "n_minibatches_por_actualizacion": 520,
+    "eval_callback": false
+  },
+  "tiempos_s": {
+    "construccion_env": 27.182872099991073,
+    "construccion_modelo": 4.141212199989241,
+    "learn_total": 515.6006176999945,
+    "rollout_total": 258.81508170007146,
+    "entorno": 242.19308170021395,
+    "inferencia_rollout": 16.621999999857508,
+    "actualizacion": 256.7484512000228,
+    "red_total": 273.37045119988034,
+    "resto_learn": 0.03708479990018532,
+    "protocolo_cobertura": 144.9739355000056,
+    "total_script": 692.8588724000001
+  },
+  "reparto_pct_de_learn": {
+    "entorno": 46.97300068812864,
+    "inferencia_rollout": 3.2238130501094795,
+    "actualizacion": 49.79599371803188,
+    "red_total": 53.019806768141365,
+    "resto": 0.007192543729992842
+  },
+  "pasos_por_segundo_learn": 392.2415781853749,
+  "protocolo_cobertura": {
+    "n_episodios": 100,
+    "duracion_s": 144.9739355000056,
+    "cobertura_aoi_final": {
+      "n": 100,
+      "media": 0.6812908187508583,
+      "std": 0.020096835150698582,
+      "ic95_inf": 0.6773518390613213,
+      "ic95_sup": 0.6852297984403952,
+      "mediana": 0.6823292672634125,
+      "min": 0.6157529354095459,
+      "max": 0.7244028449058533
+    },
+    "colisiones_015": {
+      "n": 100,
+      "media": 0.21,
+      "std": 0.49838121792844314,
+      "ic95_inf": 0.11231728128602514,
+      "ic95_sup": 0.30768271871397485,
+      "mediana": 0.0,
+      "min": 0.0,
+      "max": 3.0
+    },
+    "colisiones_022": {
+      "n": 100,
+      "media": 0.32,
+      "std": 0.5663992238766581,
+      "ic95_inf": 0.208985752120175,
+      "ic95_sup": 0.431014247879825,
+      "mediana": 0.0,
+      "min": 0.0,
+      "max": 3.0
+    },
+    "t_decision_ms_media_de_medias": 0.3878571900332463
+  }
+}

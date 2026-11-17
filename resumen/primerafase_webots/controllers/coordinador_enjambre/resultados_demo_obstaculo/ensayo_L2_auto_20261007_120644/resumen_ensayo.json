@@ -1,0 +1,17 @@
+{
+ "modo": "L2",
+ "tomas": 10,
+ "tau_agentes": 0.85,
+ "tau_obstaculo": 0.85,
+ "robot_obstaculo": 4,
+ "zona_muerta": true,
+ "veredicto": "DETENIDA",
+ "detalle": "1/10 tomas válidas en 2 intentos; 0 con intervención del freno de respaldo; DETENIDA por regla de parada: ABORTO POR EL OBSTÁCULO: el obstáculo NO FRENA: se movió 1.9 cm durante la colocación (v medida 0.046 m/s), debía estar quieto",
+ "verdad_d_min_obst_m": 0.30592869926804755,
+ "verdad_d_min_pares_m": 0.230778650855958,
+ "obstaculo_a_mano": 0,
+ "paradas": 1,
+ "enters": 2,
+ "duracion_s": 90.91279329999816,
+ "retenciones_zona_muerta": 0
+}

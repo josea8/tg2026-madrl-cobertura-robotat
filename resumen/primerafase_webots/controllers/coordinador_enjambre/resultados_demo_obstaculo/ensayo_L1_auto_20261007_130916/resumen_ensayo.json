@@ -1,0 +1,17 @@
+{
+ "modo": "L1",
+ "tomas": 3,
+ "tau_agentes": 0.85,
+ "tau_obstaculo": 0.85,
+ "robot_obstaculo": 4,
+ "zona_muerta": true,
+ "veredicto": "OK",
+ "detalle": "3/3 tomas válidas en 3 intentos; 0 con intervención del freno de respaldo",
+ "verdad_d_min_obst_m": 0.39065545305836985,
+ "verdad_d_min_pares_m": 0.15818184506467545,
+ "obstaculo_a_mano": 0,
+ "paradas": 0,
+ "enters": 3,
+ "duracion_s": 254.76464820001274,
+ "retenciones_zona_muerta": 0
+}

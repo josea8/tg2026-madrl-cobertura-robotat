@@ -1,0 +1,239 @@
+EXPERIMENTO K — descomposición espacial del error de cobertura
+4 estrategias x 100 semillas = 400 episodios, condición 'reflexion'.
+5 agentes, 500 pasos, deterministic=True, domain_rand=False,
+pesos del Trial 13, semillas 42*10000 + i.
+==========================================================================
+
+GEOMETRÍA DECLARADA
+  Arena 3.0 x 3.0 m; grilla de AoI 64x64.
+  Celda: 0.046875 m.
+  Radio de observación de AoI: 0.150 m = 3.20 celdas; cada visita marca un disco de
+  ~6.4 celdas de diámetro.
+  Bandas radiales: 8 bandas de 4 celdas = 0.1875 m, que cubren
+  exactamente las 32 filas hasta el centro. Sin bandas raídas.
+  El perfil radial NO está limitado por la resolución: la banda
+  (0.1875 m) es 4x la celda y ~0.62x el diámetro de marcado.
+  Anillo de 0.30 m: máscara IDÉNTICA a cobertura_anillo() de
+  tesis_v3_radio/entrenar_v3.py => 6 filas por lado;
+  corte efectivo entre 0.25781 y 0.30469 m.
+  Celdas por región: esquinas 144, bordes 1248,
+  interior 2704, total 4096. Las tres primeras son una partición exacta.
+
+VERIFICACIÓN DE CONTROL — la descomposición es exacta
+  Variable: 1 - media espacial del mapa de AoI FINAL promediado
+  sobre las 100 semillas. Debe igualar la cobertura oficial a
+  seis decimales (es una identidad algebraica, no una estimación).
+  MADRL (200k)   0.681291 vs 0.681291  |Δ| = 0.000000
+      referencia: RESULTADO_PRIMERO/metricas_100eps.json
+  Heurística NN  0.254349 vs 0.254349  |Δ| = 0.000000
+      referencia: RESULTADO_PRIMERO/metricas_100eps.json
+  Aleatoria      0.139373 vs 0.139373  |Δ| = 0.000000
+      referencia: Exp D y Exp E (protocolo de resiembra por episodio)
+  (Voronoi+PSO no tiene valor oficial previo; su referencia es el
+   Exp E, que lo incorporó al protocolo.)
+
+  HALLAZGO COLATERAL — dos números que no son la misma cantidad.
+  RESULTADO_PRIMERO reporta 0.140186 para la
+  política aleatoria; este protocolo da 0.139373, igual que los CSV
+  de los Exp D y E. MADRL y heurística NN, en cambio, coinciden con
+  RESULTADO_PRIMERO hasta el último dígito. La aleatoria es la ÚNICA
+  estrategia cuyo resultado depende de un RNG ajeno al entorno: los
+  Exp D/E lo resiembran por episodio con default_rng(seed_ep) para
+  que el pareo entre condiciones sea válido, y RESULTADO_PRIMERO usó
+  su propio flujo. La diferencia (0.000813 = 0.07 desviaciones, con
+  sigma = 0.0112) es estadísticamente nula, pero es una diferencia de
+  PROTOCOLO, no de ruido. Los Exp D y E la dejaban pasar silenciosa
+  por llevar TOL = 0.01; la tolerancia exacta de este experimento la
+  expuso. No invalida ningún resultado previo — la aleatoria nunca
+  sostuvo una conclusión por su valor absoluto —, pero al citar la
+  línea base aleatoria hay que decir bajo qué protocolo se midió.
+
+TABLA 1 — COBERTURA POR REGIÓN (estadística POR SEMILLA)
+  Variable: cobertura AoI final = 1 - media(grid_aoi) restringida
+  a la región, calculada por episodio. Conjunto: las mismas 100
+  semillas para las cuatro estrategias. n = 100 episodios.
+  La desviación mide variabilidad ENTRE SEMILLAS, no dispersión
+  espacial dentro del mapa.
+  MADRL (200k):
+      Esquinas   0.6200 ± 0.1282  IC95 [0.5948, 0.6451]
+      Bordes     0.7140 ± 0.0465  IC95 [0.7049, 0.7231]
+      Interior   0.6695 ± 0.0360  IC95 [0.6624, 0.6765]
+      Total      0.6813 ± 0.0201  IC95 [0.6774, 0.6852]
+      Anillo030  0.7042 ± 0.0494  IC95 [0.6946, 0.7139]   (= esquinas + bordes)
+  Voronoi + PSO:
+      Esquinas   0.0217 ± 0.0560  IC95 [0.0107, 0.0327]
+      Bordes     0.0702 ± 0.0479  IC95 [0.0608, 0.0796]
+      Interior   0.3669 ± 0.0598  IC95 [0.3552, 0.3786]
+      Total      0.2644 ± 0.0415  IC95 [0.2563, 0.2725]
+      Anillo030  0.0652 ± 0.0457  IC95 [0.0562, 0.0742]   (= esquinas + bordes)
+  Heurística NN:
+      Esquinas   0.1702 ± 0.1352  IC95 [0.1437, 0.1967]
+      Bordes     0.2041 ± 0.0646  IC95 [0.1914, 0.2168]
+      Interior   0.2820 ± 0.0586  IC95 [0.2705, 0.2935]
+      Total      0.2543 ± 0.0465  IC95 [0.2452, 0.2635]
+      Anillo030  0.2006 ± 0.0657  IC95 [0.1877, 0.2135]   (= esquinas + bordes)
+  Aleatoria:
+      Esquinas   0.0037 ± 0.0221  IC95 [-0.0006, 0.0081]
+      Bordes     0.0338 ± 0.0334  IC95 [0.0272, 0.0403]
+      Interior   0.1953 ± 0.0207  IC95 [0.1913, 0.1994]
+      Total      0.1394 ± 0.0121  IC95 [0.1370, 0.1417]
+      Anillo030  0.0307 ± 0.0305  IC95 [0.0247, 0.0367]   (= esquinas + bordes)
+
+TABLA 2 — COMPARACIÓN PAREADA ENTRE REGIONES
+  Dentro de cada estrategia, pareo por semilla, n = 100.
+  Δ = cobertura(A) - cobertura(B) en la MISMA semilla.
+  MADRL (200k):
+      Esquinas -Interior  Δ = -0.0495 ± 0.1457  IC95 [-0.0781, -0.0209]  t =    -3.40  ¿excluye 0? SÍ  A>B en  35/100
+      Bordes   -Interior  Δ = +0.0445 ± 0.0724  IC95 [+0.0303, +0.0587]  t =    +6.15  ¿excluye 0? SÍ  A>B en  71/100
+      Esquinas -Bordes    Δ = -0.0940 ± 0.1138  IC95 [-0.1163, -0.0717]  t =    -8.26  ¿excluye 0? SÍ  A>B en  18/100
+  Voronoi + PSO:
+      Esquinas -Interior  Δ = -0.3452 ± 0.0885  IC95 [-0.3626, -0.3279]  t =   -39.02  ¿excluye 0? SÍ  A>B en   1/100
+      Bordes   -Interior  Δ = -0.2967 ± 0.0783  IC95 [-0.3121, -0.2814]  t =   -37.88  ¿excluye 0? SÍ  A>B en   0/100
+      Esquinas -Bordes    Δ = -0.0485 ± 0.0561  IC95 [-0.0595, -0.0375]  t =    -8.65  ¿excluye 0? SÍ  A>B en  10/100
+  Heurística NN:
+      Esquinas -Interior  Δ = -0.1118 ± 0.1485  IC95 [-0.1409, -0.0827]  t =    -7.53  ¿excluye 0? SÍ  A>B en  22/100
+      Bordes   -Interior  Δ = -0.0779 ± 0.0821  IC95 [-0.0940, -0.0618]  t =    -9.49  ¿excluye 0? SÍ  A>B en  16/100
+      Esquinas -Bordes    Δ = -0.0339 ± 0.1190  IC95 [-0.0572, -0.0105]  t =    -2.85  ¿excluye 0? SÍ  A>B en  36/100
+  Aleatoria:
+      Esquinas -Interior  Δ = -0.1916 ± 0.0329  IC95 [-0.1980, -0.1851]  t =   -58.18  ¿excluye 0? SÍ  A>B en   1/100
+      Bordes   -Interior  Δ = -0.1615 ± 0.0476  IC95 [-0.1709, -0.1522]  t =   -33.95  ¿excluye 0? SÍ  A>B en   0/100
+      Esquinas -Bordes    Δ = -0.0301 ± 0.0366  IC95 [-0.0372, -0.0229]  t =    -8.21  ¿excluye 0? SÍ  A>B en   2/100
+
+TABLA 3 — COMPARACIÓN PAREADA ENTRE ESTRATEGIAS
+  Dentro de cada región, pareo por semilla, n = 100.
+  Δ = cobertura(MADRL) - cobertura(línea base) en la MISMA semilla.
+  Región Esquinas:
+      vs Voronoi + PSO  Δ = +0.5983 ± 0.1414  IC95 [+0.5705, +0.6260]  t =   +42.30  ¿excluye 0? SÍ  mejor en 100/100
+      vs Heurística NN  Δ = +0.4497 ± 0.1845  IC95 [+0.4136, +0.4859]  t =   +24.38  ¿excluye 0? SÍ  mejor en 100/100
+      vs Aleatoria      Δ = +0.6162 ± 0.1301  IC95 [+0.5907, +0.6417]  t =   +47.35  ¿excluye 0? SÍ  mejor en 100/100
+  Región Bordes:
+      vs Voronoi + PSO  Δ = +0.6438 ± 0.0677  IC95 [+0.6305, +0.6570]  t =   +95.07  ¿excluye 0? SÍ  mejor en 100/100
+      vs Heurística NN  Δ = +0.5099 ± 0.0773  IC95 [+0.4947, +0.5250]  t =   +65.93  ¿excluye 0? SÍ  mejor en 100/100
+      vs Aleatoria      Δ = +0.6802 ± 0.0550  IC95 [+0.6694, +0.6910]  t =  +123.65  ¿excluye 0? SÍ  mejor en 100/100
+  Región Interior:
+      vs Voronoi + PSO  Δ = +0.3026 ± 0.0721  IC95 [+0.2884, +0.3167]  t =   +41.97  ¿excluye 0? SÍ  mejor en 100/100
+      vs Heurística NN  Δ = +0.3875 ± 0.0708  IC95 [+0.3736, +0.4013]  t =   +54.73  ¿excluye 0? SÍ  mejor en 100/100
+      vs Aleatoria      Δ = +0.4741 ± 0.0386  IC95 [+0.4666, +0.4817]  t =  +122.78  ¿excluye 0? SÍ  mejor en 100/100
+  Región Total:
+      vs Voronoi + PSO  Δ = +0.4169 ± 0.0473  IC95 [+0.4076, +0.4262]  t =   +88.12  ¿excluye 0? SÍ  mejor en 100/100
+      vs Heurística NN  Δ = +0.4269 ± 0.0512  IC95 [+0.4169, +0.4370]  t =   +83.46  ¿excluye 0? SÍ  mejor en 100/100
+      vs Aleatoria      Δ = +0.5419 ± 0.0229  IC95 [+0.5374, +0.5464]  t =  +236.78  ¿excluye 0? SÍ  mejor en 100/100
+
+TABLA 4 — PERFIL RADIAL (cobertura vs distancia a la pared)
+  Bandas de 4 celdas = 0.1875 m. Media sobre 100 semillas.
+  banda [m]         celdas     MADRL (200k)    Voronoi + PSO    Heurística NN        Aleatoria
+  0.000-0.188          960           0.6800           0.0468           0.1862           0.0209
+  0.188-0.375          832           0.7557           0.1306           0.2391           0.0684
+  0.375-0.562          704           0.7300           0.2406           0.2640           0.1408
+  0.562-0.750          576           0.6693           0.3615           0.2907           0.2146
+  0.750-0.938          448           0.5932           0.4750           0.3042           0.2538
+  0.938-1.125          320           0.5826           0.5679           0.2999           0.2641
+  1.125-1.312          192           0.6136           0.6131           0.3022           0.2781
+  1.312-1.500           64           0.6180           0.6176           0.3217           0.3047
+
+  Banda de 0.30 m (máscara idéntica a la métrica de anillo de los
+  v3), para cruce directo con los reentrenamientos:
+      MADRL (200k)   0.7042 ± 0.0494  IC95 [0.6946, 0.7139]
+      Voronoi + PSO  0.0652 ± 0.0457  IC95 [0.0562, 0.0742]
+      Heurística NN  0.2006 ± 0.0657  IC95 [0.1877, 0.2135]
+      Aleatoria      0.0307 ± 0.0305  IC95 [0.0247, 0.0367]
+
+MAPA PROMEDIADO EN EL TIEMPO vs MAPA FINAL
+  El mapa temporal (media sobre los 500 pasos) revela regiones
+  crónicamente desatendidas que el final ocultaría si fueron
+  visitadas justo al terminar. Cobertura por región:
+  estrategia     región       temporal      final         Δ
+  MADRL (200k)   Esquinas       0.4341     0.6200   +0.1859
+  MADRL (200k)   Bordes         0.5202     0.7140   +0.1938
+  MADRL (200k)   Interior       0.5352     0.6695   +0.1342
+  MADRL (200k)   Total          0.5271     0.6813   +0.1542
+  Voronoi + PSO  Esquinas       0.0073     0.0217   +0.0144
+  Voronoi + PSO  Bordes         0.0403     0.0702   +0.0299
+  Voronoi + PSO  Interior       0.3154     0.3669   +0.0515
+  Voronoi + PSO  Total          0.2208     0.2644   +0.0436
+  Heurística NN  Esquinas       0.0868     0.1702   +0.0834
+  Heurística NN  Bordes         0.1241     0.2041   +0.0800
+  Heurística NN  Interior       0.2404     0.2820   +0.0416
+  Heurística NN  Total          0.1996     0.2543   +0.0548
+  Aleatoria      Esquinas       0.0012     0.0037   +0.0025
+  Aleatoria      Bordes         0.0160     0.0338   +0.0178
+  Aleatoria      Interior       0.1630     0.1953   +0.0324
+  Aleatoria      Total          0.1125     0.1394   +0.0269
+
+CAVEAT 1 — ¿bastan 100 semillas para lavar la estructura debida
+           a la ubicación de los objetivos? (split-half par/impar)
+  Se comparan los mapas de AoI final promediados sobre las 50
+  semillas de índice PAR contra las 50 de índice IMPAR. Si el
+  promedio conservara estructura debida a los objetivos, las dos
+  mitades diferirían más allá del ruido.
+  Referencia de escala: desviación espacial del propio mapa.
+  Descomposición señal/ruido POR CELDA: las dos mitades son
+  independientes y de igual tamaño, así que la desviación del
+  ruido del mapa de 100 semillas es RMS(Δ)/2, y la desviación de
+  la estructura verdadera es sqrt(var_total - var_ruido).
+  MADRL (200k)   r = 0.6739  max|Δ| = 0.2498  RMS Δ = 0.0675  desv. espacial = 0.0762
+                     ruido/celda = 0.0337  señal/celda = 0.0683  razón señal/ruido = 2.02
+  Voronoi + PSO  r = 0.9555  max|Δ| = 0.2043  RMS Δ = 0.0593  desv. espacial = 0.1964
+                     ruido/celda = 0.0296  señal/celda = 0.1942  razón señal/ruido = 6.55
+  Heurística NN  r = 0.4620  max|Δ| = 0.2310  RMS Δ = 0.0692  desv. espacial = 0.0563
+                     ruido/celda = 0.0346  señal/celda = 0.0444  razón señal/ruido = 1.28
+  Aleatoria      r = 0.8228  max|Δ| = 0.2688  RMS Δ = 0.0648  desv. espacial = 0.1023
+                     ruido/celda = 0.0324  señal/celda = 0.0970  razón señal/ruido = 2.99
+
+  LECTURA. La estructura espacial supera al ruido en las cuatro
+  estrategias, pero por márgenes muy distintos, y en el caso de la
+  heurística NN el margen es estrecho. CONSECUENCIA OPERATIVA: los
+  mapas NO deben leerse celda a celda — a esa escala el ruido de
+  muestreo es comparable a la estructura. Sí son válidas las
+  lecturas AGREGADAS (regiones y bandas radiales), que promedian
+  entre 64 y 2704 celdas y cuya incertidumbre está reportada como
+  IC95 entre semillas en las Tablas 1 a 4. Todas las afirmaciones
+  de este experimento son agregadas por construcción.
+  Las 100 semillas, por tanto, bastan para el nivel de región y de
+  banda, que es el nivel al que se concluye; NO bastan para
+  afirmar nada sobre una celda individual.
+
+CAVEAT 2 — sesgo de las poses iniciales: CONFUSIÓN NO SEPARABLE
+  Las poses iniciales se sortean uniformemente en el 80% central:
+  margen = 0.10*arena = 0.30 m, es decir en [0.30, 2.70]^2. Esa
+  frontera COINCIDE EXACTAMENTE con ANCHO_ANILLO = 0.30 de
+  tesis_v3_radio. El anillo perimetral es, literalmente, la región
+  donde ningún agente nace jamás.
+  Cuantificación: cobertura por región en la ventana temprana
+  (primeros 50 pasos, AoI promediado) contra el mapa final.
+  estrategia     región       temprano      final
+  MADRL (200k)   Esquinas       0.0325     0.6200
+  MADRL (200k)   Bordes         0.0687     0.7140
+  MADRL (200k)   Interior       0.1955     0.6695
+  Voronoi + PSO  Esquinas       0.0001     0.0217
+  Voronoi + PSO  Bordes         0.0023     0.0702
+  Voronoi + PSO  Interior       0.1637     0.3669
+  Heurística NN  Esquinas       0.0029     0.1702
+  Heurística NN  Bordes         0.0110     0.2041
+  Heurística NN  Interior       0.1367     0.2820
+  Aleatoria      Esquinas       0.0000     0.0037
+  Aleatoria      Bordes         0.0009     0.0338
+  Aleatoria      Interior       0.0929     0.1953
+
+  Interpretación admisible: el sorteo inicial NO puede separarse
+  del déficit perimetral, porque comparten frontera exacta. El
+  NIVEL ABSOLUTO de la cobertura de anillo no es interpretable
+  como déficit puro de la estrategia. Las comparaciones ENTRE
+  estrategias y ENTRE condiciones sí lo son, porque todas
+  comparten el mismo sorteo inicial y el sesgo es constante.
+
+  IMPLICACIÓN PARA EL DOCUMENTO: el cuadro de la variante de
+  alineación geométrica reporta cobertura de anillo 0.4565 contra
+  0.5114 global. Ese valor absoluto arrastra el mismo sesgo. La
+  comparación ENTRE los tres pesos de lambda_pared sigue siendo
+  válida, porque el sesgo es constante en las tres; lo que NO es
+  interpretable de forma absoluta es el NIVEL.
+
+CAVEAT 3 — resolución de la grilla
+  Declarada en GEOMETRÍA. El perfil radial usa bandas de
+  0.1875 m, 4 veces la celda de 0.046875 m, así que el perfil
+  no está limitado por la discretización. Lo que sí está limitado
+  es la resolución MÍNIMA alcanzable: bandas más finas que una
+  celda no son representables, y bandas menores que el diámetro
+  de marcado (0.300 m) mezclan celdas que una sola
+  visita marca de forma conjunta.

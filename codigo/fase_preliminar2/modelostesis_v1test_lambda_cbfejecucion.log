@@ -1,0 +1,62 @@
+2026-04-18 08:08:07 [INFO] test_lambda — ======================================================================
+2026-04-18 08:08:07 [INFO] test_lambda — ======================================================================
+2026-04-18 08:08:07 [INFO] test_lambda — TEST λ_cbf — A vs B
+2026-04-18 08:08:07 [INFO] test_lambda — TEST λ_cbf — A vs B
+2026-04-18 08:08:07 [INFO] test_lambda — ======================================================================
+2026-04-18 08:08:07 [INFO] test_lambda — ======================================================================
+2026-04-18 08:08:07 [INFO] test_lambda — Hparams base (Trial 13): lr=6.86e-05  γ=0.9845  n_steps=128  batch=64  epochs=13
+2026-04-18 08:08:07 [INFO] test_lambda — Hparams base (Trial 13): lr=6.86e-05  γ=0.9845  n_steps=128  batch=64  epochs=13
+2026-04-18 08:08:07 [INFO] test_lambda — Pesos base: λ_grad=0.562  λ_ent=1.140  λ_ibrm=0.484  λ_cbf=2.966
+2026-04-18 08:08:07 [INFO] test_lambda — Pesos base: λ_grad=0.562  λ_ent=1.140  λ_ibrm=0.484  λ_cbf=2.966
+2026-04-18 08:08:07 [INFO] test_lambda — ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-04-18 08:08:07 [INFO] test_lambda — ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-04-18 08:08:07 [INFO] test_lambda — VARIANTE A — entrenando 200000 steps (λ_cbf=2.9655)
+2026-04-18 08:08:07 [INFO] test_lambda — VARIANTE A — entrenando 200000 steps (λ_cbf=2.9655)
+2026-04-18 08:08:07 [INFO] test_lambda — ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-04-18 08:08:07 [INFO] test_lambda — ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+C:\Users\velas\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\stable_baselines3\common\vec_env\base_vec_env.py:78: UserWarning: The `render_mode` attribute is not defined in your environment. It will be set to None.
+  warnings.warn("The `render_mode` attribute is not defined in your environment. It will be set to None.")
+2026-04-18 08:08:22 [INFO] train_swarm — VecEnv entrenamiento construido: 5 agentes × 4 envs = 20 streams totales
+C:\Users\velas\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\stable_baselines3\common\policies.py:486: UserWarning: As shared layers in the mlp_extractor are removed since SB3 v1.8.0, you should now pass directly a dictionary and not a list (net_arch=dict(pi=..., vf=...) instead of net_arch=[dict(pi=..., vf=...)])
+  warnings.warn(
+2026-04-18 08:12:16 [INFO] test_lambda — VARIANTE A — entrenamiento terminado (224.1s, 893 steps/s)
+2026-04-18 08:12:16 [INFO] test_lambda — VARIANTE A — entrenamiento terminado (224.1s, 893 steps/s)
+2026-04-18 08:12:17 [INFO] test_lambda — VARIANTE A — evaluando 30 episodios deterministas
+2026-04-18 08:12:17 [INFO] test_lambda — VARIANTE A — evaluando 30 episodios deterministas
+2026-04-18 08:13:11 [INFO] test_lambda — VARIANTE A — eval terminada (53.3s): cob=0.680±0.021  col=0.2±0.5  dist=15.22  t50=167
+2026-04-18 08:13:11 [INFO] test_lambda — VARIANTE A — eval terminada (53.3s): cob=0.680±0.021  col=0.2±0.5  dist=15.22  t50=167
+2026-04-18 08:13:11 [INFO] test_lambda — ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-04-18 08:13:11 [INFO] test_lambda — ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-04-18 08:13:11 [INFO] test_lambda — VARIANTE B — entrenando 200000 steps (λ_cbf=5.0000)
+2026-04-18 08:13:11 [INFO] test_lambda — VARIANTE B — entrenando 200000 steps (λ_cbf=5.0000)
+2026-04-18 08:13:11 [INFO] test_lambda — ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-04-18 08:13:11 [INFO] test_lambda — ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+C:\Users\velas\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\stable_baselines3\common\vec_env\base_vec_env.py:78: UserWarning: The `render_mode` attribute is not defined in your environment. It will be set to None.
+  warnings.warn("The `render_mode` attribute is not defined in your environment. It will be set to None.")
+2026-04-18 08:13:24 [INFO] train_swarm — VecEnv entrenamiento construido: 5 agentes × 4 envs = 20 streams totales
+C:\Users\velas\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages\stable_baselines3\common\policies.py:486: UserWarning: As shared layers in the mlp_extractor are removed since SB3 v1.8.0, you should now pass directly a dictionary and not a list (net_arch=dict(pi=..., vf=...) instead of net_arch=[dict(pi=..., vf=...)])
+  warnings.warn(
+2026-04-18 08:18:01 [INFO] test_lambda — VARIANTE B — entrenamiento terminado (271.3s, 737 steps/s)
+2026-04-18 08:18:01 [INFO] test_lambda — VARIANTE B — entrenamiento terminado (271.3s, 737 steps/s)
+2026-04-18 08:18:04 [INFO] test_lambda — VARIANTE B — evaluando 30 episodios deterministas
+2026-04-18 08:18:04 [INFO] test_lambda — VARIANTE B — evaluando 30 episodios deterministas
+2026-04-18 08:19:03 [INFO] test_lambda — VARIANTE B — eval terminada (58.9s): cob=0.591±0.033  col=0.4±0.6  dist=14.83  t50=211
+2026-04-18 08:19:03 [INFO] test_lambda — VARIANTE B — eval terminada (58.9s): cob=0.591±0.033  col=0.4±0.6  dist=14.83  t50=211
+2026-04-18 08:19:03 [INFO] test_lambda — Figura: modelos\tesis_v1\test_lambda_cbf\comparacion.png
+2026-04-18 08:19:03 [INFO] test_lambda — Figura: modelos\tesis_v1\test_lambda_cbf\comparacion.png
+2026-04-18 08:19:03 [INFO] test_lambda — Reporte: modelos\tesis_v1\test_lambda_cbf\comparacion.md
+2026-04-18 08:19:03 [INFO] test_lambda — Reporte: modelos\tesis_v1\test_lambda_cbf\comparacion.md
+2026-04-18 08:19:03 [INFO] test_lambda — ======================================================================
+2026-04-18 08:19:03 [INFO] test_lambda — ======================================================================
+2026-04-18 08:19:03 [INFO] test_lambda — RESULTADO FINAL
+2026-04-18 08:19:03 [INFO] test_lambda — RESULTADO FINAL
+2026-04-18 08:19:03 [INFO] test_lambda — ======================================================================
+2026-04-18 08:19:03 [INFO] test_lambda — ======================================================================
+2026-04-18 08:19:03 [INFO] test_lambda —   Variante A (λ_cbf=2.966) → cob=0.680±0.021  col=0.20±0.48  dist=15.22  t50=167
+2026-04-18 08:19:03 [INFO] test_lambda —   Variante A (λ_cbf=2.966) → cob=0.680±0.021  col=0.20±0.48  dist=15.22  t50=167
+2026-04-18 08:19:03 [INFO] test_lambda —   Variante B (λ_cbf=5.000) → cob=0.591±0.033  col=0.43±0.56  dist=14.83  t50=211
+2026-04-18 08:19:03 [INFO] test_lambda —   Variante B (λ_cbf=5.000) → cob=0.591±0.033  col=0.43±0.56  dist=14.83  t50=211
+2026-04-18 08:19:03 [INFO] test_lambda —   CASO: SIN_DECISION_CLARA → usar Variante A (λ_cbf=2.9655) para el 5M
+2026-04-18 08:19:03 [INFO] test_lambda —   CASO: SIN_DECISION_CLARA → usar Variante A (λ_cbf=2.9655) para el 5M
+2026-04-18 08:19:03 [INFO] test_lambda —   Reporte: modelos\tesis_v1\test_lambda_cbf\comparacion.md
+2026-04-18 08:19:03 [INFO] test_lambda —   Reporte: modelos\tesis_v1\test_lambda_cbf\comparacion.md

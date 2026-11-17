@@ -1,0 +1,294 @@
+#VRML_SIM R2025a utf8
+
+# lab_robotat_fisica.wbt
+# ============================================================================
+# Demo VISUAL con FÍSICA REAL de ruedas. Paralelo y separado del demo
+# cinemático (lab_robotat.wbt). NO modifica nada de la versión cinemática.
+#
+# Arquitectura (1 robot, experimento de calibración):
+#   - 1 Robot Pololu 3pi+ INLINE (no usa el .proto): chasis cilíndrico,
+#     bumper STL, 2 HingeJoint con RotationalMotor (motor_1=derecha,
+#     motor_2=izquierda), 2 BallJoint con casters, GPS + Compass.
+#   - El Robot es a la vez SUPERVISOR (supervisor TRUE), por lo que el
+#     controlador `supervisor_fisica` puede acceder a sus propios devices
+#     (motores, GPS, Compass) Y mover los hotspots por DEF (Solid).
+#   - 3 esferas R/G/B (DEF obs1..obs3) como hotspots virtuales, sin physics,
+#     a z=0.12 — el supervisor las mueve cada paso (idéntico a la cinemática).
+#
+# Por qué INLINE y no instanciar Pololu3pi.proto:
+#   - El proto original (PROTO Pololu3pi[]) no expone campos configurables,
+#     no tiene GPS+Compass adentro, no declara maxVelocity, y hardcodea el
+#     controller. Para 1 robot el costo de inline es bajo y queda explícito
+#     que es una variante para experimentación.
+#
+# Sincronía: basicTimeStep 10 ms ⇒ env.step (dt=0.1 s) = 10 ticks de Webots.
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+
+WorldInfo {
+  basicTimeStep 10
+  coordinateSystem "ENU"
+  gravity 9.81
+}
+Viewpoint {
+  orientation -0.4361130076829961 0.48206096816246363 0.7598833249282153 1.744346265750423
+  position -0.39142159867184184 -3.9694436769836723 5.426116237234703
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 3 3
+  wallThickness 0.1
+  wallHeight 0.15
+}
+
+# ────────────────────────────────────────────────────────────────────────────
+# ROBOT Pololu 3pi+ INLINE — único Robot del mundo, supervisor TRUE.
+# Geometría y rotaciones de ruedas heredadas del .wbt original del lab.
+# ────────────────────────────────────────────────────────────────────────────
+DEF p3pi_0 Robot {
+  translation -1 -1 0
+  rotation 0 0 1 0
+  name "p3pi_0"
+  controller "supervisor_fisica"
+  supervisor TRUE
+  contactMaterial "plastic"
+  selfCollision TRUE
+  children [
+    # ── Chasis (Solid con física) ─────────────────────────────────────────
+    DEF Body Pose {
+      translation 0 0 0.0255
+      children [
+        Shape {
+          appearance PBRAppearance {
+            roughness 1
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.019
+            radius 0.075
+          }
+        }
+      ]
+    }
+    # ── Compass ───────────────────────────────────────────────────────────
+    # Rotada +π/2 alrededor de z (igual que el .wbt del lab) para que la
+    # convención de heading sea la del controlador MATLAB de referencia.
+    Compass {
+      rotation 0 0 1 1.5707996938995747
+    }
+    # ── GPS ───────────────────────────────────────────────────────────────
+    GPS {
+      rotation 0 0 1 1.5707996938995747
+    }
+    # ── Bumper (STL, ruta RELATIVA al .wbt) ───────────────────────────────
+    Pose {
+      translation 0 0 0.016
+      children [
+        Shape {
+          appearance PBRAppearance {
+            roughness 1
+            metalness 0
+          }
+          geometry Mesh {
+            url [
+              "../Modelos_3D/Pololu/BumperV2.stl"
+            ]
+            scale 0.001 0.001 0.001
+          }
+          castShadows FALSE
+        }
+      ]
+    }
+    # ── Rueda DERECHA (motor_1) — anchor +0.07 en x ───────────────────────
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor 0.07 0 0.037
+      }
+      device [
+        RotationalMotor {
+          name "motor_1"
+          maxVelocity 84
+        }
+      ]
+      endPoint Solid {
+        translation 0.07 0 0.037
+        rotation -0.6667195291850914 0.33418188717234326 -0.6661888138426982 2.4960856161980307
+        children [
+          DEF wheel_1 Shape {
+            appearance PBRAppearance {
+              baseColor 0 0 0
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.01
+              radius 0.035
+            }
+          }
+        ]
+        boundingObject USE wheel_1
+        physics Physics {
+        }
+      }
+    }
+    # ── Rueda IZQUIERDA (motor_2) — anchor -0.07 en x ─────────────────────
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor -0.07 0 0.037
+      }
+      device [
+        RotationalMotor {
+          name "motor_2"
+          maxVelocity 84
+        }
+      ]
+      endPoint Solid {
+        translation -0.07 0 0.037
+        rotation 0 1 0 1.57
+        children [
+          DEF wheel_2 Shape {
+            appearance PBRAppearance {
+              baseColor 0 0 0
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.01
+              radius 0.035
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE wheel_2
+        physics Physics {
+        }
+      }
+    }
+    # ── Caster ball frontal (+y local) ────────────────────────────────────
+    BallJoint {
+      jointParameters BallJointParameters {
+        anchor 0 0.06 0.013
+      }
+      jointParameters2 JointParameters {
+        axis 1 0 0
+      }
+      jointParameters3 JointParameters {
+        axis 0 1 0
+      }
+      endPoint Solid {
+        translation 0 0.06 0.013
+        children [
+          DEF CasterBall_1 Shape {
+            appearance PBRAppearance {
+              baseColor 0.333333 0.333333 0.498039
+              roughness 1
+              metalness 0
+            }
+            geometry Sphere {
+              radius 0.01
+            }
+          }
+        ]
+        name "solid(2)"
+        boundingObject USE CasterBall_1
+        physics Physics {
+        }
+      }
+    }
+    # ── Caster ball trasero (-y local) ────────────────────────────────────
+    BallJoint {
+      jointParameters BallJointParameters {
+        anchor 0 -0.06 0.013
+      }
+      jointParameters2 JointParameters {
+        axis 1 0 0
+      }
+      jointParameters3 JointParameters {
+        axis 0 1 0
+      }
+      endPoint Solid {
+        translation 0 -0.06 0.013
+        children [
+          DEF CasterBall_2 Shape {
+            appearance PBRAppearance {
+              baseColor 0.333333 0.333333 0.498039
+              roughness 1
+              metalness 0
+            }
+            geometry Sphere {
+              radius 0.01
+            }
+          }
+        ]
+        name "solid(3)"
+        boundingObject USE CasterBall_2
+        physics Physics {
+        }
+      }
+    }
+  ]
+  boundingObject USE Body
+  physics Physics {
+  }
+}
+
+# ────────────────────────────────────────────────────────────────────────────
+# HOTSPOTS — 3 esferas emisivas R/G/B (idénticas a la cinemática).
+# Sin physics, sin Robot: movidas cada paso por el supervisor (setSFVec3f).
+# ────────────────────────────────────────────────────────────────────────────
+DEF obs1 Solid {
+  translation -0.5 -0.5 0.12
+  name "obs1"
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        emissiveColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.05
+      }
+    }
+  ]
+}
+DEF obs2 Solid {
+  translation 0 0.5 0.12
+  name "obs2"
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 1 0
+        emissiveColor 0 1 0
+        roughness 1
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.05
+      }
+    }
+  ]
+}
+DEF obs3 Solid {
+  translation 0.5 -0.5 0.12
+  name "obs3"
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        emissiveColor 0 0 1
+        roughness 1
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.05
+      }
+    }
+  ]
+}

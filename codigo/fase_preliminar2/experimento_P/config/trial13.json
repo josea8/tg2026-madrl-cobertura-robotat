@@ -1,0 +1,7 @@
+{
+  "lambda_cbf": 2.9655314099141474,
+  "lambda_entropy": 1.1403296484190344,
+  "n_epochs": 13,
+  "n_steps_exp": 7,
+  "n_steps": 128
+}

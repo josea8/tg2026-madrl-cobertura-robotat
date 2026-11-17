@@ -1,0 +1,131 @@
+{
+  "experimento": "L",
+  "regimen": 1,
+  "carga_cpu_durante_corrida": {
+    "n_muestras": 230,
+    "intervalo_s": 2.0,
+    "ocupacion_sistema_pct_media": 80.28929481041467,
+    "ocupacion_sistema_pct_max": 95.54263565891473,
+    "ocupacion_sistema_pct_p90": 88.7467700258398,
+    "proceso_principal_nucleos_medios": 7.134997757775275,
+    "proceso_principal_pct_sistema": 59.458314648127285,
+    "ajena_mas_hijos_pct_sistema_media": 20.83098016228739,
+    "nucleos_logicos": 12
+  },
+  "condicion": "referencia",
+  "dispositivo_pedido": "cpu",
+  "dispositivo_real": "cpu",
+  "hardware": {
+    "fecha": "2026-09-09T18:44:03",
+    "so": "Windows 11 (10.0.26200)",
+    "python": "3.13.14",
+    "ejecutable": "C:\\Users\\velas\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+    "torch": "2.10.0+cpu",
+    "torch_hilos": 8,
+    "torch_hilos_interop": 8,
+    "OMP_NUM_THREADS": "12",
+    "MKL_NUM_THREADS": null,
+    "cpu": {
+      "nombre": "13th Gen Intel(R) Core(TM) i5-13420H",
+      "nucleos_fisicos": 8,
+      "nucleos_logicos": 12,
+      "mhz_nominal": 2100,
+      "carga_pct_al_arrancar": 28
+    },
+    "ram_GiB": 16.0,
+    "gpu": {
+      "disponible": false,
+      "driver": "592.82",
+      "memoria_total_nvidia_smi": "6141 MiB",
+      "nombre": "NVIDIA GeForce RTX 4050 Laptop GPU"
+    }
+  },
+  "configuracion": {
+    "presupuesto_pasos": 200000,
+    "pasos_reales": 202240,
+    "n_envs": 4,
+    "n_streams": 20,
+    "semilla": 42,
+    "condicion_borde": "reflexion_elastica",
+    "domain_rand_entrenamiento": true,
+    "hparams": {
+      "learning_rate": 6.855028382061343e-05,
+      "gamma": 0.9844980522475681,
+      "clip_range": 0.20631649325745388,
+      "n_steps": 128,
+      "batch_size": 64,
+      "n_epochs": 13,
+      "ent_coef": 0.022872258876193912,
+      "gae_lambda": 0.9608422073341644,
+      "vf_coef": 0.5,
+      "max_grad_norm": 0.5
+    },
+    "pesos_recompensa": {
+      "lambda_gradient": 0.5622468083379316,
+      "lambda_entropy": 1.1403296484190344,
+      "lambda_ibrm": 0.48380314172632155,
+      "lambda_cbf": 2.9655314099141474
+    },
+    "batch_size_efectivo": 64,
+    "n_iteraciones_ppo": 79,
+    "n_actualizaciones": 79,
+    "n_minibatches_por_actualizacion": 520,
+    "eval_callback": false
+  },
+  "tiempos_s": {
+    "construccion_env": 8.092901999989408,
+    "construccion_modelo": 2.2773829999932786,
+    "learn_total": 283.629317599989,
+    "rollout_total": 88.09225989991683,
+    "entorno": 75.58853439911036,
+    "inferencia_rollout": 12.503725500806468,
+    "actualizacion": 195.51276629978383,
+    "red_total": 208.0164918005903,
+    "resto_learn": 0.024291400288348086,
+    "protocolo_cobertura": 167.7356729000021,
+    "total_script": 462.7866645000031
+  },
+  "reparto_pct_de_learn": {
+    "entorno": 26.650465839964806,
+    "inferencia_rollout": 4.408474274313507,
+    "actualizacion": 68.93249539722173,
+    "red_total": 73.34096967153523,
+    "resto": 0.008564488499953655
+  },
+  "pasos_por_segundo_learn": 713.043354302411,
+  "protocolo_cobertura": {
+    "n_episodios": 100,
+    "duracion_s": 167.7356729000021,
+    "cobertura_aoi_final": {
+      "n": 100,
+      "media": 0.6812908187508583,
+      "std": 0.020096835150698582,
+      "ic95_inf": 0.6773518390613213,
+      "ic95_sup": 0.6852297984403952,
+      "mediana": 0.6823292672634125,
+      "min": 0.6157529354095459,
+      "max": 0.7244028449058533
+    },
+    "colisiones_015": {
+      "n": 100,
+      "media": 0.21,
+      "std": 0.49838121792844314,
+      "ic95_inf": 0.11231728128602514,
+      "ic95_sup": 0.30768271871397485,
+      "mediana": 0.0,
+      "min": 0.0,
+      "max": 3.0
+    },
+    "colisiones_022": {
+      "n": 100,
+      "media": 0.32,
+      "std": 0.5663992238766581,
+      "ic95_inf": 0.208985752120175,
+      "ic95_sup": 0.431014247879825,
+      "mediana": 0.0,
+      "min": 0.0,
+      "max": 3.0
+    },
+    "t_decision_ms_media_de_medias": 0.5054269999646931
+  }
+}

@@ -1,0 +1,75 @@
+ANÁLISIS DE LA CAMPAÑA L2 'ensayo' — ENSAYO — no es el resultado
+fecha 2026-10-10T08:22:56 · veredicto de la campaña: META
+sha256 igual al libro: TESIS/PLAN_ANALISIS_campana_L2.md sí, analizar_campana_l2.py sí, campana_obstaculo.py sí
+⚠ requisitos sin cumplir: la campaña es de plataforma 'simulador'
+
+intentos 6 · corridas 5 · incluidas 5 · con par 5
+no incluidas por motivo: {'interrumpida': 1}
+
+PRINCIPAL (§3): brecha de cobertura hw − réplica (τ = 0)
+  hw 0.3369 · réplica 0.3283
+  +0.0087 ± 0.0013, IC95 [+0.0070, +0.0103] (n = 5), mediana +0.0086, positivas 5/5, Wilcoxon p = 0.0625, bootstrap [+0.0077, +0.0098]
+  Brecha detectable: hw − réplica = +0.0087, IC95 [+0.0070, +0.0103] (n = 5).
+  ruido de la réplica entre reps: mediana 0.0021, máx 0.0055
+
+SENSIBILIDADES (§3a, no deciden)
+  A_sin_fuera_de_soporte: +0.0087 ± 0.0013, IC95 [+0.0070, +0.0103] (n = 5), mediana +0.0086, positivas 5/5, Wilcoxon p = 0.0625, bootstrap [+0.0077, +0.0098]
+  B_sin_retroceso: +0.0087 ± 0.0013, IC95 [+0.0070, +0.0103] (n = 5), mediana +0.0086, positivas 5/5, Wilcoxon p = 0.0625, bootstrap [+0.0077, +0.0098]
+  C_sin_freno: +0.0087 ± 0.0013, IC95 [+0.0070, +0.0103] (n = 5), mediana +0.0086, positivas 5/5, Wilcoxon p = 0.0625, bootstrap [+0.0077, +0.0098]
+  D_sin_rampa: +0.0088 ± 0.0017, IC95 [+0.0045, +0.0131] (n = 3), mediana +0.0086, positivas 3/3, Wilcoxon p = 0.2500, bootstrap [+0.0071, +0.0106]
+  E_replica_tau_045: +0.0127 ± 0.0016, IC95 [+0.0107, +0.0147] (n = 5), mediana +0.0128, positivas 5/5, Wilcoxon p = 0.0625, bootstrap [+0.0114, +0.0139]
+
+SEGURIDAD (§4) — durante la toma y sobre poses observadas
+  corridas 5 (de ellas marcadas interrumpidas en el libro: 0) · d_min al obstáculo hw: mín 0.3002, mediana 0.3218, máx 0.4515 m
+  contacto < 0.15 m hw: 0/5 = 0.000, IC95 [0.000, 0.522]
+  tomas con freno hw: 0/5 = 0.000, IC95 [0.000, 0.522] · eventos 0 · decisiones en freno 0
+  d_min hw − réplica (media de reps): -0.0200 ± 0.0000, IC95 [-0.0200, -0.0200] (n = 5), mediana -0.0200, positivas 0/5, Wilcoxon p = 0.0625
+  d_min hw − réplica (mínimo de reps): -0.0200 ± 0.0000, IC95 [-0.0200, -0.0200] (n = 5), mediana -0.0200, positivas 0/5, Wilcoxon p = 0.0625
+  contacto réplica: por la media 0/5 = 0.000, IC95 [0.000, 0.522]; por el mínimo 0/5 = 0.000, IC95 [0.000, 0.522]
+  d_pared hw − réplica (media de reps): +0.0000 ± 0.0000, IC95 [+0.0000, +0.0000] (n = 5), mediana +0.0000, positivas 0/5
+  d_pared hw − réplica (mínimo de reps): +0.0000 ± 0.0000, IC95 [+0.0000, +0.0000] (n = 5), mediana +0.0000, positivas 0/5
+  d_pared_min: hw_corridas 0.1515 · hw_pareadas 0.1515 · replica_pareadas 0.1515
+  viola_018: hw_corridas 1.6000 · hw_pareadas 1.6000 · replica_pareadas 1.6000
+  colisiones_015: hw_corridas 0.0000 · hw_pareadas 0.0000 · replica_pareadas 0.0000
+  colisiones_022: hw_corridas 0.0000 · hw_pareadas 0.0000 · replica_pareadas 0.0000
+  frac_cbf: hw_corridas 0.2329 · hw_pareadas 0.2329 · replica_pareadas 0.2329
+  n_escape: hw_corridas 30.2000 · hw_pareadas 30.2000 · replica_pareadas 30.2000
+
+CRITERIO DE CIERRE DE SEGURIDAD (§2; no mira la cobertura)
+  tomas corridas con contacto (< 0.15 m, obstáculo o entre agentes): 0 
+  cerró la campaña por el criterio: no — fin del ensayo 1e
+
+COSTO DEL OBSTÁCULO (§5): réplica con − sin obstáculo
+  -0.0182 ± 0.0025, IC95 [-0.0213, -0.0151] (n = 5), mediana -0.0177, positivas 0/5, Wilcoxon p = 0.0625
+  d_pared_con_menos_sin +0.0000 · frac_cbf_con_menos_sin +0.0000 · hw_menos_replica_sin -0.0096
+  El costo es condicional a los arranques de la campaña (blancos a ≥ 0.65 m del 4 medido, chequeo de arranque a 0.50 m) y a la trayectoria medida del 4, que incluye los frenos del hw.
+
+30-09 (§6, sólo descriptivo)
+  cobertura hw 0.3452 ± 0.0428 (n = 50)
+  brecha por pares: +0.0077 ± 0.0432, IC95 [-0.0046, +0.0200] (n = 50), mediana +0.0028, positivas 29/50, Wilcoxon p = 0.4258
+  brecha por escenario: +0.0123 ± 0.0308, IC95 [-0.0073, +0.0318] (n = 12), mediana +0.0089, positivas 8/12, Wilcoxon p = 0.2334
+  d_pared hw − réplica: -0.0355 ± 0.0172, IC95 [-0.0404, -0.0306] (n = 50), mediana -0.0412, positivas 1/50, Wilcoxon p = 0.0000
+
+DECLARACIONES (§8)
+  col_obst_origen_incluidas: {'proyeccion': 5}
+  tomas_obstaculo_no_proyeccion: -
+  tomas_con_rampa: [1, 4]
+  pausas_de_seguridad: -
+  correcciones: -
+  candados_liberados: -
+  sesiones: [{'id_sesion': 'L2_20261010_081427', 'fecha': '2026-10-10T08:14:27', 'tipo': 'apertura', 'motivo': 'hora de fin 2026-10-10 10:14'}, {'id_sesion': 'L2_20261010_081427', 'fecha': '2026-10-10T08:17:05', 'tipo': 'cierre_sesion', 'motivo': 'interrumpida (Ctrl+C)'}, {'id_sesion': 'L2_20261010_081705', 'fecha': '2026-10-10T08:17:05', 'tipo': 'apertura', 'motivo': 'hora de fin 2026-10-10 10:14'}, {'id_sesion': 'L2_20261010_081705', 'fecha': '2026-10-10T08:22:56', 'tipo': 'cierre_sesion', 'motivo': 'fin de la sesión'}]
+  cierre_campana: [{'fecha': '2026-10-10T08:22:56', 'motivo': 'fin del ensayo 1e'}]
+  reservas_marcadas_por_el_analisis: -
+  filas_descartadas_del_libro: -
+  corridas_marcadas_interrumpidas: -
+  cierre_b_excluidas: -
+  incluidas_sin_par: -
+  incluidas_sin_replica_sin_obstaculo: -
+  incluidas_sin_replica_tau_045: -
+  advertencias_replica: -
+  pasadas_suplementarias: -
+  replica_sha256_pila: ['FALSA']
+  replica_corridas_antes_del_cierre: -
+  configuracion_por_sesion: [{'id_sesion': 'L2_20261010_081427', 'offsets_deg': {'1': 92.1293, '5': 92.1293, '8': 92.1293, '6': 92.1293, '9': 92.1293, '4': 92.1293}, 'sha256': {'config_robotat.py': '060eda078f135c8dbbce3ca40661e2a60912cca3c5922003a1ac45227ab5dde1', 'calibracion_medida.json': '9d1033124c2646ffad07863dc65a12af4f530f3aaceefbdc0ac793f8ce73db66'}}, {'id_sesion': 'L2_20261010_081705', 'offsets_deg': {'1': 92.1293, '5': 92.1293, '8': 92.1293, '6': 92.1293, '9': 92.1293, '4': 92.1293}, 'sha256': {'config_robotat.py': '060eda078f135c8dbbce3ca40661e2a60912cca3c5922003a1ac45227ab5dde1', 'calibracion_medida.json': '9d1033124c2646ffad07863dc65a12af4f530f3aaceefbdc0ac793f8ce73db66'}}]
+  replica_incompleta: -
+  replica_pilas_invalidas: ['FALSA']

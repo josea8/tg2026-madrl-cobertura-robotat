@@ -1,0 +1,196 @@
+EXPERIMENTO N — Costo de reducir la arena de 3,0 a 2,7 m
+100 semillas del protocolo (420000–420099), 500 pasos, deterministic=True, domain_rand=False, comm_radius=1,0.
+(a) política aislada: modelo_PRIMERO, reflexión, sin filtro ni escape.
+(b) configuración final: modelo_sanidad, bloqueante, CBF + escape de
+    TRES términos (como el coordinador desplegado).
+Diferencias PAREADAS por semilla; IC95 = media ± 1,96·EE; * = IC95 excluye 0.
+==============================================================================
+
+VERIFICACIÓN DE CONTROL
+  C1 (a) W=3,0 n=5: 0.6812908188 vs oficial 0,681291 |Δ|=1.81e-07
+  cruce por semilla (a) n=5 vs Exp I: 100/100 idénticas a 6 dec.
+  cruce por semilla (a) n=7 vs Exp I: 100/100 idénticas a 6 dec.
+  C2 (b) dos términos, 18 sem.: 0.5779647222 vs factorial (d) 0,5779647222
+
+GEOMETRÍA (calculada a priori)
+                         W=3,0          W=2,7
+  área [m²]              9,000000       7,290000
+  área libre punto mira  6,969600       5,475600   (W−0,36)²
+  densidad nominal       0,55555556     0,68587106  (+23,46 %)
+  densidad efectiva      0,71740129     0,91314194  (+27,28 %)
+  celda AoI (64×64) [m]  0,04687500     0,04218750
+  huella / área          0,00785398     0,00969627
+  n equivalente a W=3,0: nominal 6.172840, efectiva 6.364234
+
+TABLA — (a) POLÍTICA AISLADA, reflexión (media sobre 100 episodios)
+  métrica                                            a_W30_n5       a_W27_n5       a_W30_n6       a_W30_n7
+  cobertura AoI final                              0.68129082     0.73125107     0.72648968     0.75816936
+  cobertura por agente                             0.13625816     0.14625021     0.12108161     0.10830991
+  pares en colisión <0,15 m                        0.21000000     0.30000000     0.50000000     0.72000000
+  pares en colisión <0,22 m                        0.32000000     0.41000000     0.69000000     1.15000000
+  frac. agente-paso centro <0,18 m de pared        0.28112000     0.32877600     0.29883000     0.32272286
+  frac. agente-paso recortado (bloq.)              0.00000000     0.00000000     0.00000000     0.00000000
+  reflexiones por episodio (refl.)                45.74000000    54.42000000    59.67000000    76.11000000
+  d_min centro→pared [m]                           0.00023525     0.00017993     0.00015895     0.00015082
+  agente-eps con centro <0,18 m                    4.94000000     4.91000000     5.70000000     6.55000000
+  agente-eps con centro <0,075 m                   4.94000000     4.91000000     5.67000000     6.54000000
+  frac. intervención del filtro                    0.00000000     0.00000000     0.00000000     0.00000000
+    … atribuida a pared (h mín.)                   0.00000000     0.00000000     0.00000000     0.00000000
+    … atribuida a robot (h mín.)                   0.00000000     0.00000000     0.00000000     0.00000000
+    … con pared ligante en el óptimo               0.00000000     0.00000000     0.00000000     0.00000000
+    … con robot ligante en el óptimo               0.00000000     0.00000000     0.00000000     0.00000000
+  magnitud media de la modificación                0.00000000     0.00000000     0.00000000     0.00000000
+  fallbacks del QP por episodio                    0.00000000     0.00000000     0.00000000     0.00000000
+  activaciones del escape por episodio             0.00000000     0.00000000     0.00000000     0.00000000
+  frac. de ciclo en escape                         0.00000000     0.00000000     0.00000000     0.00000000
+  escapes infactibles por episodio                 0.00000000     0.00000000     0.00000000     0.00000000
+  escapes agotados por episodio                    0.00000000     0.00000000     0.00000000     0.00000000
+  frac. agente-decisión con vecino visible         0.35090400     0.41562000     0.43033333     0.51284000
+  distancia media entre agentes [m]                1.83754744     1.70133525     1.84071775     1.83866905
+  episodios con sorteo de respaldo                 0.00000000     0.00000000     0.00000000     0.00000000
+  d_min centro→pared, mínimo global [m]            0.00000100     0.00000241     0.00000122     0.00000100
+
+TABLA — (b) CONFIGURACIÓN FINAL, bloqueante (media sobre 100 episodios)
+  métrica                                           b3_W30_n5      b3_W27_n5      b3_W30_n6      b3_W30_n7
+  cobertura AoI final                              0.57004842     0.59909133     0.61420834     0.64502608
+  cobertura por agente                             0.11400968     0.11981827     0.10236806     0.09214658
+  pares en colisión <0,15 m                        0.00000000     0.00000000     0.00000000     0.00000000
+  pares en colisión <0,22 m                        0.00000000     0.00000000     0.00000000     0.00000000
+  frac. agente-paso centro <0,18 m de pared        0.00996800     0.01560400     0.01188667     0.01250571
+  frac. agente-paso recortado (bloq.)              0.00000000     0.00000000     0.00000000     0.00000000
+  reflexiones por episodio (refl.)                 0.00000000     0.00000000     0.00000000     0.00000000
+  d_min centro→pared [m]                           0.16365140     0.16455843     0.16290726     0.16143958
+  agente-eps con centro <0,18 m                    2.90000000     3.83000000     4.21000000     5.34000000
+  agente-eps con centro <0,075 m                   0.00000000     0.00000000     0.00000000     0.00000000
+  frac. intervención del filtro                    0.39656400     0.54105200     0.48760667     0.53026000
+    … atribuida a pared (h mín.)                   0.37410400     0.51884800     0.44832333     0.48484857
+    … atribuida a robot (h mín.)                   0.02246000     0.02220400     0.03928333     0.04541143
+    … con pared ligante en el óptimo               0.37523600     0.51961200     0.44937000     0.48647429
+    … con robot ligante en el óptimo               0.03780800     0.03797200     0.06331667     0.07768857
+  magnitud media de la modificación                0.25108755     0.26396632     0.25047651     0.25499959
+  fallbacks del QP por episodio                    0.00000000     0.00000000     0.00000000     0.00000000
+  activaciones del escape por episodio             9.00000000    14.20000000    13.21000000    16.76000000
+  frac. de ciclo en escape                         0.01868000     0.02901600     0.02313000     0.02528286
+  escapes infactibles por episodio                 0.07000000     0.06000000     0.09000000     0.11000000
+  escapes agotados por episodio                    0.00000000     0.00000000     0.02000000     0.00000000
+  frac. agente-decisión con vecino visible         0.43954000     0.46847600     0.54615333     0.60124286
+  distancia media entre agentes [m]                1.69475284     1.66007679     1.75942379     1.81024825
+  episodios con sorteo de respaldo                 0.00000000     0.00000000     0.00000000     0.00000000
+  d_min centro→pared, mínimo global [m]            0.13171086     0.14004731     0.13057746     0.12908788
+
+COMPARACIÓN PAREADA (a): W=2,7 − W=3,0, n=5, 100 semillas
+  métrica                                                  Δ                           IC95    >0   <0
+  cobertura AoI final                            +0.04996025 [  +0.04472896,   +0.05519154]*   96    4
+  cobertura por agente                           +0.00999205 [  +0.00894579,   +0.01103831]*   96    4
+  pares en colisión <0,15 m                      +0.09000000 [  -0.02176323,   +0.20176323]    16    6
+  pares en colisión <0,22 m                      +0.09000000 [  -0.03795087,   +0.21795087]    21   11
+  frac. agente-paso centro <0,18 m de pared      +0.04765600 [  +0.03894588,   +0.05636612]*   85   15
+  frac. agente-paso recortado (bloq.)            +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  reflexiones por episodio (refl.)               +8.68000000 [  +7.18240847,  +10.17759153]*   83   11
+  d_min centro→pared [m]                         -0.00005532 [  -0.00012191,   +0.00001127]    42   58
+  agente-eps con centro <0,18 m                  -0.03000000 [  -0.09506551,   +0.03506551]     4    7
+  agente-eps con centro <0,075 m                 -0.03000000 [  -0.09506551,   +0.03506551]     4    7
+  frac. intervención del filtro                  +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+    … atribuida a pared (h mín.)                 +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+    … atribuida a robot (h mín.)                 +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+    … con pared ligante en el óptimo             +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+    … con robot ligante en el óptimo             +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  magnitud media de la modificación              +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  fallbacks del QP por episodio                  +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  activaciones del escape por episodio           +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  frac. de ciclo en escape                       +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  escapes infactibles por episodio               +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  escapes agotados por episodio                  +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  frac. agente-decisión con vecino visible       +0.06471600 [  +0.05408962,   +0.07534238]*   87   13
+  distancia media entre agentes [m]              -0.13621218 [  -0.15019223,   -0.12223214]*    4   96
+  episodios con sorteo de respaldo               +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+
+COMPARACIÓN PAREADA (b): W=2,7 − W=3,0, n=5, 100 semillas
+  métrica                                                  Δ                           IC95    >0   <0
+  cobertura AoI final                            +0.02904290 [  +0.01404298,   +0.04404283]*   56   44
+  cobertura por agente                           +0.00580858 [  +0.00280860,   +0.00880857]*   56   44
+  pares en colisión <0,15 m                      +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  pares en colisión <0,22 m                      +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  frac. agente-paso centro <0,18 m de pared      +0.00563600 [  +0.00474217,   +0.00652983]*   92    7
+  frac. agente-paso recortado (bloq.)            +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  reflexiones por episodio (refl.)               +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  d_min centro→pared [m]                         +0.00090703 [  -0.00089678,   +0.00271085]    65   35
+  agente-eps con centro <0,18 m                  +0.93000000 [  +0.76225970,   +1.09774030]*   73    4
+  agente-eps con centro <0,075 m                 +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  frac. intervención del filtro                  +0.14448800 [  +0.12520664,   +0.16376936]*   95    5
+    … atribuida a pared (h mín.)                 +0.14474400 [  +0.12518729,   +0.16430071]*   94    6
+    … atribuida a robot (h mín.)                 -0.00025600 [  -0.00409649,   +0.00358449]    52   44
+    … con pared ligante en el óptimo             +0.14437600 [  +0.12477213,   +0.16397987]*   94    6
+    … con robot ligante en el óptimo             +0.00016400 [  -0.00777804,   +0.00810604]    49   49
+  magnitud media de la modificación              +0.01287877 [  +0.00721670,   +0.01854084]*   78   22
+  fallbacks del QP por episodio                  +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  activaciones del escape por episodio           +5.20000000 [  +4.49578722,   +5.90421278]*   91    4
+  frac. de ciclo en escape                       +0.01033600 [  +0.00886337,   +0.01180863]*   93    7
+  escapes infactibles por episodio               -0.01000000 [  -0.08099750,   +0.06099750]     6    7
+  escapes agotados por episodio                  +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  frac. agente-decisión con vecino visible       +0.02893600 [  +0.00498885,   +0.05288315]*   59   41
+  distancia media entre agentes [m]              -0.03467605 [  -0.05570362,   -0.01364849]*   37   63
+  episodios con sorteo de respaldo               +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+
+CONTRASTE CONTRA LA PREDICCIÓN POR DENSIDAD
+  Predicción por semilla desde las celdas W=3,0 de la MISMA semilla.
+  lin: interpolación lineal n=6→7 en n_eq nominal (6,172840)
+  lag: Lagrange por n=5,6,7 en n_eq nominal (sensibilidad)
+  efe: interpolación lineal n=6→7 en n_eq efectiva (6,364234)
+  Residuo = observado(2,7) − predicho. * = IC95 excluye 0.
+  --- configuración (a) ---
+  métrica                             obs 2,7     pred lin  residuo lin                         IC95      res lag     res efe
+  cobertura_aoi_final              0.73125107   0.73196518  -0.00071411 [ -0.00567369, +0.00424546]   -0.001681   -0.006777*
+  colisiones_015_por_par           0.03000000   0.03349794  -0.00349794 [ -0.01495071, +0.00795483]   -0.004311   -0.003680 
+  colisiones_022_por_par           0.04100000   0.04751440  -0.00651440 [ -0.02036840, +0.00733959]   -0.006889   -0.008191 
+  frac_agente_paso_banda_018       0.32877600   0.30295963  +0.02581637 [ +0.01860821, +0.03302453]*  +0.026258*  +0.021243*
+  cbf_frac_interv                  0.00000000   0.00000000  +0.00000000 [ +0.00000000, +0.00000000]   +0.000000   +0.000000 
+  cbf_frac_interv_pared_hmin       0.00000000   0.00000000  +0.00000000 [ +0.00000000, +0.00000000]   +0.000000   +0.000000 
+  cbf_frac_interv_robot_hmin       0.00000000   0.00000000  +0.00000000 [ +0.00000000, +0.00000000]   +0.000000   +0.000000 
+  escape_n_por_agente              0.00000000   0.00000000  +0.00000000 [ +0.00000000, +0.00000000]   +0.000000   +0.000000 
+  violaciones_margen_por_agente    0.98200000   0.94753086  +0.03446914 [ +0.01716835, +0.05176992]*  +0.036164*  +0.037203*
+  frac_embedding_activo            0.41562000   0.44459374  -0.02897374 [ -0.04075648, -0.01719101]*  -0.028754*  -0.044765*
+  --- configuración (b) ---
+  métrica                             obs 2,7     pred lin  residuo lin                         IC95      res lag     res efe
+  cobertura_aoi_final              0.59909133   0.61953486  -0.02044353 [ -0.03584275, -0.00504431]*  -0.021397*  -0.026342*
+  colisiones_015_por_par           0.00000000   0.00000000  +0.00000000 [ +0.00000000, +0.00000000]   +0.000000   +0.000000 
+  colisiones_022_por_par           0.00000000   0.00000000  +0.00000000 [ +0.00000000, +0.00000000]   +0.000000   +0.000000 
+  frac_agente_paso_banda_018       0.01560400   0.01199366  +0.00361034 [ +0.00272108, +0.00449960]*  +0.003517*  +0.003492*
+  cbf_frac_interv                  0.54105200   0.49497885  +0.04607315 [ +0.02894515, +0.06320115]*  +0.042614*  +0.037910*
+  cbf_frac_interv_pared_hmin       0.51884800   0.45463634  +0.06421166 [ +0.04562882, +0.08279450]*  +0.061517*  +0.057221*
+  cbf_frac_interv_robot_hmin       0.02220400   0.04034251  -0.01813851 [ -0.02871673, -0.00756029]*  -0.018903*  -0.019311*
+  escape_n_por_agente              2.84000000   2.23495885  +0.60504115 [ +0.46891615, +0.74116616]*  +0.590098*  +0.568175*
+  violaciones_margen_por_agente    0.76600000   0.71224280  +0.05375720 [ +0.02415717, +0.08335724]*  +0.049434*  +0.042046*
+  frac_embedding_activo            0.46847600   0.55567498  -0.08719898 [ -0.11082071, -0.06357725]*  -0.090882*  -0.097743*
+
+BRAZO DE DENSIDAD — configuración final a W=3,0 con n=5,6,7
+  (la configuración de tres capas nunca se había medido a otro cardinal)
+    n   cob. total  cob./agente   col015   col022   CBF frac   escapes  fallback   banda018
+    5   0.57004842   0.11400968    0.000    0.000   0.396564     9.000     0.000   0.009968
+    6   0.61420834   0.10236806    0.000    0.000   0.487607    13.210     0.000   0.011887
+    7   0.64502608   0.09214658    0.000    0.000   0.530260    16.760     0.000   0.012506
+  Política aislada (a) a W=3,0, mismo formato:
+    5   0.68129082   0.13625816    0.210    0.320
+    6   0.72648968   0.12108161    0.500    0.690
+    7   0.75816936   0.10830991    0.720    1.150
+
+PUENTE — detección del escape: TRES términos (desplegado) vs DOS
+  (factorial 2×2), configuración final, W=3,0, n=5, 18 semillas
+  420000–420017. Δ = tres − dos, pareado.
+  cobertura                    tres=  0.57796462 dos=  0.57796462 Δ=+0.00000000 [+0.00000000, +0.00000000]  distintas: 0/18
+  activaciones del escape      tres=  9.94444444 dos=  9.94444444 Δ=+0.00000000 [+0.00000000, +0.00000000]  distintas: 0/18
+  frac. de ciclo en escape     tres=  0.02048889 dos=  0.02048889 Δ=+0.00000000 [+0.00000000, +0.00000000]  distintas: 0/18
+  frac. intervención filtro    tres=  0.42893333 dos=  0.42893333 Δ=+0.00000000 [+0.00000000, +0.00000000]  distintas: 0/18
+  col. <0,15 m                 tres=  0.00000000 dos=  0.00000000 Δ=+0.00000000 [+0.00000000, +0.00000000]  distintas: 0/18
+  col. <0,22 m                 tres=  0.00000000 dos=  0.00000000 Δ=+0.00000000 [+0.00000000, +0.00000000]  distintas: 0/18
+  violaciones de margen        tres=  3.16666667 dos=  3.16666667 Δ=+0.00000000 [+0.00000000, +0.00000000]  distintas: 0/18
+  d_min centro→pared           tres=  0.16405927 dos=  0.16405927 Δ=+0.00000000 [+0.00000000, +0.00000000]  distintas: 0/18
+  efecto conjunto (d − a) con escape de dos (factorial original)  : +0.13534334 [+0.09296847, +0.17771822]*
+  efecto conjunto (d − a) con escape de tres (desplegado)         : +0.13534334 [+0.09296847, +0.17771822]*
+
+CRITERIO OPERATIVO (fracción de intervención > 0,5 ⇒ atascos altos)
+  b3_W30_n5    media 0.39656400  máx. episodio 0.57560000  episodios > 0,5: 13/100
+  b3_W27_n5    media 0.54105200  máx. episodio 0.68560000  episodios > 0,5: 72/100
+  b3_W30_n6    media 0.48760667  máx. episodio 0.68233333  episodios > 0,5: 46/100
+  b3_W30_n7    media 0.53026000  máx. episodio 0.67085714  episodios > 0,5: 69/100
+

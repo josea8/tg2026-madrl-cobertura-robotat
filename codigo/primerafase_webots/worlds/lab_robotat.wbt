@@ -1,0 +1,98 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "../protos/Pololu3piKin.proto"
+
+WorldInfo {
+  basicTimeStep 10
+}
+Viewpoint {
+  orientation -0.4361130076829961 0.48206096816246363 0.7598833249282153 1.744346265750423
+  position -0.39142159867184184 -3.9694436769836723 5.426116237234703
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 3 3
+  wallThickness 0.1
+  wallHeight 0.15
+}
+DEF p3pi_0 Pololu3piKin {
+  translation -1 -1 0
+  name "p3pi_0"
+}
+DEF p3pi_1 Pololu3piKin {
+  translation -1 1 0
+  name "p3pi_1"
+}
+DEF p3pi_2 Pololu3piKin {
+  translation 1 -1 0
+  name "p3pi_2"
+}
+DEF p3pi_3 Pololu3piKin {
+  translation 1 1 0
+  name "p3pi_3"
+}
+DEF p3pi_4 Pololu3piKin {
+  name "p3pi_4"
+}
+DEF obs1 Solid {
+  translation -0.5 -0.5 0.12
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+        emissiveColor 1 0 0
+      }
+      geometry Sphere {
+        radius 0.05
+      }
+    }
+  ]
+  name "obs1"
+}
+DEF obs2 Solid {
+  translation 0 0.5 0.12
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 1 0
+        roughness 1
+        metalness 0
+        emissiveColor 0 1 0
+      }
+      geometry Sphere {
+        radius 0.05
+      }
+    }
+  ]
+  name "obs2"
+}
+DEF obs3 Solid {
+  translation 0.5 -0.5 0.12
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        roughness 1
+        metalness 0
+        emissiveColor 0 0 1
+      }
+      geometry Sphere {
+        radius 0.05
+      }
+    }
+  ]
+  name "obs3"
+}
+Robot {
+  name "supervisor"
+  controller "supervisor_cobertura"
+  supervisor TRUE
+}

@@ -1,0 +1,97 @@
+{
+  "condicion": "cpu_control",
+  "sufijo": "piloto_bateria",
+  "dispositivo": "cpu",
+  "hardware": {
+    "fecha": "2026-09-10T12:30:07",
+    "so": "Windows 11 (10.0.26200)",
+    "python": "3.13.14",
+    "ejecutable": "C:\\Users\\velas\\venv_lab4\\Scripts\\python.exe",
+    "torch": "2.11.0+cu128",
+    "torch_hilos": 8,
+    "torch_hilos_interop": 8,
+    "OMP_NUM_THREADS": "12",
+    "MKL_NUM_THREADS": null,
+    "cpu": {
+      "nombre": "13th Gen Intel(R) Core(TM) i5-13420H",
+      "nucleos_fisicos": 8,
+      "nucleos_logicos": 12,
+      "mhz_nominal": 2100,
+      "carga_pct_al_arrancar": 13
+    },
+    "ram_GiB": 16.0,
+    "gpu": {
+      "disponible": true,
+      "driver": "592.82",
+      "memoria_total_nvidia_smi": "6141 MiB",
+      "nombre": "NVIDIA GeForce RTX 4050 Laptop GPU",
+      "memoria_total_MiB_torch": 6140.5,
+      "capacidad_computo": "8.9",
+      "multiprocesadores": 20,
+      "cuda_runtime_torch": "12.8",
+      "cudnn": 91900
+    },
+    "alimentacion_BatteryStatus|carga": "1|30",
+    "gpu_nvidia_smi_al_arrancar": "0 %, P3, 1755 MHz, 3105 MHz, 9.43 W, 39",
+    "gpu_nvidia_smi_al_terminar": "0 %, P3, 1755 MHz, 3105 MHz, 9.40 W, 38"
+  },
+  "bufer": {
+    "ruta": "bufer_poblado_10240.npz",
+    "transiciones": 10240
+  },
+  "diseno": {
+    "calentamiento_por_celda": 50,
+    "reps_B_le_1024": 200,
+    "reps_B_gt_1024": 60,
+    "minilotes": [
+      64,
+      2048,
+      8192
+    ],
+    "arquitecturas": [
+      "256x256",
+      "1024x1024"
+    ],
+    "parametros": {
+      "256x256": 145157,
+      "1024x1024": 2153477
+    },
+    "orden_celdas": "barajado con semilla fija por sufijo (anti deriva)"
+  },
+  "control_banco": {
+    "transiciones": 2560,
+    "minilotes_por_train": 520,
+    "llamadas_descartadas": 2,
+    "llamadas_medidas": 10,
+    "ms_por_minilote_por_llamada": [
+      24.87316230768696,
+      24.262951538436866,
+      23.910765576930807,
+      23.386085769239937,
+      23.773836923087053,
+      23.235651346196672,
+      23.62431134612192,
+      24.241660000048935,
+      22.668875192343528,
+      24.941238846132855
+    ],
+    "ms_por_minilote_mediana": 23.84230125000893,
+    "ms_por_minilote_min": 22.668875192343528,
+    "banco_ms_mediana_B64": 22.23960000264924,
+    "desvio_relativo": 0.06722091255176509,
+    "tolerancia": 0.2,
+    "aprobado": true
+  },
+  "segundos_barrido": 430.51193210002384,
+  "carga_cpu": {
+    "n_muestras": 306,
+    "intervalo_s": 2.0,
+    "ocupacion_sistema_pct_media": 42.44854124897596,
+    "ocupacion_sistema_pct_max": 60.13029315960912,
+    "ocupacion_sistema_pct_p90": 49.7420777458493,
+    "proceso_principal_nucleos_medios": 2.8939028631862516,
+    "proceso_principal_pct_sistema": 24.115857193218762,
+    "ajena_mas_hijos_pct_sistema_media": 18.332684055757195,
+    "nucleos_logicos": 12
+  }
+}

@@ -1,0 +1,17 @@
+EXPERIMENTO A — Atascos de pared con física real (Webots)
+1 robot, lazo cerrado con modelo_sanidad, deterministic=True
+Filtro CBF de ejecución     : INACTIVO
+Detector: dpos<1 mm y dθ<0.5° por 20 pasos consecutivos (solo registro)
+==================================================================
+Episodios ejecutados        : 18
+Episodios con atasco        : 3  (tasa = 16.7%)
+Tiempo medio al atasco      : 31.3 s
+Atascos donde política pidió v<0 : 0/3
+Intervenciones CBF por episodio  : media=0.0  max=0
+Dist. mínima centro→pared [m]    : min=0.0738  media=0.5125  (sin contacto si > 0.075)
+
+Interpretación: esta política fue entrenada CON bordes
+bloqueantes (modo_borde='bloqueante'), por lo que no
+depende del rebote idealizado. Comparar contra la corrida
+baseline con modelo_PRIMERO (mismas 18 semillas) para
+cuantificar la transferencia de la evitación aprendida.

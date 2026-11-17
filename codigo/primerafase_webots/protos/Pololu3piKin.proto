@@ -1,0 +1,150 @@
+#VRML_SIM R2025a utf8
+
+# Pololu3piKin — versión PURAMENTE CINEMÁTICA del Pololu 3pi+.
+#
+# Diferencias respecto a Pololu3pi.proto:
+#   - El nodo raíz Robot tiene `physics NULL` (sin dinámica).
+#   - No se usan HingeJoint/BallJoint/RotationalMotor: las llantas y caster balls
+#     son decoración estática (Pose + Shape) — el supervisor mueve el cuerpo
+#     entero seteando `translation` y `rotation` cada paso.
+#   - No hay `boundingObject` en ningún nivel (no se simulan colisiones).
+#
+# Marco local PRESERVADO respecto al proto original:
+#   - Las "llantas" se ubican en x = ±0.07, eje paralelo al eje X global.
+#   - Los caster balls se ubican en y = ±0.06.
+#   - Por tracción diferencial, el "adelante" del robot es +Y del marco local
+#     (perpendicular al eje de las ruedas).
+#   - El supervisor compensa con un offset de -π/2 al construir el campo
+#     `rotation` (ver supervisor_cobertura.py:OFFSET_PROTO_RAD).
+#
+# Uso típico desde un .wbt:
+#   DEF p3pi_0 Pololu3piKin {
+#     translation 0 0 0
+#     rotation 0 0 1 0
+#     name "p3pi_0"
+#     controller "<none>"
+#   }
+
+PROTO Pololu3piKin [
+  field SFVec3f    translation 0 0 0
+  field SFRotation rotation    0 0 1 0
+  field SFString   name        "p3pi"
+  field SFString   controller  "<none>"
+  field SFColor    bodyColor   0.85 0.85 0.85
+]
+{
+  Robot {
+    translation IS translation
+    rotation    IS rotation
+    name        IS name
+    controller  IS controller
+    supervisor  FALSE
+    physics     NULL
+    children [
+      # ── Chasis (cilindro) ───────────────────────────────────────────────────
+      Pose {
+        translation 0 0 0.0255
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor IS bodyColor
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.019
+              radius 0.075
+            }
+          }
+        ]
+      }
+      # ── Bumper (STL, escala 1mm → 1m) ──────────────────────────────────────
+      Pose {
+        translation 0 0 0.016
+        children [
+          Shape {
+            appearance PBRAppearance {
+              roughness 1
+              metalness 0
+            }
+            geometry Mesh {
+              url [
+                "../Modelos_3D/Pololu/BumperV2.stl"
+              ]
+            }
+            castShadows FALSE
+          }
+        ]
+      }
+      # ── Llanta derecha (decorativa) ────────────────────────────────────────
+      # Cilindro con eje original +Y → rotado a +X para verse como rueda.
+      Pose {
+        translation 0.07 0 0.037
+        rotation 0 0 1 1.5708
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0 0 0
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.01
+              radius 0.035
+            }
+          }
+        ]
+      }
+      # ── Llanta izquierda (decorativa) ──────────────────────────────────────
+      Pose {
+        translation -0.07 0 0.037
+        rotation 0 0 1 1.5708
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0 0 0
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.01
+              radius 0.035
+            }
+          }
+        ]
+      }
+      # ── Caster frontal (+Y) ────────────────────────────────────────────────
+      Pose {
+        translation 0 0.06 0.013
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.333333 0.333333 0.498039
+              roughness 1
+              metalness 0
+            }
+            geometry Sphere {
+              radius 0.01
+            }
+          }
+        ]
+      }
+      # ── Caster trasero (-Y) ────────────────────────────────────────────────
+      Pose {
+        translation 0 -0.06 0.013
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.333333 0.333333 0.498039
+              roughness 1
+              metalness 0
+            }
+            geometry Sphere {
+              radius 0.01
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

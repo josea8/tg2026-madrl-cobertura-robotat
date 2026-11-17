@@ -1,0 +1,20 @@
+{
+ "cond": "panel",
+ "codigo": 0,
+ "n": 300,
+ "aux_cpu_frac_de_un_nucleo": 0.985,
+ "lat_ms": {
+  "p50": 0.337,
+  "p95": 0.604,
+  "media": 0.373
+ },
+ "computo_ms": {
+  "p50": 5.855,
+  "p95": 9.689,
+  "media": 6.257
+ },
+ "ciclo_ms": {
+  "p50": 6.253,
+  "p95": 10.068
+ }
+}

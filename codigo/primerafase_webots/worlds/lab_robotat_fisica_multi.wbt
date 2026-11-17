@@ -1,0 +1,451 @@
+#VRML_SIM R2025a utf8
+
+# lab_robotat_fisica_multi.wbt
+# ============================================================================
+# ARCHIVO GENERADO por worlds/generar_mundo_multi.py — no editar a mano.
+#   python generar_mundo_multi.py 2
+#
+# Enjambre multi-robot con física real: 2 Pololus + coordinador.
+#
+# Arquitectura (impuesta por Webots: un controlador sólo comanda SUS motores):
+#   - 2 nodos Pololu con física, cada uno con `controlador_agente`
+#     (NO supervisores). Devices: motor_1, motor_2, gps, compass, emitter,
+#     receiver.
+#   - 1 nodo Robot "coordinador" SIN geometría, supervisor TRUE. Corre el env,
+#     la política y mueve las esferas de hotspots.
+#
+# Comunicación:
+#   canal 1 (subida) : agentes → coordinador, poses en cada tick.
+#   canal 2 (bajada) : coordinador → agentes, acciones cada 10 ticks + resets.
+#
+# El coordinador AUTODETECTA la cantidad de agentes contando nodos DEF p3pi_i,
+# así que el mismo controlador sirve para cualquier N sin editar constantes.
+#
+# Sincronía: basicTimeStep 10 ms ⇒ una decisión del env (dt=0.1 s) = 10 ticks.
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+
+WorldInfo {
+  basicTimeStep 10
+  coordinateSystem "ENU"
+  gravity 9.81
+}
+Viewpoint {
+  orientation -0.4361130076829961 0.48206096816246363 0.7598833249282153 1.744346265750423
+  position -0.39142159867184184 -3.9694436769836723 5.426116237234703
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 3 3
+  wallThickness 0.1
+  wallHeight 0.15
+}
+
+# ── AGENTE 0 ──────────────────────────────────────────────────────────
+DEF p3pi_0 Robot {
+  translation 0.9000 0.0000 0
+  rotation 0 0 1 0
+  name "p3pi_0"
+  controller "controlador_agente"
+  contactMaterial "plastic"
+  selfCollision TRUE
+  children [
+    DEF Body_0 Pose {
+      translation 0 0 0.0255
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.9 0.3 0.3
+            roughness 1
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.019
+            radius 0.075
+          }
+        }
+      ]
+    }
+    Compass {
+      rotation 0 0 1 1.5707996938995747
+    }
+    GPS {
+      rotation 0 0 1 1.5707996938995747
+    }
+    Emitter {
+      name "emitter"
+      channel 1
+    }
+    Receiver {
+      name "receiver"
+      channel 2
+    }
+    Pose {
+      translation 0 0 0.016
+      children [
+        Shape {
+          appearance PBRAppearance {
+            roughness 1
+            metalness 0
+          }
+          geometry Mesh {
+            url [
+              "../Modelos_3D/Pololu/BumperV2.stl"
+            ]
+            scale 0.001 0.001 0.001
+          }
+          castShadows FALSE
+        }
+      ]
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor 0.07 0 0.037
+      }
+      device [
+        RotationalMotor {
+          name "motor_1"
+          maxVelocity 84
+        }
+      ]
+      endPoint Solid {
+        translation 0.07 0 0.037
+        rotation -0.6667195291850914 0.33418188717234326 -0.6661888138426982 2.4960856161980307
+        children [
+          DEF wheel_1 Shape {
+            appearance PBRAppearance {
+              baseColor 0 0 0
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.01
+              radius 0.035
+            }
+          }
+        ]
+        boundingObject USE wheel_1
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor -0.07 0 0.037
+      }
+      device [
+        RotationalMotor {
+          name "motor_2"
+          maxVelocity 84
+        }
+      ]
+      endPoint Solid {
+        translation -0.07 0 0.037
+        rotation 0 1 0 1.57
+        children [
+          DEF wheel_2 Shape {
+            appearance PBRAppearance {
+              baseColor 0 0 0
+              roughness 1
+              metalness 0
+            }
+            geometry Cylinder {
+              height 0.01
+              radius 0.035
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE wheel_2
+        physics Physics {
+        }
+      }
+    }
+    BallJoint {
+      jointParameters BallJointParameters {
+        anchor 0 0.06 0.013
+      }
+      jointParameters2 JointParameters {
+        axis 1 0 0
+      }
+      jointParameters3 JointParameters {
+        axis 0 1 0
+      }
+      endPoint Solid {
+        translation 0 0.06 0.013
+        children [
+          DEF CasterBall_1 Shape {
+            appearance PBRAppearance {
+              baseColor 0.333333 0.333333 0.498039
+              roughness 1
+              metalness 0
+            }
+            geometry Sphere {
+              radius 0.01
+            }
+          }
+        ]
+        name "solid(2)"
+        boundingObject USE CasterBall_1
+        physics Physics {
+        }
+      }
+    }
+    BallJoint {
+      jointParameters BallJointParameters {
+        anchor 0 -0.06 0.013
+      }
+      jointParameters2 JointParameters {
+        axis 1 0 0
+      }
+      jointParameters3 JointParameters {
+        axis 0 1 0
+      }
+      endPoint Solid {
+        translation 0 -0.06 0.013
+        children [
+          DEF CasterBall_2 Shape {
+            appearance PBRAppearance {
+              baseColor 0.333333 0.333333 0.498039
+              roughness 1
+              metalness 0
+            }
+            geometry Sphere {
+              radius 0.01
+            }
+          }
+        ]
+        name "solid(3)"
+        boundingObject USE CasterBall_2
+        physics Physics {
+        }
+      }
+    }
+  ]
+  boundingObject USE Body_0
+  physics Physics {
+  }
+}
+
+# ── AGENTE 1 ──────────────────────────────────────────────────────────
+DEF p3pi_1 Robot {
+  translation -0.9000 0.0000 0
+  rotation 0 0 1 0
+  name "p3pi_1"
+  controller "controlador_agente"
+  contactMaterial "plastic"
+  selfCollision TRUE
+  children [
+    DEF Body_1 Pose {
+      translation 0 0 0.0255
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 0.3 0.5 0.9
+            roughness 1
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.019
+            radius 0.075
+          }
+        }
+      ]
+    }
+    Compass {
+      rotation 0 0 1 1.5707996938995747
+    }
+    GPS {
+      rotation 0 0 1 1.5707996938995747
+    }
+    Emitter {
+      name "emitter"
+      channel 1
+    }
+    Receiver {
+      name "receiver"
+      channel 2
+    }
+    Pose {
+      translation 0 0 0.016
+      children [
+        Shape {
+          appearance PBRAppearance {
+            roughness 1
+            metalness 0
+          }
+          geometry Mesh {
+            url [
+              "../Modelos_3D/Pololu/BumperV2.stl"
+            ]
+            scale 0.001 0.001 0.001
+          }
+          castShadows FALSE
+        }
+      ]
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor 0.07 0 0.037
+      }
+      device [
+        RotationalMotor {
+          name "motor_1"
+          maxVelocity 84
+        }
+      ]
+      endPoint Solid {
+        translation 0.07 0 0.037
+        rotation -0.6667195291850914 0.33418188717234326 -0.6661888138426982 2.4960856161980307
+        children [
+          USE wheel_1
+        ]
+        boundingObject USE wheel_1
+        physics Physics {
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        anchor -0.07 0 0.037
+      }
+      device [
+        RotationalMotor {
+          name "motor_2"
+          maxVelocity 84
+        }
+      ]
+      endPoint Solid {
+        translation -0.07 0 0.037
+        rotation 0 1 0 1.57
+        children [
+          USE wheel_2
+        ]
+        name "solid(1)"
+        boundingObject USE wheel_2
+        physics Physics {
+        }
+      }
+    }
+    BallJoint {
+      jointParameters BallJointParameters {
+        anchor 0 0.06 0.013
+      }
+      jointParameters2 JointParameters {
+        axis 1 0 0
+      }
+      jointParameters3 JointParameters {
+        axis 0 1 0
+      }
+      endPoint Solid {
+        translation 0 0.06 0.013
+        children [
+          USE CasterBall_1
+        ]
+        name "solid(2)"
+        boundingObject USE CasterBall_1
+        physics Physics {
+        }
+      }
+    }
+    BallJoint {
+      jointParameters BallJointParameters {
+        anchor 0 -0.06 0.013
+      }
+      jointParameters2 JointParameters {
+        axis 1 0 0
+      }
+      jointParameters3 JointParameters {
+        axis 0 1 0
+      }
+      endPoint Solid {
+        translation 0 -0.06 0.013
+        children [
+          USE CasterBall_2
+        ]
+        name "solid(3)"
+        boundingObject USE CasterBall_2
+        physics Physics {
+        }
+      }
+    }
+  ]
+  boundingObject USE Body_1
+  physics Physics {
+  }
+}
+
+# ── HOTSPOTS ────────────────────────────────────────────────────────────────
+DEF obs1 Solid {
+  translation -0.5 -0.5 0.12
+  name "obs1"
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        emissiveColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.05
+      }
+    }
+  ]
+}
+DEF obs2 Solid {
+  translation 0.0 0.5 0.12
+  name "obs2"
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 1 0
+        emissiveColor 0 1 0
+        roughness 1
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.05
+      }
+    }
+  ]
+}
+DEF obs3 Solid {
+  translation 0.5 -0.5 0.12
+  name "obs3"
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        emissiveColor 0 0 1
+        roughness 1
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.05
+      }
+    }
+  ]
+}
+
+# ── COORDINADOR — supervisor sin geometría ──────────────────────────────────
+Robot {
+  name "coordinador"
+  controller "coordinador_enjambre"
+  supervisor TRUE
+  children [
+    Emitter {
+      name "emitter"
+      channel 2
+    }
+    Receiver {
+      name "receiver"
+      channel 1
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "configuracion": {
+    "presupuesto_pasos": 200000,
+    "n_episodios_eval": 20,
+    "frecuencia_eval": 20000,
+    "n_envs": 4,
+    "semilla": 42,
+    "condicion_borde": "reflexion_elastica",
+    "hparams": {
+      "learning_rate": 6.855028382061343e-05,
+      "gamma": 0.9844980522475681,
+      "clip_range": 0.20631649325745388,
+      "n_steps": 128,
+      "batch_size": 64,
+      "n_epochs": 13,
+      "ent_coef": 0.022872258876193912,
+      "gae_lambda": 0.9608422073341644,
+      "vf_coef": 0.5,
+      "max_grad_norm": 0.5
+    },
+    "pesos_recompensa": {
+      "lambda_gradient": 0.5622468083379316,
+      "lambda_entropy": 1.1403296484190344,
+      "lambda_ibrm": 0.48380314172632155,
+      "lambda_cbf": 2.9655314099141474
+    }
+  },
+  "costos_s": {
+    "construccion_entornos": 10.987420082092285,
+    "learn_total": 233.0282232761383,
+    "entrenamiento_puro": 233.0282232761383,
+    "evaluaciones_periodicas": 0.0,
+    "n_evaluaciones": 0,
+    "protocolo_cobertura_mejor": null,
+    "protocolo_cobertura_final": 41.23595714569092,
+    "total_prueba": 298.0692346096039
+  },
+  "cobertura_mejor_punto_control": null,
+  "cobertura_punto_control_final": {
+    "ruta_modelo": "C:\\Users\\velas\\OneDrive\\Documents\\tesis\\fase_preliminar2\\experimento_J\\resultados\\fase0\\modelo_final.zip",
+    "n_episodios": 20,
+    "duracion_s": 41.23595714569092,
+    "agregados": {
+      "cobertura_aoi_final": {
+        "media": 0.6835938274860383,
+        "std": 0.022114543119221765,
+        "min": 0.6157529354095459,
+        "max": 0.7244028449058533
+      },
+      "n_colisiones": {
+        "media": 0.2,
+        "std": 0.523148363780597,
+        "min": 0.0,
+        "max": 2.0
+      },
+      "tiempo_primera_cobertura_50pct": {
+        "media": 163.2,
+        "std": 14.87703988666676,
+        "min": 131.0,
+        "max": 192.0
+      }
+    },
+    "episodios": [
+      {
+        "cobertura_aoi_final": 0.6918690800666809,
+        "n_colisiones": 0.0,
+        "tiempo_primera_cobertura_50pct": 162.0
+      },
+      {
+        "cobertura_aoi_final": 0.6781532764434814,
+        "n_colisiones": 0.0,
+        "tiempo_primera_cobertura_50pct": 160.0
+      },
+      {
+        "cobertura_aoi_final": 0.6727854311466217,
+        "n_colisiones": 0.0,
+        "tiempo_primera_cobertura_50pct": 174.0
+      },
+      {
+        "cobertura_aoi_final": 0.6908542811870575,
+        "n_colisiones": 0.0,
+        "tiempo_primera_cobertura_50pct": 155.0
+      },
+      {
+        "cobertura_aoi_final": 0.7060825526714325,
+        "n_colisiones": 0.0,
+        "tiempo_primera_cobertura_50pct": 162.0
+      },
+      {
+        "cobertura_aoi_final": 0.7062656283378601,
+        "n_colisiones": 0.0,
+        "tiempo_primera_cobertura_50pct": 192.0
+      },
+      {
+        "cobertura_aoi_final": 0.6836386620998383,
+        "n_colisiones": 0.0,
+        "tiempo_primera_cobertura_50pct": 176.0
+      },
+      {
+        "cobertura_aoi_final": 0.6679510474205017,
+        "n_colisiones": 0.0,
+        "tiempo_primera_cobertura_50pct": 155.0
+      },
+      {
+        "cobertura_aoi_final": 0.6972938776016235,
+        "n_colisiones": 0.0,
+        "tiempo_primera_cobertura_50pct": 155.0
+      },
+      {
+        "cobertura_aoi_final": 0.6986814141273499,
+        "n_colisiones": 1.0,
+        "tiempo_primera_cobertura_50pct": 171.0
+      },
+      {
+        "cobertura_aoi_final": 0.6703599095344543,
+        "n_colisiones": 1.0,
+        "tiempo_primera_cobertura_50pct": 166.0
+      },
+      {
+        "cobertura_aoi_final": 0.6765593886375427,
+        "n_colisiones": 0.0,
+        "tiempo_primera_cobertura_50pct": 147.0
+      },
+      {
+        "cobertura_aoi_final": 0.6908920705318451,
+        "n_colisiones": 0.0,
+        "tiempo_primera_cobertura_50pct": 149.0
+      },
+      {
+        "cobertura_aoi_final": 0.6750701665878296,
+        "n_colisiones": 0.0,
+        "tiempo_primera_cobertura_50pct": 186.0
+      },
+      {
+        "cobertura_aoi_final": 0.6774485111236572,
+        "n_colisiones": 2.0,
+        "tiempo_primera_cobertura_50pct": 186.0
+      },
+      {
+        "cobertura_aoi_final": 0.7244028449058533,
+        "n_colisiones": 0.0,
+        "tiempo_primera_cobertura_50pct": 131.0
+      },
+      {
+        "cobertura_aoi_final": 0.6697539985179901,
+        "n_colisiones": 0.0,
+        "tiempo_primera_cobertura_50pct": 164.0
+      },
+      {
+        "cobertura_aoi_final": 0.6742339730262756,
+        "n_colisiones": 0.0,
+        "tiempo_primera_cobertura_50pct": 161.0
+      },
+      {
+        "cobertura_aoi_final": 0.7038275003433228,
+        "n_colisiones": 0.0,
+        "tiempo_primera_cobertura_50pct": 165.0
+      },
+      {
+        "cobertura_aoi_final": 0.6157529354095459,
+        "n_colisiones": 0.0,
+        "tiempo_primera_cobertura_50pct": 147.0
+      }
+    ]
+  }
+}

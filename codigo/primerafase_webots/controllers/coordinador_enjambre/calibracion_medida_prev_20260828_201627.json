@@ -1,0 +1,319 @@
+{
+  "_etapas": {
+    "0": {
+      "veredicto": "OK",
+      "cuando": "2026-08-26T12:09:48",
+      "detalle": "20/20 poses válidas"
+    },
+    "1": {
+      "veredicto": "OK",
+      "cuando": "2026-08-26T12:09:50",
+      "detalle": "robot 1 ↔ marcador 1"
+    },
+    "2": {
+      "veredicto": "ADVERTENCIA",
+      "cuando": "2026-08-26T12:12:56",
+      "detalle": "escala 0.4168 no es ni 1 ni 0.001"
+    },
+    "3": {
+      "veredicto": "FALLO",
+      "cuando": "2026-08-26T12:14:46",
+      "detalle": "el robot recorrió 3 mm: no se mueve o la escala está mal"
+    }
+  },
+  "_historial": [
+    {
+      "cuando": "2026-08-19T11:36:22",
+      "etapa": "etapa 0",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-19T11:39:54",
+      "etapa": "etapa 0",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-21T19:18:00",
+      "etapa": "etapa 0",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-21T19:35:59",
+      "etapa": "etapa 0",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-21T19:37:45",
+      "etapa": "etapa 0",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-21T19:40:02",
+      "etapa": "etapa 0",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-21T20:03:29",
+      "etapa": "etapa 0",
+      "campos": [
+        "id_robot"
+      ]
+    },
+    {
+      "cuando": "2026-08-21T20:03:29",
+      "etapa": "etapa 0",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-21T20:06:16",
+      "etapa": "etapa 1",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-21T20:07:11",
+      "etapa": "etapa 1",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-21T20:20:27",
+      "etapa": "etapa 1",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-21T20:21:30",
+      "etapa": "etapa 1",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-21T20:31:06",
+      "etapa": "etapa 1",
+      "campos": [
+        "id_marcador",
+        "id_robot"
+      ]
+    },
+    {
+      "cuando": "2026-08-21T20:31:06",
+      "etapa": "etapa 1",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-25T11:43:18",
+      "etapa": "etapa 2",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-25T11:45:49",
+      "etapa": "etapa 2",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-25T11:53:45",
+      "etapa": "etapa 2",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-25T11:55:37",
+      "etapa": "etapa 2",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-25T12:12:21",
+      "etapa": "etapa 2",
+      "campos": [
+        "escala_posicion",
+        "rotacion_marco_rad",
+        "traslacion_x_m",
+        "traslacion_y_m"
+      ]
+    },
+    {
+      "cuando": "2026-08-25T12:12:21",
+      "etapa": "etapa 2",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-25T12:17:12",
+      "etapa": "etapa 0",
+      "campos": [
+        "id_robot"
+      ]
+    },
+    {
+      "cuando": "2026-08-25T12:17:12",
+      "etapa": "etapa 0",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-25T12:22:37",
+      "etapa": "etapa 2",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-25T12:23:18",
+      "etapa": "etapa 2",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-25T12:23:37",
+      "etapa": "etapa 2",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-25T12:24:43",
+      "etapa": "etapa 2",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-25T12:50:32",
+      "etapa": "etapa 0",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-25T12:53:49",
+      "etapa": "etapa 0",
+      "campos": [
+        "id_robot"
+      ]
+    },
+    {
+      "cuando": "2026-08-25T12:53:49",
+      "etapa": "etapa 0",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-25T12:53:53",
+      "etapa": "etapa 1",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-25T13:22:10",
+      "etapa": "etapa 0",
+      "campos": [
+        "id_robot"
+      ]
+    },
+    {
+      "cuando": "2026-08-25T13:22:10",
+      "etapa": "etapa 0",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-25T13:22:12",
+      "etapa": "etapa 1",
+      "campos": [
+        "id_marcador",
+        "id_marcador_para_robot",
+        "id_robot"
+      ]
+    },
+    {
+      "cuando": "2026-08-25T13:22:12",
+      "etapa": "etapa 1",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-26T11:35:01",
+      "etapa": "etapa 0",
+      "campos": [
+        "id_robot"
+      ]
+    },
+    {
+      "cuando": "2026-08-26T11:35:01",
+      "etapa": "etapa 0",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-26T11:35:03",
+      "etapa": "etapa 1",
+      "campos": [
+        "id_marcador",
+        "id_marcador_para_robot",
+        "id_robot"
+      ]
+    },
+    {
+      "cuando": "2026-08-26T11:35:03",
+      "etapa": "etapa 1",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-26T12:09:34",
+      "etapa": "etapa 2",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-26T12:09:48",
+      "etapa": "etapa 0",
+      "campos": [
+        "id_robot"
+      ]
+    },
+    {
+      "cuando": "2026-08-26T12:09:48",
+      "etapa": "etapa 0",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-26T12:09:50",
+      "etapa": "etapa 1",
+      "campos": [
+        "id_marcador",
+        "id_marcador_para_robot",
+        "id_robot"
+      ]
+    },
+    {
+      "cuando": "2026-08-26T12:09:50",
+      "etapa": "etapa 1",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-26T12:12:56",
+      "etapa": "etapa 2",
+      "campos": [
+        "escala_posicion",
+        "rotacion_marco_rad",
+        "traslacion_x_m",
+        "traslacion_y_m"
+      ]
+    },
+    {
+      "cuando": "2026-08-26T12:12:56",
+      "etapa": "etapa 2",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-26T12:14:46",
+      "etapa": "etapa 3",
+      "campos": []
+    },
+    {
+      "cuando": "2026-08-28T20:16:27",
+      "etapa": "etapa 2",
+      "campos": [
+        "escala_posicion",
+        "rotacion_marco_rad",
+        "traslacion_x_m",
+        "traslacion_y_m"
+      ]
+    }
+  ],
+  "id_robot": 1,
+  "id_marcador": 1,
+  "_medido_en": {
+    "escala_posicion": "2026-08-28T20:16:27",
+    "rotacion_marco_rad": "2026-08-28T20:16:27",
+    "traslacion_x_m": "2026-08-28T20:16:27",
+    "traslacion_y_m": "2026-08-28T20:16:27",
+    "id_robot": "2026-08-26T12:09:50",
+    "id_marcador": "2026-08-26T12:09:50",
+    "id_marcador_para_robot": "2026-08-26T12:09:50"
+  },
+  "escala_posicion": 2.2944032991770067,
+  "rotacion_marco_rad": 2.4008306956756873,
+  "traslacion_x_m": 4.492952216846909,
+  "traslacion_y_m": -1.9585124168593304,
+  "id_marcador_para_robot": 1
+}

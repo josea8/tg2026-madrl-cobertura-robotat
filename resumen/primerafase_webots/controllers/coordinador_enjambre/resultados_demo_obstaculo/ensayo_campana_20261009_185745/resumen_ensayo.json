@@ -1,0 +1,100 @@
+{
+ "codigos": {
+  "crear": 0,
+  "sesion_1": 130,
+  "sesion_2": 0,
+  "cerrar": 0
+ },
+ "codigo_analisis": 0,
+ "codigo_verificador": 0,
+ "veredicto_campana": "META",
+ "estado_libro": {
+  "intentos_usados": 7,
+  "incluidas": 5,
+  "corridas": 6,
+  "frenos_ultima_corrida": 0,
+  "cerrada": true,
+  "filas_descartadas": 0
+ },
+ "problemas_registro": [],
+ "reservas": [
+  [
+   1,
+   421000
+  ],
+  [
+   2,
+   421001
+  ],
+  [
+   3,
+   421002
+  ],
+  [
+   4,
+   421003
+  ],
+  [
+   5,
+   421004
+  ],
+  [
+   6,
+   421005
+  ],
+  [
+   7,
+   421006
+  ]
+ ],
+ "estados": {
+  "1": "corrida",
+  "2": "corrida",
+  "3": "interrumpida",
+  "4": "corrida",
+  "5": "corrida",
+  "6": "corrida",
+  "7": "corrida"
+ },
+ "cierres_sesion": [
+  "interrumpida (Ctrl+C)",
+  "fin de la sesión"
+ ],
+ "tau_agentes": 0.45,
+ "tau_obstaculo": 0.85,
+ "verdad_d_min_obst_m": 0.28768119610429443,
+ "verdad_d_min_pares_m": 0.2244094059176262,
+ "operador": {
+  "enters_colocacion": 8,
+  "paradas": 0,
+  "enters": 8,
+  "manos": 0,
+  "fase": "s2"
+ },
+ "duracion_s": 482.68485960000544,
+ "replica_falsa": "20261009_190548_FALSA_replica_tomas.csv",
+ "sha256_congelados_libro": {
+  "adaptadores_robotat.py": "ce1c8be0daf6a4ec97f06fb21f2f020d43b9b27c23dbabd377e9d36a30548263",
+  "calibracion_sesion.py": "8a4fa568fcb57d798263f4f60f5782ea44dbe698e514c5ef29b5cd8cc7f9d522",
+  "campana_obstaculo.py": "b353290a811be2d65a40dee21835ae131cc6205dfe3282dc520bcc4c6c3dad99",
+  "colocacion_autonoma.py": "09a32166d758b12684e10532b4fcc5dd7a588d18a643e0162fc05b76843b20b0",
+  "colocacion_con_obstaculo.py": "85f8975bb5905aacacdacf04530038c144cea61b9eb8d74ee93bd252e8d030a1",
+  "coordinador_enjambre.py": "d38a6ee649aba3e22cf399d9203fdf6b23c52cb3af82af9b7af70b583da8bc4a",
+  "demo_obstaculo_movil.py": "b5dd55f47d2b1a9f3234fb049ac790ced09c400440e264bd9ad6c6d1bf806002",
+  "interfaces.py": "d9399ed9d641062e0cd5caf09fcfc63af4bc89e0a9e36afc7102a9ad1746d84a",
+  "lanzar_robotat.py": "203ab577382a5602170c61231a09d6432d17c3260917b578c73b43febaa7c154",
+  "lib/__init__.py": "4a42cb2482125adda40316483484a78641ee603af861a14bdd7459e4e7b447d4",
+  "lib/concentration_dynamics.py": "e707e79b216239e29754c71423305fd65df3fcf6c9ad61319f08906fb76e1211",
+  "lib/filtro_cbf.py": "b2d94289a4031974b1d44428ac53b4fbf57896c442580cf74fc39e81e41cb787",
+  "lib/swarm_env_skeleton.py": "daa4e345d31e7805f52473087eaa28adce95dc16fcc04ffd8ebde99e31a355ec",
+  "protocolo.py": "cf2b74f3f6fdf8ba372fd6a8bc80e09367137dd6e6f519e36a6615bf5251c9b1",
+  "protocolo_robotat.py": "ca857eab07d1640a30740d0b5a3a3c74220353a14f8c6841956746429f63573f",
+  "retroceso_congelamiento.py": "94cc0b8064a4628bd1e28535960b876373c04f19f8dedaeb2466f1082937ddcf",
+  "sesion_robotat.py": "87fb924cadeb80fe8d51561e039099fe5331a739718bf8cd3e2f189e060480ac",
+  "modelos/modelo_sanidad.zip": "34831589afd04593e70f8faf1cb51acaea7a7233063f4d2a43afbbe9ef1d0c27",
+  "analizar_campana_l2.py": "12cc2785e3819d4df01dd69a03f2821f642e33b7e308dfb609c537c17dda27c7",
+  "verificar_campana_l2.py": "65dcc5e74160266d6288e994b20febf69b709c79f430e7beab165952e1bf2293",
+  "TESIS/PLAN_ANALISIS_campana_L2.md": "fe4498ef51ee2110cdef4183669572b3a87d8283fb4504be481b23abb04dcb40",
+  "config_robotat.py#sin_calibracion": "88292683e99db92dc9a0602d9e8f10d17dc866f8dd412ec6e98efef0804fd1de"
+ }
+}

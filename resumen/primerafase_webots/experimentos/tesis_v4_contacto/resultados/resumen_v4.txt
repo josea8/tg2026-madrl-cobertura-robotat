@@ -1,0 +1,41 @@
+TESIS V4 — contacto que BLOQUEA LA ROTACIÓN
+modo_borde=contacto_rigido · r=0.075 m · λ_pared=0.0
+200,000 pasos · Trial 13 sin cambios · 5 agentes
+Mejor checkpoint: 180,000 pasos (seleccionado sobre 20 episodios)
+Evaluación: 18 semillas (las de los lotes de Webots)
+========================================================================
+
+EVALUACIÓN DEL MEJOR MODELO (Python)
+  cobertura AoI          : 0.2279 ± 0.0667
+  cobertura anillo perim.: 0.2646 ± 0.0473   (razón anillo/global = 1.161)
+  fracción en CONTACTO   : 0.6869 ± 0.1249
+  fracción con ROTACIÓN BLOQUEADA : 0.6869 ± 0.1249
+  colisiones (pares)     : 1.556   (72.2% de eps con ≥1)
+
+REFERENCIAS (mismas 18 semillas, Python)
+  v2 sanidad (bloqueante, sin radio) : cobertura 0.4426
+  v3 radio λ=0 (bloqueante_radio)    : cobertura 0.5114  anillo 0.4565
+
+  OJO con la comparabilidad de 'frac_contacto': el contador se
+  dispara cuando el CENTRO cruza el límite del dominio, y ese
+  límite es [0,W] en v2 y [r,W−r] en v3/v4. Los valores NO son
+  comparables entre modos; lo comparable es cobertura,
+  colisiones y, sobre todo, lo que salga de Webots.
+
+  'frac_bloqueo' es exclusiva de v4: fracción de pasos-agente en
+  que la rotación quedó bloqueada por empujar contra la pared.
+  Es la señal que v2 y v3 NO tenían durante el entrenamiento.
+
+CURVAS (selección del mejor por cobertura)
+     pasos   cobertura    anillo   contacto   bloqueo   colis.
+         0      0.0482    0.0008     0.0000    0.0000     0.00
+     20000      0.1433    0.2019     0.6695    0.6695     2.00
+     40000      0.1360    0.1981     0.7380    0.7380     3.90
+     60000      0.1215    0.1868     0.8009    0.8009     4.60
+     80000      0.1890    0.2199     0.6577    0.6577     1.90
+    100000      0.1906    0.2122     0.6115    0.6115     1.10
+    120000      0.2487    0.2992     0.6583    0.6583     2.40
+    140000      0.2442    0.2706     0.6301    0.6301     1.45
+    160000      0.2584    0.2915     0.6234    0.6234     2.70
+    180000      0.2670    0.2987     0.6384    0.6384     2.75  ←
+    200000      0.2587    0.2960     0.6819    0.6819     1.40

@@ -1,0 +1,98 @@
+PRUEBA DEL ANÁLISIS SOBRE DATOS VISTOS, NO ES EL RESULTADO DE R
+  (modo prueba-sustituto: experimento_Q_completo.csv + experimento_Q_EXPLORATORIO_S2_S3.csv)
+ENCUADRE: no prueba adaptabilidad de la política (la observación no codifica obstáculos); prueba la generalidad de la capa de seguridad y su costo, con semillas de episodio que no generaron las hipótesis.
+
+PRERREGISTRO
+  PREREGISTRO_R.md sha256 a4635806cd2540cd44207224de25640b5040d4be76d2d04d8250f2f06ca67cdd; Fijado: 2026-11-09 01:38
+  semillas 420000–420099, n = 100 por celda, 12 celdas
+
+VERIFICACIÓN — no aplica (prueba del análisis sobre datos vistos)
+
+RESULTADOS POR HIPÓTESIS (α = 0,05 bilateral, sin ajuste; reglas de lectura del prerregistro: con p, 'sostenida' sólo si p < 0,05 y b > c; H1, H2 y H6 se leen por nivel, sin veredicto conjunto)
+  H1  El encierro (fallback del QP) aparece con el movimiento: episodios con fallback, A = Sk_din, B = Sk_quieto; McNemar; predicción A > B
+    S3 (primaria): A = S3_din 5/100 [0.0164, 0.1128]; B = S3_quieto 0/100 [0.0000, 0.0362]; b/c = 5/0; p = 0.0625 → no sostenida
+    S2 (secundaria): A = S2_din 2/100 [0.0024, 0.0704]; B = S2_quieto 0/100 [0.0000, 0.0362]; b/c = 2/0; p = 0.5000 → no sostenida
+    S1 (descriptiva, sin veredicto): A = S1_din 0/100 [0.0000, 0.0362]; B = S1_quieto 0/100 [0.0000, 0.0362]; b/c = 0/0; p = 1.0000
+    necesidad (descriptiva, sin veredicto): con obstáculos quietos, fallback en S1 0/100 [0.0000, 0.0362]; S2 0/100 [0.0000, 0.0362]; S3 0/100 [0.0000, 0.0362]
+  H2  El término de velocidad conserva margen: episodios bajo 0,13 m, A = Sk_sinvel, B = Sk_din; McNemar; predicción A > B
+    S2 (primaria): A = S2_sinvel 11/100 [0.0562, 0.1883]; B = S2_din 1/100 [0.0003, 0.0545]; b/c = 10/0; p = 0.0020 → sostenida
+    S3 (primaria): A = S3_sinvel 47/100 [0.3694, 0.5724]; B = S3_din 28/100 [0.1948, 0.3787]; b/c = 28/9; p = 0.0026 → sostenida
+    S1 (descriptiva, sin veredicto): A = S1_sinvel 1/100 [0.0003, 0.0545]; B = S1_din 2/100 [0.0024, 0.0704]; b/c = 1/2; p = 1.0000
+  H3a Los agotados de S3 son del obstáculo: episodios con agotado, A = S3_din, B = S3_ctrl; McNemar; predicción A > B
+    S3 (primaria): A = S3_din 8/100 [0.0352, 0.1516]; B = S3_ctrl 0/100 [0.0000, 0.0362]; b/c = 8/0; p = 0.0078 → sostenida
+  H3b El movimiento agrega agotados en S3: episodios con agotado, A = S3_din, B = S3_quieto; McNemar; predicción A > B
+    S3 (secundaria): A = S3_din 8/100 [0.0352, 0.1516]; B = S3_quieto 3/100 [0.0062, 0.0852]; b/c = 8/3; p = 0.2266 → no sostenida
+    Δ de tasas pareada (din − quieto), media ± 1,96·EE (ddof = 1), descriptiva (el veredicto es sólo el de la McNemar): +0.05000000 [-0.01458664, +0.11458664]
+  H4  En S3 el efecto del obstáculo móvil (din − ctrl) sobre la cobertura accesible es menor, con signo, que en S1 y que en S2 (secundaria, compuesta): Δ_k = cobertura_accesible din − ctrl, pareada por semilla; piezas Δ_S1 − Δ_S3 > 0 y Δ_S2 − Δ_S3 > 0 (IC95 con lo > 0); 'sostenida' sólo si se cumplen las dos
+    Δ_S1 − Δ_S3: +0.03479196 [+0.01500137, +0.05458255]* → cumple
+    Δ_S2 − Δ_S3: +0.03734470 [+0.01974493, +0.05494447]* → cumple
+    Δ_k (descriptivas): S1 +0.03331428 [+0.02030114, +0.04632743]*; S2 +0.03586702 [+0.02168296, +0.05005108]*; S3 -0.00147768 [-0.01630747, +0.01335211] 
+    → sostenida
+  H5a Cero contactos con F1 en los tres niveles (primaria): episodios con contacto en Sk_din, Clopper-Pearson → S1 0/100 [0.0000, 0.0362]; S2 0/100 [0.0000, 0.0362]; S3 0/100 [0.0000, 0.0362] → cumplida
+  H5b El término de velocidad reduce los contactos en S3: episodios con contacto, A = S3_sinvel, B = S3_din; McNemar; predicción A > B (potencia acoplada a H5a: cada contacto en din sube c)
+    S3 (secundaria): A = S3_sinvel 3/100 [0.0062, 0.0852]; B = S3_din 0/100 [0.0000, 0.0362]; b/c = 3/0; p = 0.2500 → no sostenida
+  H6  Parte B (secundarias, descriptivas), ventana de W = 5 decisiones (t−4 … t) del mismo agente, W = 1/(α·dt); umbral 0,10 m; en Sk_din
+    no evaluable: faltan las columnas de la Parte B
+
+SENSIBILIDAD — p ajustada por Holm sobre la familia cerrada de 7 (no cambia la palabra del veredicto)
+  H1-S3: p = 0.0625; p Holm = 0.2500 → p Holm ≥ 0,05 o dirección contraria (veredicto: no sostenida)
+  H1-S2: p = 0.5000; p Holm = 0.6797 → p Holm ≥ 0,05 o dirección contraria (veredicto: no sostenida)
+  H2-S2: p = 0.0020; p Holm = 0.0137 → p Holm < 0,05 en la dirección predicha (veredicto: sostenida)
+  H2-S3: p = 0.0026; p Holm = 0.0154 → p Holm < 0,05 en la dirección predicha (veredicto: sostenida)
+  H3a: p = 0.0078; p Holm = 0.0391 → p Holm < 0,05 en la dirección predicha (veredicto: sostenida)
+  H3b: p = 0.2266; p Holm = 0.6797 → p Holm ≥ 0,05 o dirección contraria (veredicto: no sostenida)
+  H5b: p = 0.2500; p Holm = 0.6797 → p Holm ≥ 0,05 o dirección contraria (veredicto: no sostenida)
+
+EVENTOS RAROS — episodios con al menos un evento (k de n) e IC95 de Clopper-Pearson; en el control, los que exigen obstáculo físico 'no aplica'
+  S1_din: fallback 0/100 [0.0000, 0.0362]; agotado 1/100 [0.0003, 0.0545]; contacto 0/100 [0.0000, 0.0362]; bajo 0,13 m 2/100 [0.0024, 0.0704]; bajo 0,10 m 0/100 [0.0000, 0.0362]; infactible activo 0/100 [0.0000, 0.0362]
+  S1_quieto: fallback 0/100 [0.0000, 0.0362]; agotado 2/100 [0.0024, 0.0704]; contacto 0/100 [0.0000, 0.0362]; bajo 0,13 m 0/100 [0.0000, 0.0362]; bajo 0,10 m 0/100 [0.0000, 0.0362]; infactible activo 0/100 [0.0000, 0.0362]
+  S1_ctrl: fallback 0/100 [0.0000, 0.0362]; agotado 1/100 [0.0003, 0.0545]; contacto no aplica; bajo 0,13 m no aplica; bajo 0,10 m no aplica; infactible activo no aplica
+  S1_sinvel: fallback 0/100 [0.0000, 0.0362]; agotado 2/100 [0.0024, 0.0704]; contacto 0/100 [0.0000, 0.0362]; bajo 0,13 m 1/100 [0.0003, 0.0545]; bajo 0,10 m 0/100 [0.0000, 0.0362]; infactible activo 1/100 [0.0003, 0.0545]
+  S2_din: fallback 2/100 [0.0024, 0.0704]; agotado 0/100 [0.0000, 0.0362]; contacto 0/100 [0.0000, 0.0362]; bajo 0,13 m 1/100 [0.0003, 0.0545]; bajo 0,10 m 0/100 [0.0000, 0.0362]; infactible activo 1/100 [0.0003, 0.0545]
+  S2_quieto: fallback 0/100 [0.0000, 0.0362]; agotado 1/100 [0.0003, 0.0545]; contacto 0/100 [0.0000, 0.0362]; bajo 0,13 m 0/100 [0.0000, 0.0362]; bajo 0,10 m 0/100 [0.0000, 0.0362]; infactible activo 0/100 [0.0000, 0.0362]
+  S2_ctrl: fallback 0/100 [0.0000, 0.0362]; agotado 0/100 [0.0000, 0.0362]; contacto no aplica; bajo 0,13 m no aplica; bajo 0,10 m no aplica; infactible activo no aplica
+  S2_sinvel: fallback 0/100 [0.0000, 0.0362]; agotado 0/100 [0.0000, 0.0362]; contacto 0/100 [0.0000, 0.0362]; bajo 0,13 m 11/100 [0.0562, 0.1883]; bajo 0,10 m 1/100 [0.0003, 0.0545]; infactible activo 0/100 [0.0000, 0.0362]
+  S3_din: fallback 5/100 [0.0164, 0.1128]; agotado 8/100 [0.0352, 0.1516]; contacto 0/100 [0.0000, 0.0362]; bajo 0,13 m 28/100 [0.1948, 0.3787]; bajo 0,10 m 4/100 [0.0110, 0.0993]; infactible activo 2/100 [0.0024, 0.0704]
+  S3_quieto: fallback 0/100 [0.0000, 0.0362]; agotado 3/100 [0.0062, 0.0852]; contacto 0/100 [0.0000, 0.0362]; bajo 0,13 m 0/100 [0.0000, 0.0362]; bajo 0,10 m 0/100 [0.0000, 0.0362]; infactible activo 2/100 [0.0024, 0.0704]
+  S3_ctrl: fallback 0/100 [0.0000, 0.0362]; agotado 0/100 [0.0000, 0.0362]; contacto no aplica; bajo 0,13 m no aplica; bajo 0,10 m no aplica; infactible activo no aplica
+  S3_sinvel: fallback 3/100 [0.0062, 0.0852]; agotado 5/100 [0.0164, 0.1128]; contacto 3/100 [0.0062, 0.0852]; bajo 0,13 m 47/100 [0.3694, 0.5724]; bajo 0,10 m 3/100 [0.0062, 0.0852]; infactible activo 3/100 [0.0062, 0.0852]
+INFACTIBLE CON OBSTÁCULO ACTIVO, din − quieto (McNemar, descriptiva, sin predicción, fuera de Holm):
+  S1: din 0, quieto 0; b/c = 0/0; p = 1.0000
+  S2: din 1, quieto 0; b/c = 1/0; p = 1.0000
+  S3: din 2, quieto 2; b/c = 2/2; p = 1.0000
+AGOTADOS de S1 y S2 (descriptivo): S1_din 1; S1_quieto 2; S1_ctrl 1; S1_sinvel 2; S2_din 0; S2_quieto 1; S2_ctrl 0; S2_sinvel 0
+
+COSTO EN TAREA — Δ pareadas por semilla, IC95 (denominadores del §3.6 de la propuesta: din − ctrl sobre cobertura_accesible; din − quieto sobre cob_acc_arranque)
+  S1: din − ctrl +0.03331428 [+0.02030114, +0.04632743]*; din − quieto +0.01298304 [+0.00209123, +0.02387485]*; intervención din − ctrl +0.15068000 [+0.12957251, +0.17178749]*
+  S2: din − ctrl +0.03586702 [+0.02168296, +0.05005108]*; din − quieto +0.01406646 [+0.00052355, +0.02760937]*; intervención din − ctrl +0.19288800 [+0.16916511, +0.21661089]*
+  S3: din − ctrl -0.00147768 [-0.01630747, +0.01335211] ; din − quieto -0.01027655 [-0.02445920, +0.00390609] ; intervención din − ctrl +0.32190000 [+0.30038257, +0.34341743]*
+
+INTERVENCIÓN — fracción de agente-decisión (media por celda) y filas F1 saturadas (suma)
+  S1_din: total 0.54785600; ligante pared 0.42347600, robot 0.05456000, obstáculo 0.09765200; filas F1 saturadas 0
+  S1_quieto: total 0.52434400; ligante pared 0.41770400, robot 0.05040800, obstáculo 0.08324000; filas F1 saturadas 0
+  S1_ctrl: total 0.39717600; ligante pared 0.37513200, robot 0.03802400, obstáculo 0.00000000; filas F1 saturadas 0
+  S1_sinvel: total 0.54755600; ligante pared 0.42595200, robot 0.05036800, obstáculo 0.09620800; filas F1 saturadas 0
+  S2_din: total 0.59958400; ligante pared 0.41636800, robot 0.05999200, obstáculo 0.15445200; filas F1 saturadas 0
+  S2_quieto: total 0.57534800; ligante pared 0.41404000, robot 0.06454800, obstáculo 0.13007600; filas F1 saturadas 0
+  S2_ctrl: total 0.40669600; ligante pared 0.38394000, robot 0.03926400, obstáculo 0.00000000; filas F1 saturadas 0
+  S2_sinvel: total 0.59026800; ligante pared 0.41454400, robot 0.06565200, obstáculo 0.14482400; filas F1 saturadas 0
+  S3_din: total 0.69361200; ligante pared 0.36974400, robot 0.11476800, obstáculo 0.29051200; filas F1 saturadas 0
+  S3_quieto: total 0.67288800; ligante pared 0.34299200, robot 0.11970800, obstáculo 0.29124400; filas F1 saturadas 0
+  S3_ctrl: total 0.37171200; ligante pared 0.35293200, robot 0.03276000, obstáculo 0.00000000; filas F1 saturadas 0
+  S3_sinvel: total 0.68558000; ligante pared 0.34499200, robot 0.12110400, obstáculo 0.30286400; filas F1 saturadas 0
+
+LO QUE R NO SUSTENTA (el §6 del prerregistro, escrito antes de correr):
+  - un cambio del veredicto del Exp Q (S1 detiene por la regla del Exp O);
+  - que S2 o S3 "pasen" la regla del Exp O (con la regla, S2_din y S3_din la dispararon en el exploratorio);
+  - que la garantía de no contacto sea robusta donde hay fallbacks: ahí, por construcción, el filtro manda u = (0, 0) sin certificado;
+  - que una H5a "cumplida" sea tasa cero de contacto: 0/400 sólo la acota bajo 0,918 % por nivel;
+  - que una H5a "no cumplida" muestre que el filtro falla: con una tasa pequeña pero no nula es el resultado probable aunque el filtro funcione (§8), y cada contacto se discute con su traza;
+  - que una prueba "no sostenida" sea ausencia de efecto: H1-S2, H3b y H5b tienen potencia predictiva de 0,58 a 0,80 (§8);
+  - que el fallback cause el acercamiento: H6 mide coincidencia en el tiempo, hacia atrás, con un umbral (0,10 m) y una ventana (W = 5) fijados sobre el exploratorio;
+  - que se conserve la cota de diseño de 0,13 m fuera de los fallbacks;
+  - nada sobre el laboratorio, ni sobre el rescate de F2, que no se corre;
+  - nada sobre otras políticas, otros entrenamientos, otros puntos de control ni otras geometrías o velocidades del obstáculo;
+  - una verificación independiente del código: un error sistemático se replicaría igual;
+  - la separación de las dos vías de infactibilidad (h < s/α frente a la erosión del margen hasta h < 0): la Parte B no registra h ni s.
+
+FIGURAS: fig_R_costo_PRUEBA_sobre_Q.png, fig_R_intervencion_PRUEBA_sobre_Q.png

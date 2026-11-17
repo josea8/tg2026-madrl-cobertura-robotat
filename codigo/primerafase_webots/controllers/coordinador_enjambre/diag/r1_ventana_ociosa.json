@@ -1,0 +1,20 @@
+{
+ "cond": "ventana_ociosa",
+ "codigo": 0,
+ "n": 300,
+ "aux_cpu_frac_de_un_nucleo": 0.99,
+ "lat_ms": {
+  "p50": 0.364,
+  "p95": 0.626,
+  "media": 0.402
+ },
+ "computo_ms": {
+  "p50": 9.361,
+  "p95": 13.328,
+  "media": 9.129
+ },
+ "ciclo_ms": {
+  "p50": 9.787,
+  "p95": 13.84
+ }
+}

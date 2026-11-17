@@ -1,0 +1,25 @@
+EXPERIMENTO B — Reflexiones de pared bajo el protocolo de
+evaluación de RESULTADO_PRIMERO (100 eps deterministas,
+5 agentes, sin domain_rand, seed_ep = 420000+i)
+==================================================================
+
+Episodios ejecutados             : 100
+Reflexiones por episodio (TOTAL) : media=45.74  std=5.54  mediana=45.0  max=62
+Reflexiones por episodio/agente  : media=9.15
+Episodios con ≥1 reflexión       : 100.0%
+
+Por agente (media de reflexiones/episodio):
+  robot_0: 9.27
+  robot_1: 9.23
+  robot_2: 9.38
+  robot_3: 8.69
+  robot_4: 9.17
+
+CROSS-CHECK de fidelidad del protocolo:
+  cobertura media replicada : 0.6813 ± 0.0200
+  cobertura media oficial   : 0.6813
+  |delta|                   : 0.0000  (OK — réplica fiel)
+
+Interpretación: cada reflexión es un evento en el que la política
+dependió de la dinámica idealizada de rebote en pared — dinámica
+inexistente en Webots (paredes sólidas) y en el Robotat físico.

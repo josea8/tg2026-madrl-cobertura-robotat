@@ -1,0 +1,45 @@
+LOTE MULTI-ROBOT — 5 agentes con física real (Webots)
+Política: modelo_v4_mejor · deterministic=True
+Arquitectura: 5 × controlador_agente + 1 coordinador
+(supervisor). Emitter/Receiver, canales 1 (subida) / 2 (bajada).
+======================================================================
+Episodios ejecutados : 18   (agente-episodios: 90)
+
+COBERTURA Y COLISIONES
+  cobertura AoI final : 0.2312 ± 0.0781
+  colisiones_015      : 0.500 ± 0.687   (38.9% de eps con ≥1)
+  colisiones_022      : 0.556 ± 0.685   (44.4% de eps con ≥1)
+
+  UMBRALES: 'colisiones_015' usa 0.15 m entre centros, que es
+  el CONTACTO FÍSICO de los chasis (radio 0.075 m cada uno) y
+  es el D_SAFE del env — el umbral con el que se midieron
+  TODAS las métricas previas (experimentos A-D y sanidad), por
+  lo que es la columna COMPARABLE. 'colisiones_022' usa 0.22 m,
+  que incluye ~7 cm de margen operativo sobre el contacto.
+
+ATASCOS
+  agente-episodios con atasco : 82/90  (91.1%)
+  episodios con ≥1 atascado   : 100.0%
+  dist. mín. centro→pared [m] : min=0.0620  media=0.0741
+
+DIAGNÓSTICO DE ATASCOS
+  con vecino dentro de comm_radius (1.0 m): 31/82
+  distancia al vecino más cercano [m] : min=0.150  media=1.182
+  acción media previa al atasco : v=-0.1135 m/s  ω=+0.0465 rad/s
+  distancia a pared al atascarse [m] : media=0.0759
+
+  HIPÓTESIS: si los atascos coinciden con vecino cerca, el
+  mecanismo es que la evitación inter-agente empuja contra
+  la pared (y más densidad AGRAVA). Si no hay vecino cerca,
+  es el gap chasis-vs-punto (el env trata al agente como
+  punto; Webots le da radio 0.075 m) y la densidad no
+  debería agravarlo.
+
+SINCRONÍA
+  antigüedad máxima de pose  : 1 ticks (media por ep 1.0)
+  decisiones con pose vieja  : 0 (umbral > 2 ticks)
+  latencia media pose→acción : 10.00 ms
+
+  NOTA: Webots no garantiza el orden de ejecución entre
+  controladores dentro de un tick, así que una antigüedad de
+  0-1 ticks es estructural y esperada, no un fallo.

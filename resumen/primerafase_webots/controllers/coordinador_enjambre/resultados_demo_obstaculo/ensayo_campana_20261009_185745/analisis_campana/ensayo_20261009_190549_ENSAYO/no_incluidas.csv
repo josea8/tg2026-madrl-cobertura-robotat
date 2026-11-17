@@ -1,0 +1,3 @@
+intento,semilla,estado,motivo_inclusion,motivo
+3,421002,interrumpida,reserva sin resultado,marcada al cerrar la sesión
+4,421003,corrida,no válida: antigüedad de pose sobre el umbral,antigüedad de pose sobre el umbral

@@ -1,0 +1,571 @@
+{
+ "campana": "ensayo",
+ "fecha_analisis": "2026-10-10T10:14:38",
+ "rotulo": "ENSAYO — no es el resultado",
+ "requisitos": {
+  "hashes": {
+   "TESIS/PLAN_ANALISIS_campana_L2.md": {
+    "ahora": "1334ebfeb3b8e8048e94befd134c675b38217b99ad47fc8111620e4e640b9425",
+    "libro": "1334ebfeb3b8e8048e94befd134c675b38217b99ad47fc8111620e4e640b9425",
+    "igual": true
+   },
+   "analizar_campana_l2.py": {
+    "ahora": "4776fbc02d0cb8350b8f4c8e5eeba872f7994fe425af69205658a33557366369",
+    "libro": "4776fbc02d0cb8350b8f4c8e5eeba872f7994fe425af69205658a33557366369",
+    "igual": true
+   },
+   "campana_obstaculo.py": {
+    "ahora": "bc116a87bed8d66f055d53a3118037550cbffb6537c27d5bc4c3d6599c08cd8b",
+    "libro": "bc116a87bed8d66f055d53a3118037550cbffb6537c27d5bc4c3d6599c08cd8b",
+    "igual": true
+   }
+  },
+  "problemas": [
+   "la campaña es de plataforma 'simulador'"
+  ],
+  "ensayo": true,
+  "desvio": "",
+  "estado_libro": {
+   "intentos_usados": 6,
+   "incluidas": 5,
+   "corridas": 5,
+   "frenos_ultima_corrida": 0,
+   "cerrada": true,
+   "tomas_con_contacto": 0,
+   "filas_descartadas": 0
+  },
+  "veredicto_campana": "META"
+ },
+ "conteos": {
+  "intentos": 6,
+  "corridas": 5,
+  "incluidas": 5,
+  "con_par": 5,
+  "no_incluidas_por_motivo": {
+   "interrumpida": 1
+  }
+ },
+ "principal": {
+  "n": 5,
+  "media": 0.00865287010967708,
+  "mediana": 0.008563027506894805,
+  "positivas": 5,
+  "negativas": 0,
+  "ceros": 0,
+  "sd": 0.001309500333339998,
+  "semiancho": 0.0016259594195441038,
+  "ic95": [
+   0.007026910690132976,
+   0.010278829529221184
+  ],
+  "t_p": 0.00012213661114212447,
+  "wilcoxon_p": 0.0625,
+  "bootstrap_ic95": [
+   0.007709472686270502,
+   0.009751188380127562
+  ],
+  "conclusion": "Brecha detectable: hw − réplica = +0.0087, IC95 [+0.0070, +0.0103] (n = 5).",
+  "hw": {
+   "n": 5,
+   "media": 0.34325573444366453,
+   "mediana": 0.3571070432662964,
+   "positivas": 5,
+   "negativas": 0,
+   "ceros": 0,
+   "sd": 0.030341269520069908,
+   "semiancho": 0.037673662022868,
+   "ic95": [
+    0.30558207242079655,
+    0.3809293964665325
+   ],
+   "t_p": 1.449987266417863e-05,
+   "wilcoxon_p": 0.0625
+  },
+  "replica": {
+   "n": 5,
+   "media": 0.33460286433398745,
+   "mediana": 0.3492267501332303,
+   "positivas": 5,
+   "negativas": 0,
+   "ceros": 0,
+   "sd": 0.03133850391299196,
+   "semiancho": 0.0389118920663299,
+   "ic95": [
+    0.29569097226765756,
+    0.37351475640031734
+   ],
+   "t_p": 1.8253374873069323e-05,
+   "wilcoxon_p": 0.0625
+  }
+ },
+ "respaldo_por_semilla": null,
+ "ruido_replica_entre_reps": {
+  "n": 5,
+  "mediana": 0.002069027922547223,
+  "max": 0.005494708586206995
+ },
+ "sensibilidades": {
+  "A_sin_fuera_de_soporte": {
+   "n": 5,
+   "media": 0.00865287010967708,
+   "mediana": 0.008563027506894805,
+   "positivas": 5,
+   "negativas": 0,
+   "ceros": 0,
+   "sd": 0.001309500333339998,
+   "semiancho": 0.0016259594195441038,
+   "ic95": [
+    0.007026910690132976,
+    0.010278829529221184
+   ],
+   "t_p": 0.00012213661114212447,
+   "wilcoxon_p": 0.0625,
+   "bootstrap_ic95": [
+    0.007709472686270502,
+    0.009751188380127562
+   ],
+   "conclusion": "Brecha detectable: hw − réplica = +0.0087, IC95 [+0.0070, +0.0103] (n = 5)."
+  },
+  "B_sin_retroceso": {
+   "n": 5,
+   "media": 0.00865287010967708,
+   "mediana": 0.008563027506894805,
+   "positivas": 5,
+   "negativas": 0,
+   "ceros": 0,
+   "sd": 0.001309500333339998,
+   "semiancho": 0.0016259594195441038,
+   "ic95": [
+    0.007026910690132976,
+    0.010278829529221184
+   ],
+   "t_p": 0.00012213661114212447,
+   "wilcoxon_p": 0.0625,
+   "bootstrap_ic95": [
+    0.007709472686270502,
+    0.009751188380127562
+   ],
+   "conclusion": "Brecha detectable: hw − réplica = +0.0087, IC95 [+0.0070, +0.0103] (n = 5)."
+  },
+  "C_sin_freno": {
+   "n": 5,
+   "media": 0.00865287010967708,
+   "mediana": 0.008563027506894805,
+   "positivas": 5,
+   "negativas": 0,
+   "ceros": 0,
+   "sd": 0.001309500333339998,
+   "semiancho": 0.0016259594195441038,
+   "ic95": [
+    0.007026910690132976,
+    0.010278829529221184
+   ],
+   "t_p": 0.00012213661114212447,
+   "wilcoxon_p": 0.0625,
+   "bootstrap_ic95": [
+    0.007709472686270502,
+    0.009751188380127562
+   ],
+   "conclusion": "Brecha detectable: hw − réplica = +0.0087, IC95 [+0.0070, +0.0103] (n = 5)."
+  },
+  "D_sin_rampa": {
+   "n": 3,
+   "media": 0.008766997048416622,
+   "mediana": 0.008563027506894805,
+   "positivas": 3,
+   "negativas": 0,
+   "ceros": 0,
+   "sd": 0.001737547941270455,
+   "semiancho": 0.004316308366884084,
+   "ic95": [
+    0.004450688681532537,
+    0.013083305415300707
+   ],
+   "t_p": 0.012841677681637296,
+   "wilcoxon_p": 0.25,
+   "bootstrap_ic95": [
+    0.007140436139187634,
+    0.010597527499167425
+   ],
+   "conclusion": "Brecha detectable: hw − réplica = +0.0088, IC95 [+0.0045, +0.0131] (n = 3)."
+  },
+  "E_replica_tau_045": {
+   "n": 5,
+   "media": 0.012671343748692443,
+   "mediana": 0.012774936209211052,
+   "positivas": 5,
+   "negativas": 0,
+   "ceros": 0,
+   "sd": 0.001624748092378304,
+   "semiancho": 0.002017391212456384,
+   "ic95": [
+    0.010653952536236059,
+    0.014688734961148827
+   ],
+   "t_p": 6.347517428460304e-05,
+   "wilcoxon_p": 0.0625,
+   "bootstrap_ic95": [
+    0.011382865294163907,
+    0.013869588938283129
+   ],
+   "conclusion": "Brecha detectable: hw − réplica = +0.0127, IC95 [+0.0107, +0.0147] (n = 5)."
+  }
+ },
+ "seguridad": {
+  "corridas": 5,
+  "corridas_marcadas_interrumpidas": 0,
+  "d_min_obst_hw": {
+   "n": 5,
+   "min": 0.29941677384549115,
+   "mediana": 0.32031791114763797,
+   "max": 0.43874697201361046
+  },
+  "contacto_hw": {
+   "k": 0,
+   "n": 5,
+   "proporcion": 0.0,
+   "ic95": [
+    0.0,
+    0.5218237501049814
+   ]
+  },
+  "contactos_no_incluidas": [],
+  "tomas_con_freno_hw": {
+   "k": 0,
+   "n": 5,
+   "proporcion": 0.0,
+   "ic95": [
+    0.0,
+    0.5218237501049814
+   ]
+  },
+  "frenos_eventos_hw": 0.0,
+  "decisiones_freno_hw": 0.0,
+  "d_min_hw_menos_replica_media": {
+   "n": 5,
+   "media": -0.020000000000000007,
+   "mediana": -0.020000000000000018,
+   "positivas": 0,
+   "negativas": 5,
+   "ceros": 0,
+   "sd": 2.48374603233007e-17,
+   "semiancho": 3.08397802902569e-17,
+   "ic95": [
+    -0.02000000000000004,
+    -0.019999999999999976
+   ],
+   "t_p": 5.70847369931538e-61,
+   "wilcoxon_p": 0.0625
+  },
+  "d_min_hw_menos_replica_minimo": {
+   "n": 5,
+   "media": -0.020000000000000018,
+   "mediana": -0.020000000000000018,
+   "positivas": 0,
+   "negativas": 5,
+   "ceros": 0,
+   "sd": 0.0,
+   "semiancho": 0.0,
+   "ic95": [
+    -0.020000000000000018,
+    -0.020000000000000018
+   ],
+   "t_p": null,
+   "wilcoxon_p": 0.0625
+  },
+  "contacto_replica_por_media": {
+   "k": 0,
+   "n": 5,
+   "proporcion": 0.0,
+   "ic95": [
+    0.0,
+    0.5218237501049814
+   ]
+  },
+  "contacto_replica_por_minimo": {
+   "k": 0,
+   "n": 5,
+   "proporcion": 0.0,
+   "ic95": [
+    0.0,
+    0.5218237501049814
+   ]
+  },
+  "frenos_sombra_replica_media": 0.0,
+  "d_pared_hw_menos_replica_media": {
+   "n": 5,
+   "media": 0.0,
+   "mediana": 0.0,
+   "positivas": 0,
+   "negativas": 0,
+   "ceros": 5,
+   "sd": 0.0,
+   "semiancho": 0.0,
+   "ic95": [
+    0.0,
+    0.0
+   ],
+   "t_p": null,
+   "wilcoxon_p": null
+  },
+  "d_pared_hw_menos_replica_minimo": {
+   "n": 5,
+   "media": 0.0,
+   "mediana": 0.0,
+   "positivas": 0,
+   "negativas": 0,
+   "ceros": 5,
+   "sd": 0.0,
+   "semiancho": 0.0,
+   "ic95": [
+    0.0,
+    0.0
+   ],
+   "t_p": null,
+   "wilcoxon_p": null
+  },
+  "descriptivos": {
+   "d_pared_min": {
+    "hw_corridas": 0.1544856704356719,
+    "hw_pareadas": 0.1544856704356719,
+    "replica_pareadas": 0.1544856704356719
+   },
+   "viola_018": {
+    "hw_corridas": 1.4,
+    "hw_pareadas": 1.4,
+    "replica_pareadas": 1.4
+   },
+   "colisiones_015": {
+    "hw_corridas": 0.0,
+    "hw_pareadas": 0.0,
+    "replica_pareadas": 0.0
+   },
+   "colisiones_022": {
+    "hw_corridas": 0.0,
+    "hw_pareadas": 0.0,
+    "replica_pareadas": 0.0
+   },
+   "frac_cbf": {
+    "hw_corridas": 0.22896,
+    "hw_pareadas": 0.22896,
+    "replica_pareadas": 0.22896
+   },
+   "n_escape": {
+    "hw_corridas": 21.4,
+    "hw_pareadas": 21.4,
+    "replica_pareadas": 21.4
+   }
+  },
+  "alcance": "durante la toma y sobre poses observadas"
+ },
+ "costo": {
+  "n": 5,
+  "media": -0.018232268308698618,
+  "mediana": -0.017672053949881028,
+  "positivas": 0,
+  "negativas": 5,
+  "ceros": 0,
+  "sd": 0.002495359612039027,
+  "semiancho": 0.003098398192840572,
+  "ic95": [
+   -0.02133066650153919,
+   -0.015133870115858046
+  ],
+  "t_p": 8.215068147341965e-05,
+  "wilcoxon_p": 0.0625,
+  "condicional": "El costo es condicional a los arranques de la campaña (blancos a ≥ 0.65 m del 4 medido, chequeo de arranque a 0.50 m) y a la trayectoria medida del 4, que incluye los frenos del hw.",
+  "descriptivos": {
+   "d_pared_con_menos_sin": 0.0,
+   "frac_cbf_con_menos_sin": 0.0,
+   "hw_menos_replica_sin": -0.009579398199021538
+  }
+ },
+ "criterio_de_cierre": {
+  "umbral_contacto_m": 0.15,
+  "tomas_para_cerrar": 2,
+  "contactos_fisicos": [],
+  "n_contactos_fisicos": 0,
+  "debio_cerrar_tras_intento": null,
+  "incumplimiento_del_criterio": false,
+  "intentos_despues_del_cierre_debido": [],
+  "tomas_con_contacto": [],
+  "n_tomas_con_contacto": 0,
+  "cerro_por_criterio": false,
+  "motivo_del_cierre": "fin del ensayo 1e",
+  "contactos_en_corridas_marcadas_interrumpidas": []
+ },
+ "comparacion_3009": {
+  "cobertura_hw": {
+   "n": 50,
+   "media": 0.34520298600196836,
+   "sd": 0.04284759988037163
+  },
+  "brecha_por_pares": {
+   "n": 50,
+   "media": 0.007675499121348062,
+   "mediana": 0.002766122420628875,
+   "positivas": 29,
+   "negativas": 21,
+   "ceros": 0,
+   "sd": 0.04321894185565445,
+   "semiancho": 0.012282687373229777,
+   "ic95": [
+    -0.004607188251881715,
+    0.01995818649457784
+   ],
+   "t_p": 0.21514677312658476,
+   "wilcoxon_p": 0.425802198406505
+  },
+  "brecha_por_escenario": {
+   "n": 12,
+   "media": 0.012254809063893776,
+   "mediana": 0.008898644646008808,
+   "positivas": 8,
+   "negativas": 4,
+   "ceros": 0,
+   "sd": 0.030819645071035455,
+   "semiancho": 0.019581868252425087,
+   "ic95": [
+    -0.007327059188531311,
+    0.03183667731631886
+   ],
+   "t_p": 0.1957591334397321,
+   "wilcoxon_p": 0.2333984375
+  },
+  "d_pared_hw_menos_replica": {
+   "n": 50,
+   "media": -0.035521589768624545,
+   "mediana": -0.041242114994802306,
+   "positivas": 1,
+   "negativas": 49,
+   "ceros": 0,
+   "sd": 0.017170597111086403,
+   "semiancho": 0.0048798297059548185,
+   "ic95": [
+    -0.04040141947457936,
+    -0.030641760062669728
+   ],
+   "t_p": 1.655588466229571e-19,
+   "wilcoxon_p": 1.4685612927356851e-09
+  }
+ },
+ "declaraciones": {
+  "col_obst_origen_incluidas": {
+   "proyeccion": 5
+  },
+  "tomas_obstaculo_no_proyeccion": [],
+  "tomas_con_rampa": [
+   1,
+   4
+  ],
+  "pausas_de_seguridad": [],
+  "correcciones": [],
+  "candados_liberados": [],
+  "sesiones": [
+   {
+    "id_sesion": "L2_20261010_100632",
+    "fecha": "2026-10-10T10:06:32",
+    "tipo": "apertura",
+    "motivo": "hora de fin 2026-10-10 12:06"
+   },
+   {
+    "id_sesion": "L2_20261010_100632",
+    "fecha": "2026-10-10T10:09:11",
+    "tipo": "cierre_sesion",
+    "motivo": "interrumpida (Ctrl+C)"
+   },
+   {
+    "id_sesion": "L2_20261010_100911",
+    "fecha": "2026-10-10T10:09:11",
+    "tipo": "apertura",
+    "motivo": "hora de fin 2026-10-10 12:06"
+   },
+   {
+    "id_sesion": "L2_20261010_100911",
+    "fecha": "2026-10-10T10:14:38",
+    "tipo": "cierre_sesion",
+    "motivo": "fin de la sesión"
+   }
+  ],
+  "cierre_campana": [
+   {
+    "fecha": "2026-10-10T10:14:38",
+    "motivo": "fin del ensayo 1e"
+   }
+  ],
+  "reservas_marcadas_por_el_analisis": [],
+  "filas_descartadas_del_libro": [],
+  "corridas_marcadas_interrumpidas": [],
+  "cierre_b_excluidas": {},
+  "incluidas_sin_par": [],
+  "incluidas_sin_replica_sin_obstaculo": [],
+  "incluidas_sin_replica_tau_045": [],
+  "advertencias_replica": [],
+  "pasadas_suplementarias": [],
+  "replica_sha256_pila": [
+   "FALSA"
+  ],
+  "replica_corridas_antes_del_cierre": 0,
+  "configuracion_por_sesion": [
+   {
+    "id_sesion": "L2_20261010_100632",
+    "offsets_deg": {
+     "1": 92.1293,
+     "5": 92.1293,
+     "8": 92.1293,
+     "6": 92.1293,
+     "9": 92.1293,
+     "4": 92.1293
+    },
+    "sha256": {
+     "config_robotat.py": "060eda078f135c8dbbce3ca40661e2a60912cca3c5922003a1ac45227ab5dde1",
+     "calibracion_medida.json": "9d1033124c2646ffad07863dc65a12af4f530f3aaceefbdc0ac793f8ce73db66"
+    }
+   },
+   {
+    "id_sesion": "L2_20261010_100911",
+    "offsets_deg": {
+     "1": 92.1293,
+     "5": 92.1293,
+     "8": 92.1293,
+     "6": 92.1293,
+     "9": 92.1293,
+     "4": 92.1293
+    },
+    "sha256": {
+     "config_robotat.py": "060eda078f135c8dbbce3ca40661e2a60912cca3c5922003a1ac45227ab5dde1",
+     "calibracion_medida.json": "9d1033124c2646ffad07863dc65a12af4f530f3aaceefbdc0ac793f8ce73db66"
+    }
+   }
+  ],
+  "replica_incompleta": [],
+  "replica_pilas_invalidas": [
+   "FALSA"
+  ]
+ },
+ "fuentes": {
+  "sha256_libro": "5bb75c87f2407e19ab3df2819c9f783864b44f6832f8e0f29ec668e7802b349e",
+  "sha256_cabecera": "f15bc1fe058f74a161521ee2f458490c4cc71d8ae748023a5d4e9267a379ca62",
+  "sha256_csv_hw": {
+   "20261010_100632_L2_tomas.csv": "0e8213d7c8f02b6390b7c40f231f9fa923ec4445c1fe59a934270d2d7e722b38",
+   "20261010_100911_L2_tomas.csv": "212156b0645e27bf581d4b507381c3d8aa3155e5d697045ee381d5d3b156951b"
+  },
+  "sha256_replica": {
+   "20261010_101438_FALSA_replica_tomas.csv": "c3a6506d964bc7e97ad6f7f3d58507ab8739824dd79db366d68866b22918edd5"
+  },
+  "sha256_csv_3009": {
+   "20260930_sesion-evaluacion_etapa7_episodios.csv": "9cbcf04164b82877707514a35cbce85eb58bd835e2d5ca5db61a263fb1680969",
+   "20260930_sesion-replica_etapa7_capas-on_de-20260930.csv": "f9c509619b4939aac64d7e5b7f35b6ff394049b9da32fe2ecbe7219b76ea6015",
+   "20260930_sesion-evaluacion_etapa7_episodios_02.csv": "d67d0d1eccddc7df57c2ae64a0539291943b2c48b750e4c6ae0cb3af7f51e2ee",
+   "20260930_sesion-replica_etapa7_capas-on_de-20260930_02.csv": "a363428b35b70bae2e9b497ed00d02dd84d38df1f425e82b982f4786d2e8edbd",
+   "20260930_sesion-evaluacion_etapa7_episodios_03.csv": "5001d2a11f85de1b3e1fa646807a5dd6a1058274ba498854372e03403b350b3a",
+   "20260930_sesion-replica_etapa7_capas-on_de-20260930_03.csv": "504b66c6e00b94be883deff0b7aa3f7a9969594081be6684de30739ba8e9775c",
+   "20260930_sesion-evaluacion_etapa7_episodios_04.csv": "0ab82d0341ca33dd41f9e9a7b982bf0b37a338cb7eaf40a83d4d2fa6e6018290",
+   "20260930_sesion-replica_etapa7_capas-on_de-20260930_04.csv": "a01e16986f3c4ca8672ee6c9bd69de82efed3e5a922648afbd43dc1587410115",
+   "20260930_sesion-evaluacion_etapa7_episodios_05.csv": "804190cb23522ec2fde452d4462a19a4d27a7f33a026ed0dd781bf52d56e4e26",
+   "20260930_sesion-replica_etapa7_capas-on_de-20260930_05.csv": "8930bb6f1acdaa3550a3384c42243dfe0c32b9f1558411b4d261660f7ba48ac0"
+  },
+  "dir_hw": "C:\\Users\\velas\\OneDrive\\Documents\\tesis\\primerafase_webots\\controllers\\coordinador_enjambre\\resultados_demo_obstaculo\\ensayo_campana_20261010_100632",
+  "dir_replica": "C:\\Users\\velas\\OneDrive\\Documents\\tesis\\primerafase_webots\\controllers\\coordinador_enjambre\\resultados_demo_obstaculo\\ensayo_campana_20261010_100632\\replica_campana\\ensayo"
+ }
+}

@@ -1,0 +1,292 @@
+EXPERIMENTO Q — Obstáculos MÓVILES como barreras de ejecución
+ENCUADRE: mide la GENERALIDAD DE LA CAPA DE SEGURIDAD, no la
+adaptabilidad de la política (la observación no codifica obstáculos).
+Configuración final (modelo_sanidad, bloqueante, CBF + escape de tres
+términos) con la fila F1 de la campaña (k = 1), arena 3,0, n=5,
+100 semillas 420000–420099. Obstáculos a 0,05 m/s; objetivos
+transparentes; pareo por semilla (mismas poses y objetivos iniciales).
+ESTADÍSTICA: Δ pareada por semilla; IC95 = media ± 1,96·EE (ddof = 1);
+'*' si el IC excluye el 0; sin corrección por multiplicidad.
+H MÍNIMO: en Sk_din la fila del obstáculo que se acerca entra al filtro
+con h_eq = h − s/α; el mecanismo se lee por restricción LIGANTE.
+==============================================================================
+
+REGISTRO DE CORRIDA
+  COPIAS del Exp O (copia = esperado = original):
+    IGUAL 65d6ab2d44a89aaec44671bb0adf8bfdf62ca2ae3e039cb3b59d6bf7d1895a0c lib/__init__.py
+    IGUAL e707e79b216239e29754c71423305fd65df3fcf6c9ad61319f08906fb76e1211 lib/concentration_dynamics.py
+    IGUAL b2d94289a4031974b1d44428ac53b4fbf57896c442580cf74fc39e81e41cb787 lib/filtro_cbf.py
+    IGUAL f41b4c6e531cb0e98a2f9b742ccf3790bc88eddf66ed71b2e31c4865d4d194e3 lib/swarm_env_skeleton.py
+    IGUAL 34831589afd04593e70f8faf1cb51acaea7a7233063f4d2a43afbbe9ef1d0c27 modelos/modelo_sanidad.zip
+    IGUAL c69b5e76d1bea4b6d7170640a2851f67978126c00e0385aad80af504823443c3 entorno_obstaculos.py
+    IGUAL 67509b6032ab923a50e6afc3e157bc8fd6ef24f212d0d3020b79c9db69e68dfa correr_experimento_O.py
+  STACK: torch 2.10.0, stable-baselines3 2.7.1, numpy 2.4.1, scipy 1.17.1, gymnasium 1.2.3, pettingzoo 1.24.3, supersuit 3.9.3 — igual a requisitos_congelados_2026-09-09
+  procesos: 11
+  PASABILIDAD a lo largo de la trayectoria (huecos y conexidad, rejilla 0,01, en cada instante 0..500 de las 100 semillas; chequeo exacto del Exp O, rejilla 0,005, en el peor instante de cada semilla):
+    S1: peor caso analítico pared 0.6000 m, obst–obst inf m; en las semillas pared 0.6000 m, obst–obst inf m; área h≥0 (0,01) 6.244600–6.247800 m², h≥0,06 5.432400–5.436000 m²; exacta en el peor instante h≥0 6.245300–6.245800 m², h≥0,06 5.434075–5.434800 m²; instantes evaluados 50100, fallidos 0 → PASABLE (89 s)
+    S2: peor caso analítico pared 0.5500 m, obst–obst 0.5142 m; en las semillas pared 0.5500 m, obst–obst 0.5142 m; área h≥0 (0,01) 5.806100–5.810900 m², h≥0,06 4.839200–4.845100 m²; exacta en el peor instante h≥0 5.807450–5.808450 m², h≥0,06 4.841225–4.842325 m²; instantes evaluados 50100, fallidos 0 → PASABLE (119 s)
+    S3: peor caso analítico pared 0.4900 m, obst–obst 0.4907 m; en las semillas pared 0.4900 m, obst–obst 0.4907 m; área h≥0 (0,01) 4.571100–4.578800 m², h≥0,06 3.159700–3.167300 m²; exacta en el peor instante h≥0 4.572850–4.574125 m², h≥0,06 3.161775–3.163650 m²; instantes evaluados 50100, fallidos 0 → PASABLE (256 s)
+  CONTROL bit a bit (camino nuevo, trayectorias quietas en las posiciones del Exp O): 1000 corridas distintas; 700/700 filas idénticas en las 43 columnas de experimento_O_completo.csv y 900/900 en las 49 de experimento_O_complementario.csv (todas salvo t_episodio_s; texto idéntico, repr de cada float)
+  CONTROL NEGATIVO (S1 móvil sin fila del obstáculo, 10 semillas): contactos 628 eventos (37 por empuje) en 10/10 episodios; d_min centro→superficie mínimo 0.07500000 m → el contador DETECTA contactos con un obstáculo móvil
+  S1_din (DECIDE): intervención media 0.54785600 (sobre el indicador 0.5; no detiene); criterios — contacto con obstáculo 0; escape agotado 1; fallback del QP 0; escape infactible con obstáculo activo 0
+  S1_quieto (se reporta): intervención media 0.52434400 (sobre el indicador 0.5; no detiene); criterios — contacto con obstáculo 0; escape agotado 2; fallback del QP 0; escape infactible con obstáculo activo 0
+  S1_sinvel (se reporta): intervención media 0.54755600 (sobre el indicador 0.5; no detiene); criterios — contacto con obstáculo 0; escape agotado 2; fallback del QP 0; escape infactible con obstáculo activo 1
+  S1: CRITERIO DE PARADA POR FALLA REAL en S1_din — no se corren niveles más difíciles.
+  HUELLA e265b6cd31e8d443977027b1bf1d4671c002b06c3ecbdc45a275521e49c24a29
+
+TABLA S1 — medias sobre 100 episodios
+  métrica                                              S1_ctrl     S1_quieto        S1_din     S1_sinvel
+  cobertura AoI (accesible propia)                  0.56598658    0.58835242    0.59930086    0.59972824
+  cobertura AoI (fuera de máscara de arranque)      0.56728612    0.58835242    0.60133546    0.60177828
+  cobertura AoI (cuadrícula completa)               0.56598657    0.56975868    0.59930086    0.59972824
+  pares en colisión <0,15 m                         0.00000000    0.00000000    0.00000000    0.00000000
+  pares en colisión <0,22 m                         0.00000000    0.00000000    0.00000000    0.00000000
+  contactos con obstáculo (agente-paso)             0.00000000    0.00000000    0.00000000    0.00000000
+    … por empuje del obstáculo                      0.00000000    0.00000000    0.00000000    0.00000000
+    … por avance del agente                         0.00000000    0.00000000    0.00000000    0.00000000
+  agente-eps con contacto con obstáculo             0.00000000    0.00000000    0.00000000    0.00000000
+  agente-eps centro <0,13 m de obst.                2.06000000    0.00000000    0.02000000    0.01000000
+  frac. agente-paso centro <0,18 m pared            0.01019200    0.01088800    0.01072400    0.01086400
+  frac. agente-paso centro <0,5 m pared             0.56537600    0.62235200    0.62249600    0.61814000
+  d_min centro→pared [m]                            0.16413356    0.16415895    0.16375702    0.16389290
+  agente-eps centro <0,18 m de pared                2.90000000    3.19000000    3.12000000    3.28000000
+  agente-eps centro <0,075 m de pared               0.00000000    0.00000000    0.00000000    0.00000000
+  frac. intervención del filtro                     0.39717600    0.52434400    0.54785600    0.54755600
+    … pared ligante en el óptimo                    0.37513200    0.41770400    0.42347600    0.42595200
+    … robot ligante en el óptimo                    0.03802400    0.05040800    0.05456000    0.05036800
+    … obstáculo ligante en el óptimo                0.00000000    0.08324000    0.09765200    0.09620800
+    … ≥2 tipos ligantes a la vez                    0.01598000    0.02700800    0.02783200    0.02497200
+    … obstáculo acercándose ligante                 0.00000000    0.00000000    0.05165600    0.04952800
+    … h mín. = pared (din: h efectivo)              0.37408800    0.41704400    0.42230400    0.42543200
+    … h mín. = robot (din: h efectivo)              0.02308800    0.02297200    0.02739600    0.02559600
+    … h mín. = obstáculo (din: h efectivo)          0.00000000    0.08432800    0.09815600    0.09652800
+  magnitud media de la modificación                 0.25459552    0.23083345    0.22861456    0.22537375
+  fallbacks del QP por episodio                     0.00000000    0.00000000    0.00000000    0.00000000
+  filas F1 saturadas por episodio                   0.00000000    0.00000000    0.00000000    0.00000000
+  activaciones del escape por episodio              9.31000000   10.20000000   10.27000000   10.14000000
+    … con obstáculo activo al disparar              0.00000000    0.02000000    0.04000000    0.06000000
+  frac. de ciclo en escape                          0.01898400    0.02091600    0.02113200    0.02102400
+  escapes infactibles por episodio                  0.04000000    0.02000000    0.07000000    0.07000000
+    … con obstáculo activo                          0.00000000    0.00000000    0.00000000    0.01000000
+    … por normales opuestas                         0.04000000    0.02000000    0.07000000    0.07000000
+    … sin barreras activas                          0.00000000    0.00000000    0.00000000    0.00000000
+    … opuestas con pared activa                     0.04000000    0.02000000    0.07000000    0.06000000
+    … opuestas con robot activo                     0.04000000    0.02000000    0.07000000    0.07000000
+    … opuestas con obstáculo activo                 0.00000000    0.00000000    0.00000000    0.01000000
+  escapes agotados por episodio                     0.01000000    0.02000000    0.01000000    0.02000000
+  frac. agente-decisión obst. activo (h<0,06)       0.00000000    0.09788400    0.10824800    0.10990400
+    … y acercándose (s>0)                           0.00000000    0.00000000    0.05749600    0.05826400
+  d_min centro→superficie obst. [m]                -0.20767387    0.18443337    0.17294608    0.15298955
+  filas ligantes acercándose (n)                    0.00000000    0.00000000  129.14000000  123.82000000
+  agentes reubicados al inicio                      1.09000000    1.09000000    1.09000000    1.09000000
+  objetivos reubicados al inicio                    0.26000000    0.26000000    0.26000000    0.26000000
+  rebotes de objetivos en obstáculos                0.00000000    0.00000000    0.00000000    0.00000000
+  fracción de celdas, máscara de la métrica         0.00000000    0.03160156    0.00000000    0.00000000
+  fracción de celdas en la máscara de arranque      0.03160156    0.03160156    0.03160156    0.03160156
+  d_min obst., mínimo global [m]                   -0.29642734    0.16846609    0.12495033    0.12478619
+  d_min pared, mínimo global [m]                    0.13121274    0.12964691    0.13121274    0.13121274
+
+COMPARACIÓN PAREADA S1_din − S1_ctrl (comparación 1: costo del obstáculo móvil; 100 semillas)
+  métrica                                                    Δ                           IC95    >0   <0
+  cobertura AoI (accesible propia)                 +0.03331428 [  +0.02030114,   +0.04632743]*   70   30
+  cobertura AoI (cuadrícula completa)              +0.03331429 [  +0.02030114,   +0.04632743]*   70   30
+  pares en colisión <0,15 m                        +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  pares en colisión <0,22 m                        +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  contactos con obstáculo (agente-paso)            +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+    … por empuje del obstáculo                     +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+    … por avance del agente                        +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  agente-eps con contacto con obstáculo            +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  agente-eps centro <0,13 m de obst.               -2.04000000 [  -2.18981407,   -1.89018593]*    0  100
+  frac. agente-paso centro <0,18 m pared           +0.00053200 [  -0.00018586,   +0.00124986]    56   38
+  frac. agente-paso centro <0,5 m pared            +0.05712000 [  +0.04235515,   +0.07188485]*   77   23
+  d_min centro→pared [m]                           -0.00037654 [  -0.00196572,   +0.00121265]    43   51
+  agente-eps centro <0,18 m de pared               +0.22000000 [  +0.00860763,   +0.43139237]*   33   25
+  agente-eps centro <0,075 m de pared              +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  frac. intervención del filtro                    +0.15068000 [  +0.12957251,   +0.17178749]*   96    4
+    … pared ligante en el óptimo                   +0.04834400 [  +0.02882004,   +0.06786796]*   62   38
+    … robot ligante en el óptimo                   +0.01653600 [  +0.00872027,   +0.02435173]*   64   36
+    … obstáculo ligante en el óptimo               +0.09765200 [  +0.09029010,   +0.10501390]*  100    0
+    … ≥2 tipos ligantes a la vez                   +0.01185200 [  +0.00663083,   +0.01707317]*   64   34
+    … obstáculo acercándose ligante                +0.05165600 [  +0.04797352,   +0.05533848]*  100    0
+    … h mín. = pared (din: h efectivo)             +0.04821600 [  +0.02861885,   +0.06781315]*   62   38
+    … h mín. = robot (din: h efectivo)             +0.00430800 [  +0.00042742,   +0.00818858]*   58   39
+    … h mín. = obstáculo (din: h efectivo)         +0.09815600 [  +0.09077633,   +0.10553567]*  100    0
+  magnitud media de la modificación                -0.02598097 [  -0.03172185,   -0.02024009]*   15   85
+  fallbacks del QP por episodio                    +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  filas F1 saturadas por episodio                  +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  activaciones del escape por episodio             +0.96000000 [  +0.44638011,   +1.47361989]*   57   30
+    … con obstáculo activo al disparar             +0.04000000 [  -0.00760416,   +0.08760416]     3    0
+  frac. de ciclo en escape                         +0.00214800 [  +0.00097829,   +0.00331771]*   64   33
+  escapes infactibles por episodio                 +0.03000000 [  -0.02178184,   +0.08178184]     3    1
+    … con obstáculo activo                         +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+    … por normales opuestas                        +0.03000000 [  -0.02178184,   +0.08178184]     3    1
+    … sin barreras activas                         +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+    … opuestas con pared activa                    +0.03000000 [  -0.02178184,   +0.08178184]     3    1
+    … opuestas con robot activo                    +0.03000000 [  -0.02178184,   +0.08178184]     3    1
+    … opuestas con obstáculo activo                +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  escapes agotados por episodio                    +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  frac. agente-decisión obst. activo (h<0,06)      +0.10824800 [  +0.09991286,   +0.11658314]*  100    0
+    … y acercándose (s>0)                          +0.05749600 [  +0.05324666,   +0.06174534]*  100    0
+  costo relativo en cobertura_accesible: +7.1422 % [+4.1488, +10.1356]
+
+COMPARACIÓN PAREADA S1_din − S1_quieto (comparación 2: lo que agrega el movimiento; 100 semillas)
+  métrica                                                    Δ                           IC95    >0   <0
+  cobertura AoI (fuera de máscara de arranque)     +0.01298304 [  +0.00209123,   +0.02387485]*   59   41
+  cobertura AoI (cuadrícula completa)              +0.02954218 [  +0.01886055,   +0.04022381]*   69   31
+  pares en colisión <0,15 m                        +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  pares en colisión <0,22 m                        +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  contactos con obstáculo (agente-paso)            +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+    … por empuje del obstáculo                     +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+    … por avance del agente                        +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  agente-eps con contacto con obstáculo            +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  agente-eps centro <0,13 m de obst.               +0.02000000 [  -0.00757824,   +0.04757824]     2    0
+  frac. agente-paso centro <0,18 m pared           -0.00016400 [  -0.00090778,   +0.00057978]    48   49
+  frac. agente-paso centro <0,5 m pared            +0.00014400 [  -0.01345532,   +0.01374332]    51   49
+  d_min centro→pared [m]                           -0.00040193 [  -0.00192077,   +0.00111691]    45   54
+  agente-eps centro <0,18 m de pared               -0.07000000 [  -0.25740741,   +0.11740741]    23   26
+  agente-eps centro <0,075 m de pared              +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  frac. intervención del filtro                    +0.02351200 [  +0.00371723,   +0.04330677]*   60   40
+    … pared ligante en el óptimo                   +0.00577200 [  -0.01286624,   +0.02441024]    50   50
+    … robot ligante en el óptimo                   +0.00415200 [  -0.00458191,   +0.01288591]    53   46
+    … obstáculo ligante en el óptimo               +0.01441200 [  +0.00548351,   +0.02334049]*   60   40
+    … ≥2 tipos ligantes a la vez                   +0.00082400 [  -0.00492365,   +0.00657165]    56   44
+    … obstáculo acercándose ligante                +0.05165600 [  +0.04797352,   +0.05533848]*  100    0
+    … h mín. = pared (din: h efectivo)             +0.00526000 [  -0.01343259,   +0.02395259]    50   49
+    … h mín. = robot (din: h efectivo)             +0.00442400 [  +0.00002786,   +0.00882014]*   55   41
+    … h mín. = obstáculo (din: h efectivo)         +0.01382800 [  +0.00488132,   +0.02277468]*   59   41
+  magnitud media de la modificación                -0.00221890 [  -0.00723418,   +0.00279639]    44   56
+  fallbacks del QP por episodio                    +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  filas F1 saturadas por episodio                  +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  activaciones del escape por episodio             +0.07000000 [  -0.51519188,   +0.65519188]    44   42
+    … con obstáculo activo al disparar             +0.02000000 [  -0.03557699,   +0.07557699]     3    2
+  frac. de ciclo en escape                         +0.00021600 [  -0.00100857,   +0.00144057]    49   46
+  escapes infactibles por episodio                 +0.05000000 [  -0.01458664,   +0.11458664]     6    2
+    … con obstáculo activo                         +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+    … por normales opuestas                        +0.05000000 [  -0.01458664,   +0.11458664]     6    2
+    … sin barreras activas                         +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+    … opuestas con pared activa                    +0.05000000 [  -0.01458664,   +0.11458664]     6    2
+    … opuestas con robot activo                    +0.05000000 [  -0.01458664,   +0.11458664]     6    2
+    … opuestas con obstáculo activo                +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  escapes agotados por episodio                    -0.01000000 [  -0.02960000,   +0.00960000]     0    1
+  frac. agente-decisión obst. activo (h<0,06)      +0.01036400 [  +0.00008940,   +0.02063860]*   54   46
+    … y acercándose (s>0)                          +0.05749600 [  +0.05324666,   +0.06174534]*  100    0
+  costo relativo en cob_acc_arranque: +2.8185 % [+0.7636, +4.8734]
+
+COMPARACIÓN PAREADA S1_quieto − S1_ctrl (comparación 3 (descriptiva): obstáculo quieto en el arranque; 100 semillas)
+  métrica                                                    Δ                           IC95    >0   <0
+  cobertura AoI (fuera de máscara de arranque)     +0.02106630 [  +0.00793127,   +0.03420133]*   64   36
+  cobertura AoI (cuadrícula completa)              +0.00377211 [  -0.00936169,   +0.01690591]    57   43
+  pares en colisión <0,15 m                        +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  pares en colisión <0,22 m                        +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  contactos con obstáculo (agente-paso)            +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+    … por empuje del obstáculo                     +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+    … por avance del agente                        +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  agente-eps con contacto con obstáculo            +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  agente-eps centro <0,13 m de obst.               -2.06000000 [  -2.20693729,   -1.91306271]*    0  100
+  frac. agente-paso centro <0,18 m pared           +0.00069600 [  -0.00008615,   +0.00147815]    48   44
+  frac. agente-paso centro <0,5 m pared            +0.05697600 [  +0.04300815,   +0.07094385]*   79   21
+  d_min centro→pared [m]                           +0.00002539 [  -0.00151291,   +0.00156369]    48   52
+  agente-eps centro <0,18 m de pared               +0.29000000 [  +0.09841518,   +0.48158482]*   38   21
+  agente-eps centro <0,075 m de pared              +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  frac. intervención del filtro                    +0.12716800 [  +0.10441525,   +0.14992075]*   86   14
+    … pared ligante en el óptimo                   +0.04257200 [  +0.02204390,   +0.06310010]*   59   41
+    … robot ligante en el óptimo                   +0.01238400 [  +0.00450132,   +0.02026668]*   60   39
+    … obstáculo ligante en el óptimo               +0.08324000 [  +0.07526258,   +0.09121742]*  100    0
+    … ≥2 tipos ligantes a la vez                   +0.01102800 [  +0.00616583,   +0.01589017]*   66   33
+    … obstáculo acercándose ligante                +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+    … h mín. = pared (din: h efectivo)             +0.04295600 [  +0.02232145,   +0.06359055]*   59   41
+    … h mín. = robot (din: h efectivo)             -0.00011600 [  -0.00404668,   +0.00381468]    51   49
+    … h mín. = obstáculo (din: h efectivo)         +0.08432800 [  +0.07634497,   +0.09231103]*  100    0
+  magnitud media de la modificación                -0.02376207 [  -0.02884709,   -0.01867705]*   13   87
+  fallbacks del QP por episodio                    +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  filas F1 saturadas por episodio                  +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  activaciones del escape por episodio             +0.89000000 [  +0.24690624,   +1.53309376]*   53   35
+    … con obstáculo activo al disparar             +0.02000000 [  -0.00757824,   +0.04757824]     2    0
+  frac. de ciclo en escape                         +0.00193200 [  +0.00055943,   +0.00330457]*   52   42
+  escapes infactibles por episodio                 -0.02000000 [  -0.06809076,   +0.02809076]     2    4
+    … con obstáculo activo                         +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+    … por normales opuestas                        -0.02000000 [  -0.06809076,   +0.02809076]     2    4
+    … sin barreras activas                         +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+    … opuestas con pared activa                    -0.02000000 [  -0.06809076,   +0.02809076]     2    4
+    … opuestas con robot activo                    -0.02000000 [  -0.06809076,   +0.02809076]     2    4
+    … opuestas con obstáculo activo                +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  escapes agotados por episodio                    +0.01000000 [  -0.00960000,   +0.02960000]     1    0
+  frac. agente-decisión obst. activo (h<0,06)      +0.09788400 [  +0.08863298,   +0.10713502]*  100    0
+    … y acercándose (s>0)                          +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  costo relativo en cob_acc_arranque: +4.7513 % [+2.1031, +7.3996]
+
+COMPARACIÓN PAREADA S1_sinvel − S1_din (comparación 4 (descriptiva): sin el término de velocidad; 100 semillas)
+  métrica                                                    Δ                           IC95    >0   <0
+  cobertura AoI (accesible propia)                 +0.00042739 [  -0.00819487,   +0.00904964]    46   54
+  cobertura AoI (cuadrícula completa)              +0.00042739 [  -0.00819487,   +0.00904964]    46   54
+  pares en colisión <0,15 m                        +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  pares en colisión <0,22 m                        +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  contactos con obstáculo (agente-paso)            +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+    … por empuje del obstáculo                     +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+    … por avance del agente                        +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  agente-eps con contacto con obstáculo            +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  agente-eps centro <0,13 m de obst.               -0.01000000 [  -0.04406231,   +0.02406231]     1    2
+  frac. agente-paso centro <0,18 m pared           +0.00014000 [  -0.00026338,   +0.00054338]    42   41
+  frac. agente-paso centro <0,5 m pared            -0.00435600 [  -0.01440510,   +0.00569310]    44   54
+  d_min centro→pared [m]                           +0.00013588 [  -0.00120858,   +0.00148035]    49   43
+  agente-eps centro <0,18 m de pared               +0.16000000 [  +0.01332703,   +0.30667297]*   25   12
+  agente-eps centro <0,075 m de pared              +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  frac. intervención del filtro                    -0.00030000 [  -0.01184459,   +0.01124459]    43   54
+    … pared ligante en el óptimo                   +0.00247600 [  -0.00983358,   +0.01478558]    48   50
+    … robot ligante en el óptimo                   -0.00419200 [  -0.01061631,   +0.00223231]    39   57
+    … obstáculo ligante en el óptimo               -0.00144400 [  -0.00624019,   +0.00335219]    45   54
+    … ≥2 tipos ligantes a la vez                   -0.00286000 [  -0.00715561,   +0.00143561]    39   56
+    … obstáculo acercándose ligante                -0.00212800 [  -0.00443826,   +0.00018226]    35   62
+    … h mín. = pared (din: h efectivo)             +0.00312800 [  -0.00918827,   +0.01544427]    50   49
+    … h mín. = robot (din: h efectivo)             -0.00180000 [  -0.00485880,   +0.00125880]    40   48
+    … h mín. = obstáculo (din: h efectivo)         -0.00162800 [  -0.00647605,   +0.00322005]    45   55
+  magnitud media de la modificación                -0.00324080 [  -0.00693593,   +0.00045432]    47   53
+  fallbacks del QP por episodio                    +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  filas F1 saturadas por episodio                  +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+  activaciones del escape por episodio             -0.13000000 [  -0.49178710,   +0.23178710]    23   38
+    … con obstáculo activo al disparar             +0.02000000 [  -0.02809076,   +0.06809076]     2    1
+  frac. de ciclo en escape                         -0.00010800 [  -0.00095561,   +0.00073961]    40   43
+  escapes infactibles por episodio                 +0.00000000 [  -0.06229289,   +0.06229289]     4    3
+    … con obstáculo activo                         +0.01000000 [  -0.00960000,   +0.02960000]     1    0
+    … por normales opuestas                        +0.00000000 [  -0.06229289,   +0.06229289]     4    3
+    … sin barreras activas                         +0.00000000 [  +0.00000000,   +0.00000000]     0    0
+    … opuestas con pared activa                    -0.01000000 [  -0.06906338,   +0.04906338]     3    3
+    … opuestas con robot activo                    +0.00000000 [  -0.06229289,   +0.06229289]     4    3
+    … opuestas con obstáculo activo                +0.01000000 [  -0.00960000,   +0.02960000]     1    0
+  escapes agotados por episodio                    +0.01000000 [  -0.00960000,   +0.02960000]     1    0
+  frac. agente-decisión obst. activo (h<0,06)      +0.00165600 [  -0.00434169,   +0.00765369]    61   38
+    … y acercándose (s>0)                          +0.00076800 [  -0.00214180,   +0.00367780]    53   44
+  costo relativo en cobertura_accesible: +0.2771 % [-1.1936, +1.7477]
+
+CRITERIO DE PARADA POR FALLA REAL (sumas sobre los episodios; decide Sk_din)
+  S1_din (DECIDE): contactos obst. 0; escapes agotados 1; fallbacks QP 0; infactibles junto a obst. 0
+  S1_quieto: contactos obst. 0; escapes agotados 2; fallbacks QP 0; infactibles junto a obst. 0
+  S1_sinvel: contactos obst. 0; escapes agotados 2; fallbacks QP 0; infactibles junto a obst. 1
+INDICADOR ADELANTADO (intervención > 0,5; se reporta, no detiene)
+  S1_ctrl: media 0.39717600; episodios > 0,5: 15/100; máx. 0.59800000
+  S1_quieto: media 0.52434400; episodios > 0,5: 58/100; máx. 0.74800000
+  S1_din: media 0.54785600; episodios > 0,5: 73/100; máx. 0.72560000
+  S1_sinvel: media 0.54755600; episodios > 0,5: 74/100; máx. 0.70840000
+
+SEGURIDAD — totales sobre los episodios de cada condición con obstáculos
+  S1_din: contactos con obstáculo 0 (empuje 0, avance 0); colisiones <0,15 m 0; <0,22 m 0; contacto con pared 0; fallbacks del QP 0; filas F1 saturadas 0; agente-eps bajo 0,13 m 2; d_min obst. 0.12495033 m
+  S1_quieto: contactos con obstáculo 0 (empuje 0, avance 0); colisiones <0,15 m 0; <0,22 m 0; contacto con pared 0; fallbacks del QP 0; filas F1 saturadas 0; agente-eps bajo 0,13 m 0; d_min obst. 0.16846609 m
+  S1_sinvel: contactos con obstáculo 0 (empuje 0, avance 0); colisiones <0,15 m 0; <0,22 m 0; contacto con pared 0; fallbacks del QP 0; filas F1 saturadas 0; agente-eps bajo 0,13 m 1; d_min obst. 0.12478619 m
+
+MECANISMO — intervención por tipo de barrera, pareada (Δ medias). [lig] =
+restricción ligante en el óptimo (se lee ésta); [hmin] = barrera de h mínimo
+del Exp O (en Sk_din, con el h efectivo de la fila F1: sesgo por construcción).
+                                    Δ total     Δ obst.     Δ pared     Δ robot  indirecta  Δescapes % junto obst                 Δ periferia
+  [lig] S1_din − S1_ctrl          +0.150680   +0.097652   +0.048344   +0.016536     0.3208    +0.960        4.17% +0.05712[+0.0424,+0.0719]*
+  [lig] S1_din − S1_quieto        +0.023512   +0.014412   +0.005772   +0.004152     0.2455    +0.070           —  +0.00014[-0.0135,+0.0137] 
+  [lig] S1_sinvel − S1_din        -0.000300   -0.001444   +0.002476   -0.004192    -8.2533    -0.130           —  -0.00436[-0.0144,+0.0057] 
+  [hmin] S1_din − S1_ctrl         +0.150680   +0.098156   +0.048216   +0.004308     0.3200    +0.960        4.17% +0.05712[+0.0424,+0.0719]*
+  [hmin] S1_din − S1_quieto       +0.023512   +0.013828   +0.005260   +0.004424     0.2237    +0.070           —  +0.00014[-0.0135,+0.0137] 
+  [hmin] S1_sinvel − S1_din       -0.000300   -0.001628   +0.003128   -0.001800   -10.4267    -0.130           —  -0.00436[-0.0144,+0.0057] 
+  indirecta = Δ pared / Δ total (inestable si Δ total ≈ 0). % junto obst (sólo
+  contra el control) = escapes con obstáculo activo al disparar / Δ escapes.
+  Δ periferia = cambio de la fracción de agente-paso a < 0,5 m de una pared.
+PARTE DE ω EN c·u, filas del obstáculo ligantes con s > 0 (ponderada por fila)
+  S1_din: 0.369415 sobre 12914 filas
+  S1_quieto: nan sobre 0 filas
+  S1_sinvel: 0.384430 sobre 12382 filas

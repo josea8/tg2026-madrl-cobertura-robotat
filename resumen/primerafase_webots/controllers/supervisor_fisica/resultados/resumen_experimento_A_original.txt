@@ -1,0 +1,14 @@
+EXPERIMENTO A — Atascos de pared con física real (Webots)
+1 robot, lazo cerrado con modelo_PRIMERO, deterministic=True
+Detector: dpos<1 mm y dθ<0.5° por 20 pasos consecutivos (solo registro)
+==================================================================
+Episodios ejecutados        : 18
+Episodios con atasco        : 18  (tasa = 100.0%)
+Tiempo medio al atasco      : 11.8 s
+Atascos donde política pidió v<0 : 0/18
+
+Interpretación: la política fue entrenada con reflexión
+elástica de pared (rebote idealizado). Con paredes sólidas
+la física bloquea al robot y la política no dispone de un
+comportamiento de recuperación (ver Experimento B para la
+frecuencia con la que el entrenamiento dependió del rebote).
